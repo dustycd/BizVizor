@@ -228,7 +228,7 @@ const Services = () => {
       <CalendlyModal 
         isOpen={isCalendlyOpen} 
         onClose={closeCalendly}
-        url="https://calendly.com/bizvisor/consultation"
+        url="https://calendly.com/saidtouma-bizvisor/consultation?month=2025-06"
       />
     </>
   );

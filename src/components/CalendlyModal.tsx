@@ -10,7 +10,7 @@ interface CalendlyModalProps {
 const CalendlyModal: React.FC<CalendlyModalProps> = ({ 
   isOpen, 
   onClose, 
-  url = "https://calendly.com/bizvisor/consultation" 
+  url = "https://calendly.com/saidtouma-bizvisor/consultation?month=2025-06" 
 }) => {
   useEffect(() => {
     if (isOpen) {
