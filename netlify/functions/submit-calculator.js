@@ -35,7 +35,7 @@ const appendToGoogleSheets = async (data) => {
       throw new Error('Google Sheets Spreadsheet ID not configured');
     }
 
-    // Prepare the row data
+    // Prepare the row data with all new fields
     const rowData = [
       data.timestamp || new Date().toISOString(),
       data.businessActivity || '',
@@ -48,6 +48,14 @@ const appendToGoogleSheets = async (data) => {
       data.officeType || '',
       Array.isArray(data.additionalServices) ? data.additionalServices.join(', ') : '',
       data.packageType || '',
+      data.planToStart || '',
+      data.livingInUAE ? 'Yes' : 'No',
+      data.currentCountry || '',
+      data.nationality || '',
+      data.firstName || '',
+      data.lastName || '',
+      data.phoneNumber || '',
+      data.email || '',
       data.totalCost || 0,
       data.costBreakdown?.governmentFees || 0,
       data.costBreakdown?.serviceFees || 0,
@@ -59,7 +67,7 @@ const appendToGoogleSheets = async (data) => {
     // Append the data to the spreadsheet
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: 'Sheet1!A:Q', // Adjust range based on your columns
+      range: 'Sheet1!A:Y', // Updated range to accommodate new columns
       valueInputOption: 'RAW',
       insertDataOption: 'INSERT_ROWS',
       resource: {
@@ -127,6 +135,9 @@ exports.handler = async (event, context) => {
     console.log('Calculator submission received:', {
       timestamp: data.timestamp,
       businessActivity: data.businessActivity,
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
       totalCost: data.totalCost
     });
 

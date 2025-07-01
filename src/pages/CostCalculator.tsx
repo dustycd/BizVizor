@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calculator, CheckCircle, ArrowRight, Info, DollarSign, FileText, Users, Building2, ChevronLeft } from 'lucide-react';
+import { Calculator, CheckCircle, ArrowRight, Info, FileText, ChevronLeft, ChevronDown } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
 
@@ -14,6 +14,14 @@ interface CalculatorState {
   officeType: string;
   additionalServices: string[];
   packageType: string;
+  planToStart: string;
+  livingInUAE: boolean;
+  currentCountry: string;
+  nationality: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  email: string;
 }
 
 interface CostBreakdown {
@@ -45,7 +53,15 @@ const CostCalculator = () => {
     jurisdiction: '',
     officeType: '',
     additionalServices: [],
-    packageType: 'standard'
+    packageType: 'standard',
+    planToStart: '',
+    livingInUAE: true,
+    currentCountry: '',
+    nationality: '',
+    firstName: '',
+    lastName: '',
+    phoneNumber: '',
+    email: ''
   });
 
   const [costBreakdown, setCostBreakdown] = useState<CostBreakdown>({
@@ -56,8 +72,6 @@ const CostCalculator = () => {
     additionalFees: 0,
     total: 0
   });
-
-  const [showBreakdown, setShowBreakdown] = useState(false);
 
   const businessActivities = [
     'Consulting',
@@ -137,31 +151,58 @@ const CostCalculator = () => {
     { id: 'premium', name: 'Premium Package', multiplier: 1.5, description: 'Comprehensive support' }
   ];
 
-  const totalSteps = 9;
+  const planToStartOptions = [
+    { id: 'this-month', label: 'This Month' },
+    { id: 'next-month', label: 'Next Month' },
+    { id: '3-months', label: '3 Months' },
+    { id: '6-months', label: '6 Months' }
+  ];
+
+  const countries = [
+    'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria',
+    'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan',
+    'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia',
+    'Cameroon', 'Canada', 'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Congo', 'Costa Rica',
+    'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt',
+    'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon',
+    'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana',
+    'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel',
+    'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kuwait', 'Kyrgyzstan', 'Laos',
+    'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Madagascar', 'Malawi',
+    'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Micronesia', 'Moldova',
+    'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal', 'Netherlands',
+    'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea', 'North Macedonia', 'Norway', 'Oman', 'Pakistan', 'Palau',
+    'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania',
+    'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal',
+    'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea',
+    'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan',
+    'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu',
+    'Uganda', 'Ukraine', 'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City', 'Venezuela', 'Vietnam',
+    'Yemen', 'Zambia', 'Zimbabwe'
+  ];
+
+  const totalSteps = 13;
 
   const calculateCosts = () => {
     let governmentFees = 0;
     let serviceFees = 0;
-    let visaFees = calculatorData.visaCount * 3500; // AED 3,500 per visa
+    let visaFees = calculatorData.visaCount * 3500;
     let officeFees = 0;
     let additionalFees = 0;
 
-    // Get base fees from jurisdiction
     const selectedJurisdictions = jurisdictions[calculatorData.businessType as keyof typeof jurisdictions] || [];
     const selectedJurisdiction = selectedJurisdictions.find(j => j.id === calculatorData.jurisdiction);
     
     if (selectedJurisdiction) {
-      governmentFees = selectedJurisdiction.baseFee * 0.4; // 40% government fees
-      serviceFees = selectedJurisdiction.baseFee * 0.6; // 60% service fees
+      governmentFees = selectedJurisdiction.baseFee * 0.4;
+      serviceFees = selectedJurisdiction.baseFee * 0.6;
     }
 
-    // Add office fees
     const selectedOffice = officeOptions.find(o => o.id === calculatorData.officeType);
     if (selectedOffice) {
       officeFees = selectedOffice.fee;
     }
 
-    // Add additional services
     calculatorData.additionalServices.forEach(serviceId => {
       const service = additionalServices.find(s => s.id === serviceId);
       if (service) {
@@ -169,7 +210,6 @@ const CostCalculator = () => {
       }
     });
 
-    // Apply package multiplier
     const packageMultiplier = packageTypes.find(p => p.id === calculatorData.packageType)?.multiplier || 1;
     serviceFees *= packageMultiplier;
 
@@ -183,8 +223,6 @@ const CostCalculator = () => {
       additionalFees,
       total
     });
-
-    setShowBreakdown(total > 0);
   };
 
   useEffect(() => {
@@ -214,7 +252,7 @@ const CostCalculator = () => {
       case 4:
         return calculatorData.visaCount >= 0;
       case 5:
-        return true; // dependantsVisa can be true or false
+        return true;
       case 6:
         return calculatorData.businessType !== '';
       case 7:
@@ -222,7 +260,15 @@ const CostCalculator = () => {
       case 8:
         return calculatorData.officeType !== '';
       case 9:
-        return true; // Final step
+        return true;
+      case 10:
+        return calculatorData.planToStart !== '';
+      case 11:
+        return calculatorData.livingInUAE || calculatorData.currentCountry !== '';
+      case 12:
+        return calculatorData.nationality !== '';
+      case 13:
+        return calculatorData.firstName !== '' && calculatorData.lastName !== '' && calculatorData.email !== '';
       default:
         return false;
     }
@@ -237,22 +283,12 @@ const CostCalculator = () => {
     }));
   };
 
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-AE', {
-      style: 'currency',
-      currency: 'AED',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
-    }).format(amount);
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
     try {
-      // Prepare data for Netlify Function
       const submissionData = {
         businessActivity: calculatorData.businessActivity,
         mainReason: calculatorData.mainReason,
@@ -264,12 +300,19 @@ const CostCalculator = () => {
         officeType: calculatorData.officeType,
         additionalServices: calculatorData.additionalServices,
         packageType: calculatorData.packageType,
+        planToStart: calculatorData.planToStart,
+        livingInUAE: calculatorData.livingInUAE,
+        currentCountry: calculatorData.currentCountry,
+        nationality: calculatorData.nationality,
+        firstName: calculatorData.firstName,
+        lastName: calculatorData.lastName,
+        phoneNumber: calculatorData.phoneNumber,
+        email: calculatorData.email,
         totalCost: costBreakdown.total,
         costBreakdown: costBreakdown,
         timestamp: new Date().toISOString()
       };
 
-      // Send to Netlify Function
       const response = await fetch('/.netlify/functions/submit-calculator', {
         method: 'POST',
         headers: {
@@ -283,24 +326,23 @@ const CostCalculator = () => {
       if (response.ok && result.success) {
         setSubmitStatus({
           type: 'success',
-          message: 'Your calculation has been saved successfully! We will contact you soon with a detailed quote.'
+          message: 'Your business setup estimate is ready! We will contact you soon with detailed information.'
         });
         
-        // Open Calendly modal after successful submission
         setTimeout(() => {
           openCalendly();
         }, 1000);
       } else {
         setSubmitStatus({
           type: 'error',
-          message: result.message || 'There was an error saving your calculation. Please try again.'
+          message: result.message || 'There was an error processing your request. Please try again.'
         });
       }
     } catch (error) {
       console.error('Error submitting calculator:', error);
       setSubmitStatus({
         type: 'error',
-        message: 'There was an error saving your calculation. Please check your connection and try again.'
+        message: 'There was an error processing your request. Please check your connection and try again.'
       });
     } finally {
       setIsSubmitting(false);
@@ -323,7 +365,7 @@ const CostCalculator = () => {
               <select
                 value={calculatorData.businessActivity}
                 onChange={(e) => setCalculatorData(prev => ({ ...prev, businessActivity: e.target.value }))}
-                className="w-full px-4 py-3 border-2 border-primary-red rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent text-lg"
+                className="w-full px-4 py-3 border-2 border-primary-red rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent text-lg appearance-none"
               >
                 <option value="">Select Activity</option>
                 {businessActivities.map((activity) => (
@@ -332,6 +374,7 @@ const CostCalculator = () => {
                   </option>
                 ))}
               </select>
+              <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-grey-400 pointer-events-none" />
             </div>
           </div>
         );
@@ -532,22 +575,17 @@ const CostCalculator = () => {
                       : 'border-grey-200 hover:border-primary-red/50'
                   }`}
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <div className={`w-5 h-5 rounded-full border-2 mr-3 ${
-                        calculatorData.jurisdiction === jurisdiction.id
-                          ? 'border-primary-red bg-primary-red'
-                          : 'border-grey-300'
-                      }`}>
-                        {calculatorData.jurisdiction === jurisdiction.id && (
-                          <CheckCircle className="w-3 h-3 text-white m-0.5" />
-                        )}
-                      </div>
-                      <h4 className="font-semibold text-heading-dark">{jurisdiction.name}</h4>
+                  <div className="flex items-center">
+                    <div className={`w-5 h-5 rounded-full border-2 mr-3 ${
+                      calculatorData.jurisdiction === jurisdiction.id
+                        ? 'border-primary-red bg-primary-red'
+                        : 'border-grey-300'
+                    }`}>
+                      {calculatorData.jurisdiction === jurisdiction.id && (
+                        <CheckCircle className="w-3 h-3 text-white m-0.5" />
+                      )}
                     </div>
-                    <span className="text-sm text-primary-red font-medium">
-                      From {formatCurrency(jurisdiction.baseFee)}
-                    </span>
+                    <h4 className="font-semibold text-heading-dark">{jurisdiction.name}</h4>
                   </div>
                 </div>
               ))}
@@ -572,25 +610,20 @@ const CostCalculator = () => {
                       : 'border-grey-200 hover:border-primary-red/50'
                   }`}
                 >
-                  <div className="flex items-start justify-between">
-                    <div className="flex items-start">
-                      <div className={`w-5 h-5 rounded-full border-2 mr-3 mt-0.5 ${
-                        calculatorData.officeType === office.id
-                          ? 'border-primary-red bg-primary-red'
-                          : 'border-grey-300'
-                      }`}>
-                        {calculatorData.officeType === office.id && (
-                          <CheckCircle className="w-3 h-3 text-white m-0.5" />
-                        )}
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-heading-dark mb-1">{office.name}</h4>
-                        <p className="text-sm text-grey-600">{office.description}</p>
-                      </div>
+                  <div className="flex items-start">
+                    <div className={`w-5 h-5 rounded-full border-2 mr-3 mt-0.5 ${
+                      calculatorData.officeType === office.id
+                        ? 'border-primary-red bg-primary-red'
+                        : 'border-grey-300'
+                    }`}>
+                      {calculatorData.officeType === office.id && (
+                        <CheckCircle className="w-3 h-3 text-white m-0.5" />
+                      )}
                     </div>
-                    <span className="text-sm text-primary-red font-medium">
-                      {formatCurrency(office.fee)}
-                    </span>
+                    <div>
+                      <h4 className="font-semibold text-heading-dark mb-1">{office.name}</h4>
+                      <p className="text-sm text-grey-600">{office.description}</p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -604,7 +637,7 @@ const CostCalculator = () => {
             <h2 className="text-2xl font-bold text-heading-dark mb-6">
               Additional Services (Optional)
             </h2>
-            <div className="grid md:grid-cols-2 gap-3 mb-8">
+            <div className="grid md:grid-cols-2 gap-3">
               {additionalServices.map((service) => (
                 <div
                   key={service.id}
@@ -615,67 +648,251 @@ const CostCalculator = () => {
                       : 'border-grey-200 hover:border-primary-red/50'
                   }`}
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <input
-                        type="checkbox"
-                        checked={calculatorData.additionalServices.includes(service.id)}
-                        onChange={() => {}}
-                        className="w-4 h-4 text-primary-red border-grey-300 rounded focus:ring-primary-red mr-3"
-                      />
-                      <span className="text-sm font-medium text-heading-dark">{service.name}</span>
-                    </div>
-                    <span className="text-xs text-primary-red">+{formatCurrency(service.fee)}</span>
+                  <div className="flex items-center">
+                    <input
+                      type="checkbox"
+                      checked={calculatorData.additionalServices.includes(service.id)}
+                      onChange={() => {}}
+                      className="w-4 h-4 text-primary-red border-grey-300 rounded focus:ring-primary-red mr-3"
+                    />
+                    <span className="text-sm font-medium text-heading-dark">{service.name}</span>
                   </div>
                 </div>
               ))}
             </div>
+          </div>
+        );
 
-            {/* Final Summary */}
-            <div className="bg-primary-red/10 rounded-lg p-6">
-              <h3 className="text-xl font-bold text-heading-dark mb-4">Your Business Setup Summary</h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-grey-600">Business Activity:</span>
-                  <span className="font-medium">{calculatorData.businessActivity}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-grey-600">Main Reason:</span>
-                  <span className="font-medium">{mainReasons.find(r => r.id === calculatorData.mainReason)?.label}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-grey-600">Owners/Shareholders:</span>
-                  <span className="font-medium">{calculatorData.ownersCount}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-grey-600">Residence Visas:</span>
-                  <span className="font-medium">{calculatorData.visaCount}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-grey-600">Dependant Visas:</span>
-                  <span className="font-medium">{calculatorData.dependantsVisa ? 'Yes' : 'No'}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-grey-600">Business Type:</span>
-                  <span className="font-medium">{businessTypes.find(t => t.id === calculatorData.businessType)?.name}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-grey-600">Jurisdiction:</span>
-                  <span className="font-medium">
-                    {(jurisdictions[calculatorData.businessType as keyof typeof jurisdictions] || [])
-                      .find(j => j.id === calculatorData.jurisdiction)?.name}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-grey-600">Office Type:</span>
-                  <span className="font-medium">{officeOptions.find(o => o.id === calculatorData.officeType)?.name}</span>
+      case 10:
+        return (
+          <div className="bg-white rounded-2xl p-8 border-2 border-primary-red">
+            <h2 className="text-2xl font-bold text-heading-dark mb-4">
+              When do you plan to start your business? *
+            </h2>
+            
+            <div className="grid grid-cols-2 gap-4">
+              {planToStartOptions.map((option) => (
+                <label
+                  key={option.id}
+                  className={`flex items-center justify-center p-4 border-2 rounded-full cursor-pointer transition-all duration-200 ${
+                    calculatorData.planToStart === option.id
+                      ? 'border-primary-red bg-primary-red text-white'
+                      : 'border-grey-300 text-grey-600 hover:border-primary-red hover:text-primary-red'
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="planToStart"
+                    value={option.id}
+                    checked={calculatorData.planToStart === option.id}
+                    onChange={(e) => setCalculatorData(prev => ({ ...prev, planToStart: e.target.value }))}
+                    className="sr-only"
+                  />
+                  <span className="font-medium">{option.label}</span>
+                </label>
+              ))}
+            </div>
+            
+            <div className="mt-8 flex justify-center">
+              <button
+                type="button"
+                onClick={handleNext}
+                disabled={!isStepValid()}
+                className={`flex items-center px-8 py-3 rounded-full font-semibold transition-all duration-200 ${
+                  isStepValid()
+                    ? 'bg-primary-red text-white hover:bg-red-700'
+                    : 'bg-grey-300 text-grey-500 cursor-not-allowed'
+                }`}
+              >
+                Next
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </button>
+            </div>
+          </div>
+        );
+
+      case 11:
+        return (
+          <div className="bg-white rounded-2xl p-8 border-2 border-primary-red">
+            <h2 className="text-2xl font-bold text-heading-dark mb-4">
+              Are you currently living in the UAE? *
+            </h2>
+            
+            <div className="space-y-4 mb-6">
+              <label
+                className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
+                  calculatorData.livingInUAE === true
+                    ? 'border-primary-red bg-primary-red/5'
+                    : 'border-grey-200 hover:border-primary-red/50'
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="livingInUAE"
+                  checked={calculatorData.livingInUAE === true}
+                  onChange={() => setCalculatorData(prev => ({ ...prev, livingInUAE: true, currentCountry: '' }))}
+                  className="w-5 h-5 text-primary-red border-grey-300 focus:ring-primary-red mr-4"
+                />
+                <span className="text-lg text-heading-dark">Yes</span>
+              </label>
+              
+              <label
+                className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
+                  calculatorData.livingInUAE === false
+                    ? 'border-primary-red bg-primary-red/5'
+                    : 'border-grey-200 hover:border-primary-red/50'
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="livingInUAE"
+                  checked={calculatorData.livingInUAE === false}
+                  onChange={() => setCalculatorData(prev => ({ ...prev, livingInUAE: false }))}
+                  className="w-5 h-5 text-primary-red border-grey-300 focus:ring-primary-red mr-4"
+                />
+                <span className="text-lg text-heading-dark">No</span>
+              </label>
+            </div>
+
+            {!calculatorData.livingInUAE && (
+              <div>
+                <h3 className="text-lg font-semibold text-heading-dark mb-4">
+                  Ok, if you're not in the UAE, where do you currently call home? *
+                </h3>
+                <div className="relative">
+                  <select
+                    value={calculatorData.currentCountry}
+                    onChange={(e) => setCalculatorData(prev => ({ ...prev, currentCountry: e.target.value }))}
+                    className="w-full px-4 py-3 border-2 border-primary-red rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent text-lg appearance-none"
+                  >
+                    <option value="">Select Country</option>
+                    {countries.map((country) => (
+                      <option key={country} value={country}>
+                        {country}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-grey-400 pointer-events-none" />
                 </div>
               </div>
+            )}
+          </div>
+        );
+
+      case 12:
+        return (
+          <div className="bg-white rounded-2xl p-8 border-2 border-primary-red">
+            <h2 className="text-2xl font-bold text-heading-dark mb-4">
+              What's your nationality? *
+            </h2>
+            
+            <div className="relative">
+              <select
+                value={calculatorData.nationality}
+                onChange={(e) => setCalculatorData(prev => ({ ...prev, nationality: e.target.value }))}
+                className="w-full px-4 py-3 border-2 border-primary-red rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent text-lg appearance-none"
+              >
+                <option value="">Select Nationality</option>
+                {countries.map((country) => (
+                  <option key={country} value={country}>
+                    {country}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-grey-400 pointer-events-none" />
+            </div>
+            
+            <div className="mt-8 flex justify-center">
+              <button
+                type="button"
+                onClick={handleNext}
+                disabled={!isStepValid()}
+                className={`flex items-center px-8 py-3 rounded-full font-semibold transition-all duration-200 ${
+                  isStepValid()
+                    ? 'bg-primary-red text-white hover:bg-red-700'
+                    : 'bg-grey-300 text-grey-500 cursor-not-allowed'
+                }`}
+              >
+                Next
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </button>
+            </div>
+          </div>
+        );
+
+      case 13:
+        return (
+          <div className="bg-white rounded-2xl p-8 border-2 border-primary-red">
+            <h2 className="text-2xl font-bold text-heading-dark mb-4">
+              Your business setup estimate is ready!
+            </h2>
+            <p className="text-grey-600 mb-6">
+              Please share your details below so you can receive it right away.
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label className="block text-sm font-medium text-grey-700 mb-2">
+                  First name *
+                </label>
+                <input
+                  type="text"
+                  value={calculatorData.firstName}
+                  onChange={(e) => setCalculatorData(prev => ({ ...prev, firstName: e.target.value }))}
+                  className="w-full px-4 py-3 border-2 border-grey-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent"
+                  placeholder="Enter your first name"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-grey-700 mb-2">
+                  Last name *
+                </label>
+                <input
+                  type="text"
+                  value={calculatorData.lastName}
+                  onChange={(e) => setCalculatorData(prev => ({ ...prev, lastName: e.target.value }))}
+                  className="w-full px-4 py-3 border-2 border-grey-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent"
+                  placeholder="Enter your last name"
+                />
+              </div>
+            </div>
+            
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-grey-700 mb-2">
+                Phone number *
+              </label>
+              <div className="flex">
+                <div className="flex items-center px-3 border-2 border-r-0 border-grey-300 rounded-l-lg bg-grey-50">
+                  <img src="https://flagcdn.com/w20/ae.png" alt="UAE" className="w-5 h-3 mr-2" />
+                  <span className="text-sm text-grey-600">+971</span>
+                </div>
+                <input
+                  type="tel"
+                  value={calculatorData.phoneNumber}
+                  onChange={(e) => setCalculatorData(prev => ({ ...prev, phoneNumber: e.target.value }))}
+                  className="flex-1 px-4 py-3 border-2 border-grey-300 rounded-r-lg focus:ring-2 focus:ring-primary-red focus:border-transparent"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+            </div>
+            
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-grey-700 mb-2">
+                Email *
+              </label>
+              <input
+                type="email"
+                value={calculatorData.email}
+                onChange={(e) => setCalculatorData(prev => ({ ...prev, email: e.target.value }))}
+                className="w-full px-4 py-3 border-2 border-grey-300 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent"
+                placeholder="Enter your email address"
+              />
             </div>
 
             {/* Status Messages */}
             {submitStatus.type && (
-              <div className={`mt-6 p-4 rounded-lg flex items-center ${
+              <div className={`mb-6 p-4 rounded-lg flex items-center ${
                 submitStatus.type === 'success' 
                   ? 'bg-alert-success/10 text-alert-success border border-alert-success/20' 
                   : 'bg-alert-mistake/10 text-alert-mistake border border-alert-mistake/20'
@@ -785,7 +1002,7 @@ const CostCalculator = () => {
                   ) : (
                     <button
                       type="submit"
-                      disabled={isSubmitting}
+                      disabled={isSubmitting || !isStepValid()}
                       className="flex items-center px-8 py-3 bg-primary-red text-white rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold disabled:bg-grey-400 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
@@ -795,7 +1012,7 @@ const CostCalculator = () => {
                         </>
                       ) : (
                         <>
-                          Get My Quote
+                          Get My Estimate
                           <ArrowRight className="w-5 h-5 ml-2" />
                         </>
                       )}
@@ -804,76 +1021,6 @@ const CostCalculator = () => {
                 </div>
               </form>
             </div>
-
-            {/* Cost Summary Sidebar */}
-            {currentStep === totalSteps && showBreakdown && (
-              <div className="max-w-4xl mx-auto mt-12">
-                <div className="bg-white rounded-2xl p-6 shadow-sm">
-                  <h3 className="text-xl font-bold text-heading-dark mb-6 flex items-center">
-                    <DollarSign className="w-6 h-6 text-primary-red mr-2" />
-                    Cost Summary
-                  </h3>
-
-                  <div className="space-y-4">
-                    {/* Cost Breakdown */}
-                    <div className="space-y-3">
-                      {costBreakdown.governmentFees > 0 && (
-                        <div className="flex justify-between items-center py-2 border-b border-grey-100">
-                          <span className="text-grey-600">Government Fees</span>
-                          <span className="font-medium">{formatCurrency(costBreakdown.governmentFees)}</span>
-                        </div>
-                      )}
-                      {costBreakdown.serviceFees > 0 && (
-                        <div className="flex justify-between items-center py-2 border-b border-grey-100">
-                          <span className="text-grey-600">Service Fees</span>
-                          <span className="font-medium">{formatCurrency(costBreakdown.serviceFees)}</span>
-                        </div>
-                      )}
-                      {costBreakdown.visaFees > 0 && (
-                        <div className="flex justify-between items-center py-2 border-b border-grey-100">
-                          <span className="text-grey-600">Visa Fees ({calculatorData.visaCount}x)</span>
-                          <span className="font-medium">{formatCurrency(costBreakdown.visaFees)}</span>
-                        </div>
-                      )}
-                      {costBreakdown.officeFees > 0 && (
-                        <div className="flex justify-between items-center py-2 border-b border-grey-100">
-                          <span className="text-grey-600">Office Solution</span>
-                          <span className="font-medium">{formatCurrency(costBreakdown.officeFees)}</span>
-                        </div>
-                      )}
-                      {costBreakdown.additionalFees > 0 && (
-                        <div className="flex justify-between items-center py-2 border-b border-grey-100">
-                          <span className="text-grey-600">Additional Services</span>
-                          <span className="font-medium">{formatCurrency(costBreakdown.additionalFees)}</span>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Total */}
-                    <div className="bg-primary-red/10 rounded-lg p-4">
-                      <div className="flex justify-between items-center">
-                        <span className="text-lg font-semibold text-heading-dark">Estimated Total Cost</span>
-                        <span className="text-2xl font-bold text-primary-red">
-                          {formatCurrency(costBreakdown.total)}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Disclaimer */}
-                    <div className="bg-grey-50 rounded-lg p-4">
-                      <div className="flex items-start">
-                        <Info className="w-5 h-5 text-primary-navy mr-2 mt-0.5 flex-shrink-0" />
-                        <div>
-                          <p className="text-sm text-grey-600">
-                            This is an estimated cost based on your selections. Final pricing may vary based on specific requirements and current government fees. Our team will provide you with a detailed quote.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </section>
       </div>
