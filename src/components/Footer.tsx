@@ -72,7 +72,7 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <div className="mb-6">
               <img 
-                src="/logo.png" 
+                src="/logoo.png" 
                 alt="Bizvisor" 
                 className="h-12 w-auto brightness-0 invert"
               />
