@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Clock, CheckCircle, AlertCircle } from 'lucide-react';
-import WhatsAppButton from './WhatsAppButton';
 import CalendlyModal from './CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
 
@@ -151,22 +150,8 @@ const Contact = () => {
                 ))}
               </div>
 
-              {/* WhatsApp CTA */}
-              <div className="mt-8 bg-green-50 rounded-xl p-6 border border-green-200">
-                <h4 className="font-semibold text-heading-dark mb-2">Quick WhatsApp Chat</h4>
-                <p className="text-sm text-grey-600 mb-4">
-                  Get instant responses to your questions via WhatsApp. Our team is ready to help!
-                </p>
-                <WhatsAppButton 
-                  variant="button"
-                  size="md"
-                  message="Hi! I need help with UAE business setup. Can you provide me with information about your services?"
-                  className="w-full"
-                />
-              </div>
-
               {/* Free Consultation CTA */}
-              <div className="mt-6 bg-primary-navy rounded-xl p-6 text-white">
+              <div className="mt-8 bg-primary-navy rounded-xl p-6 text-white">
                 <h4 className="font-semibold mb-2">Free Initial Consultation</h4>
                 <p className="text-sm opacity-90 mb-4">
                   Schedule a 30-minute call to discuss your business setup requirements and explore how we can help.
