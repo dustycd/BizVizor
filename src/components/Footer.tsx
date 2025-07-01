@@ -1,7 +1,6 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Youtube, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import WhatsAppButton from './WhatsAppButton';
 
 const Footer = () => {
   const services = [
@@ -49,6 +48,22 @@ const Footer = () => {
     }
   ];
 
+  // Function to scroll to top smoothly
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  // Handle link click with scroll to top
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Only scroll to top for internal links (not external social links)
+    if (href.startsWith('/') || href.startsWith('#')) {
+      scrollToTop();
+    }
+  };
+
   return (
     <footer className="bg-heading-dark text-white">
       <div className="container mx-auto px-4 lg:px-8 xl:px-16 py-16">
@@ -81,16 +96,6 @@ const Footer = () => {
                 <span className="text-sm text-grey-300">2909 Silver Tower Business Bay Dubai UAE</span>
               </div>
             </div>
-
-            {/* WhatsApp CTA */}
-            <div className="mb-6">
-              <WhatsAppButton 
-                variant="button"
-                size="md"
-                message="Hello! I found your website and I'm interested in your UAE business setup services. Can you help me get started?"
-                className="w-full"
-              />
-            </div>
           </div>
 
           {/* Services */}
@@ -99,7 +104,11 @@ const Footer = () => {
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
-                  <Link to={service.href} className="text-grey-300 hover:text-primary-red transition-colors duration-200 text-sm">
+                  <Link 
+                    to={service.href} 
+                    onClick={(e) => handleLinkClick(e, service.href)}
+                    className="text-grey-300 hover:text-primary-red transition-colors duration-200 text-sm"
+                  >
                     {service.name}
                   </Link>
                 </li>
@@ -113,7 +122,11 @@ const Footer = () => {
             <ul className="space-y-3">
               {company.map((item, index) => (
                 <li key={index}>
-                  <Link to={item.href} className="text-grey-300 hover:text-primary-red transition-colors duration-200 text-sm">
+                  <Link 
+                    to={item.href} 
+                    onClick={(e) => handleLinkClick(e, item.href)}
+                    className="text-grey-300 hover:text-primary-red transition-colors duration-200 text-sm"
+                  >
                     {item.name}
                   </Link>
                 </li>
@@ -157,7 +170,14 @@ const Footer = () => {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-sm text-grey-300 mb-4 md:mb-0">
-            © 2024 Bizvisor. All rights reserved. | <Link to="/privacy-policy" className="hover:text-primary-red transition-colors">Privacy Policy</Link>
+            © 2024 Bizvisor. All rights reserved. | 
+            <Link 
+              to="/privacy-policy" 
+              onClick={(e) => handleLinkClick(e, '/privacy-policy')}
+              className="hover:text-primary-red transition-colors ml-1"
+            >
+              Privacy Policy
+            </Link>
           </div>
           
           {/* Social Links */}
