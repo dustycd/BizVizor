@@ -11,7 +11,6 @@ import {
   CheckCircle
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import WhatsAppButton from './WhatsAppButton';
 import CalendlyModal from './CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
 
@@ -214,12 +213,12 @@ const Services = () => {
               >
                 Schedule Free Consultation
               </button>
-              <WhatsAppButton 
-                variant="button"
-                size="lg"
-                message="Hello! I'm ready to start my UAE business. Can you help me with the setup process and provide guidance on the best options for my business?"
-                className="bg-green-500 hover:bg-green-600 border-2 border-white"
-              />
+              <button 
+                onClick={openCalendly}
+                className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold"
+              >
+                Get Expert Advice
+              </button>
             </div>
           </div>
         </div>
