@@ -47,12 +47,13 @@ const Hero = () => {
                   Start Free Consultation
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <WhatsAppButton 
-                  message="Hi! I want to start a business in UAE. Can you help me with the setup process?"
-                  variant="inline"
-                  size="lg"
-                  className="sm:flex-1"
-                />
+                <button 
+                  onClick={openCalendly}
+                  className="border-2 border-primary-red text-primary-red px-8 py-4 rounded-lg hover:bg-primary-red hover:text-white transition-all duration-200 font-semibold flex items-center justify-center"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  Get Expert Advice
+                </button>
               </div>
 
               {/* Cost Calculator CTA */}
@@ -167,8 +168,6 @@ const Hero = () => {
         
         {/* Floating WhatsApp Button */}
         <WhatsAppButton 
-          variant="floating"
-          size="lg"
           message="Hello! I'm interested in starting a business in UAE. Can you provide me with more information about your services?"
         />
       </section>
