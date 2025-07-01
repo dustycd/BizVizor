@@ -35,7 +35,7 @@ const appendToGoogleSheets = async (data) => {
       throw new Error('Google Sheets Spreadsheet ID not configured');
     }
 
-    // Prepare the row data with all new fields
+    // Prepare the row data with all fields including phone country code
     const rowData = [
       data.timestamp || new Date().toISOString(),
       data.businessActivity || '',
@@ -54,6 +54,7 @@ const appendToGoogleSheets = async (data) => {
       data.nationality || '',
       data.firstName || '',
       data.lastName || '',
+      data.phoneCountryCode || '',
       data.phoneNumber || '',
       data.email || '',
       data.totalCost || 0,
@@ -64,10 +65,12 @@ const appendToGoogleSheets = async (data) => {
       data.costBreakdown?.additionalFees || 0
     ];
 
+    console.log('Appending row data to Google Sheets:', rowData);
+
     // Append the data to the spreadsheet
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: 'Sheet1!A:Y', // Updated range to accommodate new columns
+      range: 'Sheet1!A:Z', // Updated range to accommodate new columns
       valueInputOption: 'RAW',
       insertDataOption: 'INSERT_ROWS',
       resource: {
@@ -138,6 +141,8 @@ exports.handler = async (event, context) => {
       firstName: data.firstName,
       lastName: data.lastName,
       email: data.email,
+      phoneCountryCode: data.phoneCountryCode,
+      phoneNumber: data.phoneNumber,
       totalCost: data.totalCost
     });
 

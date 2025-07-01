@@ -20,6 +20,7 @@ interface CalculatorState {
   nationality: string;
   firstName: string;
   lastName: string;
+  phoneCountryCode: string;
   phoneNumber: string;
   email: string;
 }
@@ -60,6 +61,7 @@ const CostCalculator = () => {
     nationality: '',
     firstName: '',
     lastName: '',
+    phoneCountryCode: '+971',
     phoneNumber: '',
     email: ''
   });
@@ -72,6 +74,59 @@ const CostCalculator = () => {
     additionalFees: 0,
     total: 0
   });
+
+  const dialCodes = [
+    { code: '+1', country: 'United States', flag: 'us' },
+    { code: '+1', country: 'Canada', flag: 'ca' },
+    { code: '+44', country: 'United Kingdom', flag: 'gb' },
+    { code: '+33', country: 'France', flag: 'fr' },
+    { code: '+49', country: 'Germany', flag: 'de' },
+    { code: '+39', country: 'Italy', flag: 'it' },
+    { code: '+34', country: 'Spain', flag: 'es' },
+    { code: '+31', country: 'Netherlands', flag: 'nl' },
+    { code: '+41', country: 'Switzerland', flag: 'ch' },
+    { code: '+43', country: 'Austria', flag: 'at' },
+    { code: '+32', country: 'Belgium', flag: 'be' },
+    { code: '+45', country: 'Denmark', flag: 'dk' },
+    { code: '+46', country: 'Sweden', flag: 'se' },
+    { code: '+47', country: 'Norway', flag: 'no' },
+    { code: '+358', country: 'Finland', flag: 'fi' },
+    { code: '+91', country: 'India', flag: 'in' },
+    { code: '+86', country: 'China', flag: 'cn' },
+    { code: '+81', country: 'Japan', flag: 'jp' },
+    { code: '+82', country: 'South Korea', flag: 'kr' },
+    { code: '+65', country: 'Singapore', flag: 'sg' },
+    { code: '+60', country: 'Malaysia', flag: 'my' },
+    { code: '+66', country: 'Thailand', flag: 'th' },
+    { code: '+63', country: 'Philippines', flag: 'ph' },
+    { code: '+62', country: 'Indonesia', flag: 'id' },
+    { code: '+84', country: 'Vietnam', flag: 'vn' },
+    { code: '+971', country: 'United Arab Emirates', flag: 'ae' },
+    { code: '+966', country: 'Saudi Arabia', flag: 'sa' },
+    { code: '+974', country: 'Qatar', flag: 'qa' },
+    { code: '+965', country: 'Kuwait', flag: 'kw' },
+    { code: '+973', country: 'Bahrain', flag: 'bh' },
+    { code: '+968', country: 'Oman', flag: 'om' },
+    { code: '+961', country: 'Lebanon', flag: 'lb' },
+    { code: '+962', country: 'Jordan', flag: 'jo' },
+    { code: '+20', country: 'Egypt', flag: 'eg' },
+    { code: '+27', country: 'South Africa', flag: 'za' },
+    { code: '+234', country: 'Nigeria', flag: 'ng' },
+    { code: '+254', country: 'Kenya', flag: 'ke' },
+    { code: '+55', country: 'Brazil', flag: 'br' },
+    { code: '+52', country: 'Mexico', flag: 'mx' },
+    { code: '+54', country: 'Argentina', flag: 'ar' },
+    { code: '+56', country: 'Chile', flag: 'cl' },
+    { code: '+57', country: 'Colombia', flag: 'co' },
+    { code: '+61', country: 'Australia', flag: 'au' },
+    { code: '+64', country: 'New Zealand', flag: 'nz' },
+    { code: '+7', country: 'Russia', flag: 'ru' },
+    { code: '+90', country: 'Turkey', flag: 'tr' },
+    { code: '+98', country: 'Iran', flag: 'ir' },
+    { code: '+92', country: 'Pakistan', flag: 'pk' },
+    { code: '+880', country: 'Bangladesh', flag: 'bd' },
+    { code: '+94', country: 'Sri Lanka', flag: 'lk' }
+  ];
 
   const businessActivities = [
     'Consulting',
@@ -306,12 +361,15 @@ const CostCalculator = () => {
         nationality: calculatorData.nationality,
         firstName: calculatorData.firstName,
         lastName: calculatorData.lastName,
+        phoneCountryCode: calculatorData.phoneCountryCode,
         phoneNumber: calculatorData.phoneNumber,
         email: calculatorData.email,
         totalCost: costBreakdown.total,
         costBreakdown: costBreakdown,
         timestamp: new Date().toISOString()
       };
+
+      console.log('Submitting calculator data:', submissionData);
 
       const response = await fetch('/.netlify/functions/submit-calculator', {
         method: 'POST',
@@ -322,6 +380,7 @@ const CostCalculator = () => {
       });
 
       const result = await response.json();
+      console.log('Submission response:', result);
 
       if (response.ok && result.success) {
         setSubmitStatus({
@@ -692,22 +751,6 @@ const CostCalculator = () => {
                 </label>
               ))}
             </div>
-            
-            <div className="mt-8 flex justify-center">
-              <button
-                type="button"
-                onClick={handleNext}
-                disabled={!isStepValid()}
-                className={`flex items-center px-8 py-3 rounded-full font-semibold transition-all duration-200 ${
-                  isStepValid()
-                    ? 'bg-primary-red text-white hover:bg-red-700'
-                    : 'bg-grey-300 text-grey-500 cursor-not-allowed'
-                }`}
-              >
-                Next
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </button>
-            </div>
           </div>
         );
 
@@ -801,22 +844,6 @@ const CostCalculator = () => {
               </select>
               <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-grey-400 pointer-events-none" />
             </div>
-            
-            <div className="mt-8 flex justify-center">
-              <button
-                type="button"
-                onClick={handleNext}
-                disabled={!isStepValid()}
-                className={`flex items-center px-8 py-3 rounded-full font-semibold transition-all duration-200 ${
-                  isStepValid()
-                    ? 'bg-primary-red text-white hover:bg-red-700'
-                    : 'bg-grey-300 text-grey-500 cursor-not-allowed'
-                }`}
-              >
-                Next
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </button>
-            </div>
           </div>
         );
 
@@ -863,9 +890,19 @@ const CostCalculator = () => {
                 Phone number *
               </label>
               <div className="flex">
-                <div className="flex items-center px-3 border-2 border-r-0 border-grey-300 rounded-l-lg bg-grey-50">
-                  <img src="https://flagcdn.com/w20/ae.png" alt="UAE" className="w-5 h-3 mr-2" />
-                  <span className="text-sm text-grey-600">+971</span>
+                <div className="relative">
+                  <select
+                    value={calculatorData.phoneCountryCode}
+                    onChange={(e) => setCalculatorData(prev => ({ ...prev, phoneCountryCode: e.target.value }))}
+                    className="px-3 py-3 border-2 border-r-0 border-grey-300 rounded-l-lg bg-grey-50 focus:ring-2 focus:ring-primary-red focus:border-transparent appearance-none pr-8"
+                  >
+                    {dialCodes.map((dialCode, index) => (
+                      <option key={index} value={dialCode.code}>
+                        {dialCode.code} {dialCode.country}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-grey-400 pointer-events-none" />
                 </div>
                 <input
                   type="tel"
