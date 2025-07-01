@@ -29,6 +29,12 @@ const CostCalculator = () => {
   const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
   
   const [currentStep, setCurrentStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+  
   const [calculatorData, setCalculatorData] = useState<CalculatorState>({
     businessActivity: '',
     mainReason: '',
@@ -242,39 +248,62 @@ const CostCalculator = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Create FormData for Netlify Forms
-    const formData = new FormData();
-    formData.append('form-name', 'cost-calculator');
-    formData.append('businessActivity', calculatorData.businessActivity);
-    formData.append('mainReason', calculatorData.mainReason);
-    formData.append('ownersCount', calculatorData.ownersCount.toString());
-    formData.append('visaCount', calculatorData.visaCount.toString());
-    formData.append('dependantsVisa', calculatorData.dependantsVisa.toString());
-    formData.append('businessType', calculatorData.businessType);
-    formData.append('jurisdiction', calculatorData.jurisdiction);
-    formData.append('officeType', calculatorData.officeType);
-    formData.append('additionalServices', calculatorData.additionalServices.join(', '));
-    formData.append('packageType', calculatorData.packageType);
-    formData.append('totalCost', costBreakdown.total.toString());
-    formData.append('timestamp', new Date().toISOString());
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
 
     try {
-      const response = await fetch('/', {
+      // Prepare data for Netlify Function
+      const submissionData = {
+        businessActivity: calculatorData.businessActivity,
+        mainReason: calculatorData.mainReason,
+        ownersCount: calculatorData.ownersCount,
+        visaCount: calculatorData.visaCount,
+        dependantsVisa: calculatorData.dependantsVisa,
+        businessType: calculatorData.businessType,
+        jurisdiction: calculatorData.jurisdiction,
+        officeType: calculatorData.officeType,
+        additionalServices: calculatorData.additionalServices,
+        packageType: calculatorData.packageType,
+        totalCost: costBreakdown.total,
+        costBreakdown: costBreakdown,
+        timestamp: new Date().toISOString()
+      };
+
+      // Send to Netlify Function
+      const response = await fetch('/.netlify/functions/submit-calculator', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString()
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData)
       });
 
-      if (response.ok) {
-        alert('Your calculation has been saved! We will contact you soon with a detailed quote.');
-        openCalendly();
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSubmitStatus({
+          type: 'success',
+          message: 'Your calculation has been saved successfully! We will contact you soon with a detailed quote.'
+        });
+        
+        // Open Calendly modal after successful submission
+        setTimeout(() => {
+          openCalendly();
+        }, 1000);
       } else {
-        alert('There was an error saving your calculation. Please try again.');
+        setSubmitStatus({
+          type: 'error',
+          message: result.message || 'There was an error saving your calculation. Please try again.'
+        });
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('There was an error saving your calculation. Please try again.');
+      console.error('Error submitting calculator:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: 'There was an error saving your calculation. Please check your connection and try again.'
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -356,6 +385,7 @@ const CostCalculator = () => {
               {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((count) => (
                 <button
                   key={count}
+                  type="button"
                   onClick={() => setCalculatorData(prev => ({ ...prev, ownersCount: count }))}
                   className={`w-16 h-16 rounded-full border-2 text-xl font-semibold transition-all duration-200 ${
                     calculatorData.ownersCount === count
@@ -384,6 +414,7 @@ const CostCalculator = () => {
               {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((count) => (
                 <button
                   key={count}
+                  type="button"
                   onClick={() => setCalculatorData(prev => ({ ...prev, visaCount: count }))}
                   className={`w-16 h-16 rounded-full border-2 text-xl font-semibold transition-all duration-200 ${
                     calculatorData.visaCount === count
@@ -641,6 +672,22 @@ const CostCalculator = () => {
                 </div>
               </div>
             </div>
+
+            {/* Status Messages */}
+            {submitStatus.type && (
+              <div className={`mt-6 p-4 rounded-lg flex items-center ${
+                submitStatus.type === 'success' 
+                  ? 'bg-alert-success/10 text-alert-success border border-alert-success/20' 
+                  : 'bg-alert-mistake/10 text-alert-mistake border border-alert-mistake/20'
+              }`}>
+                {submitStatus.type === 'success' ? (
+                  <CheckCircle className="w-5 h-5 mr-3 flex-shrink-0" />
+                ) : (
+                  <Info className="w-5 h-5 mr-3 flex-shrink-0" />
+                )}
+                <span>{submitStatus.message}</span>
+              </div>
+            )}
           </div>
         );
 
@@ -695,23 +742,7 @@ const CostCalculator = () => {
                 </div>
               </div>
 
-              <form 
-                name="cost-calculator" 
-                method="POST" 
-                data-netlify="true" 
-                data-netlify-honeypot="bot-field"
-                onSubmit={handleSubmit}
-              >
-                {/* Hidden field for Netlify Forms */}
-                <input type="hidden" name="form-name" value="cost-calculator" />
-                
-                {/* Honeypot field for spam protection */}
-                <div style={{ display: 'none' }}>
-                  <label>
-                    Don't fill this out if you're human: <input name="bot-field" />
-                  </label>
-                </div>
-
+              <form onSubmit={handleSubmit}>
                 <div className="text-center mb-8">
                   <h2 className="text-2xl font-bold text-heading-dark mb-4">
                     Calculate your business setup cost in less than 5 minutes.
@@ -754,10 +785,20 @@ const CostCalculator = () => {
                   ) : (
                     <button
                       type="submit"
-                      className="flex items-center px-8 py-3 bg-primary-red text-white rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold"
+                      disabled={isSubmitting}
+                      className="flex items-center px-8 py-3 bg-primary-red text-white rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold disabled:bg-grey-400 disabled:cursor-not-allowed"
                     >
-                      Get My Quote
-                      <ArrowRight className="w-5 h-5 ml-2" />
+                      {isSubmitting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          Get My Quote
+                          <ArrowRight className="w-5 h-5 ml-2" />
+                        </>
+                      )}
                     </button>
                   )}
                 </div>
