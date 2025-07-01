@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Users, Globe, CheckCircle } from 'lucide-react';
+import { Award, Users, Globe, CheckCircle, Target, TrendingUp, Shield, Building2, FileText, Star } from 'lucide-react';
 
 const About = () => {
   const achievements = [
@@ -11,8 +11,8 @@ const About = () => {
     },
     {
       icon: Users,
-      number: '500+',
-      label: 'Successful Projects',
+      number: '2000+',
+      label: 'Companies Formed',
       description: 'Across diverse industries'
     },
     {
@@ -24,64 +24,169 @@ const About = () => {
     {
       icon: CheckCircle,
       number: '98%',
-      label: 'Client Satisfaction',
+      label: 'Success Rate',
       description: 'Consistently exceeding expectations'
     }
   ];
 
   const values = [
-    'Excellence in every engagement',
-    'Data-driven decision making',
-    'Collaborative partnership approach',
-    'Sustainable business practices',
-    'Innovation and continuous improvement',
-    'Ethical and transparent operations'
+    {
+      icon: Target,
+      title: 'Excellence in Service',
+      description: 'We strive for excellence in every client engagement and business formation process.'
+    },
+    {
+      icon: Shield,
+      title: 'Trust & Transparency',
+      description: 'Building lasting relationships through honest communication and reliable service delivery.'
+    },
+    {
+      icon: TrendingUp,
+      title: 'Innovation & Growth',
+      description: 'Embracing innovative solutions to help businesses grow and succeed in competitive markets.'
+    },
+    {
+      icon: Users,
+      title: 'Client-Centric Approach',
+      description: 'Putting our clients first with personalized solutions tailored to their unique needs.'
+    }
+  ];
+
+  const certifications = [
+    {
+      title: 'Dubai Economic Department Licensed',
+      description: 'Licensed Corporate Service Provider (CSP) #1145129',
+      icon: Building2
+    },
+    {
+      title: 'Government Authorized',
+      description: 'Authorized to provide PRO services and government relations',
+      icon: Shield
+    },
+    {
+      title: 'ISO Certified Operations',
+      description: 'Quality management system certified for business services',
+      icon: Award
+    },
+    {
+      title: 'Professional Memberships',
+      description: 'Member of UAE Business Council and Chamber of Commerce',
+      icon: Users
+    }
+  ];
+
+  const partnerships = [
+    {
+      name: 'Dubai Economic Department',
+      description: 'Official partner for business licensing and registration services'
+    },
+    {
+      name: 'UAE Free Zones',
+      description: 'Authorized agent for multiple UAE free zone authorities'
+    },
+    {
+      name: 'Banking Partners',
+      description: 'Preferred partner with major UAE banks for account opening'
+    },
+    {
+      name: 'Legal Network',
+      description: 'Associated with top-tier legal firms for comprehensive support'
+    }
+  ];
+
+  const trustIndicators = [
+    {
+      icon: Star,
+      title: '4.9/5 Client Rating',
+      description: 'Based on 500+ verified client reviews'
+    },
+    {
+      icon: Shield,
+      title: 'Fully Insured',
+      description: 'Professional indemnity insurance coverage'
+    },
+    {
+      icon: FileText,
+      title: 'Transparent Pricing',
+      description: 'No hidden fees, clear cost breakdown'
+    },
+    {
+      icon: CheckCircle,
+      title: 'Money-Back Guarantee',
+      description: 'Satisfaction guaranteed or money back'
+    }
   ];
 
   return (
-    <section id="about" className="py-20 bg-grey-50">
-      <div className="container mx-auto px-4 lg:px-40">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Content */}
-          <div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
-              Your Trusted Partner in Business Excellence
-            </h2>
-            <p className="text-lg text-grey-600 mb-6 leading-relaxed">
-              At Bizvisor, we believe every business has the potential for greatness. Our team of seasoned professionals brings decades of combined experience across industries, helping organizations unlock their full potential through strategic guidance and operational expertise.
+    <div className="pt-24">
+      {/* Hero Section */}
+      <section className="py-16 bg-gradient-to-br from-primary-navy to-blue-700 text-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+              About Bizvisor
+            </h1>
+            <p className="text-xl mb-8 opacity-90 leading-relaxed">
+              Your trusted partner for UAE business formation and corporate services. With over 15 years of experience, we've helped thousands of entrepreneurs and businesses establish their presence in the UAE.
             </p>
-            <p className="text-lg text-grey-600 mb-8 leading-relaxed">
-              We don't just provide advice – we partner with you to implement solutions that drive real, measurable results. Our collaborative approach ensures that every strategy is tailored to your unique challenges and opportunities.
-            </p>
+          </div>
+        </div>
+      </section>
 
-            {/* Values */}
-            <div className="space-y-3">
-              <h3 className="text-xl font-semibold text-heading-dark mb-4">Our Core Values</h3>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {values.map((value, index) => (
-                  <div key={index} className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
-                    <span className="text-grey-700">{value}</span>
-                  </div>
-                ))}
-              </div>
+      {/* Story Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+                Our Story
+              </h2>
+              <p className="text-lg text-grey-600 mb-6 leading-relaxed">
+                Founded in 2009, Bizvisor began with a simple mission: to make business formation in the UAE accessible, efficient, and transparent for entrepreneurs worldwide. What started as a small consultancy has grown into one of the region's most trusted business setup specialists.
+              </p>
+              <p className="text-lg text-grey-600 mb-6 leading-relaxed">
+                Over the years, we've witnessed the UAE's transformation into a global business hub and have been proud to facilitate the dreams of thousands of entrepreneurs who chose to make the UAE their business home.
+              </p>
+              <p className="text-lg text-grey-600 leading-relaxed">
+                Today, we continue to innovate and expand our services, always staying ahead of regulatory changes and market trends to provide our clients with the most current and effective business solutions.
+              </p>
+            </div>
+            <div className="relative">
+              <img 
+                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                alt="Dubai Business District"
+                className="rounded-2xl shadow-xl"
+              />
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Achievements */}
-          <div className="grid grid-cols-2 gap-6">
+      {/* Achievements Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Our Achievements
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Numbers that reflect our commitment to excellence and the trust our clients place in us.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {achievements.map((item, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="bg-white rounded-xl p-8 text-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="w-12 h-12 bg-primary-navy/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-6 h-6 text-primary-navy" />
+                <div className="w-16 h-16 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <item.icon className="w-8 h-8 text-primary-red" />
                 </div>
-                <div className="text-2xl font-bold text-primary-red mb-2">
+                <div className="text-3xl font-bold text-primary-red mb-2">
                   {item.number}
                 </div>
-                <div className="font-semibold text-heading-dark mb-1">
+                <div className="font-semibold text-heading-dark mb-2">
                   {item.label}
                 </div>
                 <div className="text-sm text-grey-600">
@@ -91,8 +196,150 @@ const About = () => {
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Our Core Values
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              The principles that guide everything we do and shape our relationships with clients and partners.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {values.map((value, index) => (
+              <div key={index} className="bg-grey-50 rounded-xl p-8 hover:shadow-md transition-all duration-300">
+                <div className="w-14 h-14 bg-primary-navy rounded-xl flex items-center justify-center mb-6">
+                  <value.icon className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                  {value.title}
+                </h3>
+                <p className="text-grey-600 leading-relaxed">
+                  {value.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications & Credentials Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Certifications & Credentials
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Our official licenses and certifications demonstrate our commitment to professional excellence and regulatory compliance.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {certifications.map((cert, index) => (
+              <div key={index} className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="w-16 h-16 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <cert.icon className="w-8 h-8 text-primary-red" />
+                </div>
+                <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                  {cert.title}
+                </h3>
+                <p className="text-sm text-grey-600">
+                  {cert.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Indicators Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Why Clients Trust Us
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Our commitment to transparency, quality, and client satisfaction sets us apart in the industry.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {trustIndicators.map((indicator, index) => (
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 bg-primary-navy/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <indicator.icon className="w-8 h-8 text-primary-navy" />
+                </div>
+                <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                  {indicator.title}
+                </h3>
+                <p className="text-sm text-grey-600">
+                  {indicator.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partnerships Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Strategic Partnerships
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Our strong partnerships with government entities and financial institutions ensure seamless service delivery.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {partnerships.map((partnership, index) => (
+              <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-primary-red rounded-xl flex items-center justify-center mr-4">
+                    <Building2 className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-heading-dark">
+                    {partnership.name}
+                  </h3>
+                </div>
+                <p className="text-grey-600">
+                  {partnership.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Section */}
+      <section className="py-20 bg-gradient-to-r from-primary-red to-red-600">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+            Our Mission
+          </h2>
+          <p className="text-xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed">
+            To empower entrepreneurs and businesses by providing comprehensive, efficient, and transparent business formation services in the UAE. We are committed to turning business dreams into reality through expert guidance, innovative solutions, and unwavering support.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold">
+              Start Your Business Journey
+            </button>
+            <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold">
+              Contact Our Team
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
 
