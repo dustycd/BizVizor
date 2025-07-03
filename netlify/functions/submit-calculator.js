@@ -6,6 +6,10 @@ const initializeGoogleSheets = () => {
     // Parse the private key (handle newlines properly)
     const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, '\n');
     
+    if (!privateKey || !process.env.GOOGLE_SHEETS_CLIENT_EMAIL) {
+      throw new Error('Missing required Google Sheets credentials');
+    }
+    
     const auth = new google.auth.GoogleAuth({
       credentials: {
         type: 'service_account',
@@ -34,6 +38,8 @@ const appendToGoogleSheets = async (data) => {
     if (!spreadsheetId) {
       throw new Error('Google Sheets Spreadsheet ID not configured');
     }
+
+    console.log('Attempting to append data to spreadsheet:', spreadsheetId);
 
     // Prepare the row data with all fields including phone country code
     const rowData = [
@@ -65,12 +71,23 @@ const appendToGoogleSheets = async (data) => {
       data.costBreakdown?.additionalFees || 0
     ];
 
-    console.log('Appending row data to Google Sheets:', rowData);
+    console.log('Row data prepared:', rowData);
+
+    // First, try to get spreadsheet info to verify access
+    try {
+      const spreadsheetInfo = await sheets.spreadsheets.get({
+        spreadsheetId,
+      });
+      console.log('✅ Successfully accessed spreadsheet:', spreadsheetInfo.data.properties.title);
+    } catch (accessError) {
+      console.error('❌ Cannot access spreadsheet:', accessError.message);
+      throw new Error(`Cannot access spreadsheet. Please check permissions and sharing settings. Error: ${accessError.message}`);
+    }
 
     // Append the data to the spreadsheet
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: 'Sheet1!A:Z', // Updated range to accommodate new columns
+      range: 'Sheet1!A:Z',
       valueInputOption: 'RAW',
       insertDataOption: 'INSERT_ROWS',
       resource: {
@@ -78,11 +95,19 @@ const appendToGoogleSheets = async (data) => {
       },
     });
 
-    console.log('Data successfully added to Google Sheets:', response.data);
+    console.log('✅ Data successfully added to Google Sheets:', response.data);
     return response.data;
   } catch (error) {
-    console.error('Error adding data to Google Sheets:', error);
-    throw error;
+    console.error('❌ Error adding data to Google Sheets:', error);
+    
+    // Provide more specific error messages
+    if (error.code === 403) {
+      throw new Error('Permission denied. Please ensure the service account has edit access to the spreadsheet.');
+    } else if (error.code === 404) {
+      throw new Error('Spreadsheet not found. Please check the spreadsheet ID.');
+    } else {
+      throw error;
+    }
   }
 };
 
