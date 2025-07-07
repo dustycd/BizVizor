@@ -1,6 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, User, ArrowRight, Clock, Tag } from 'lucide-react';
 
+interface WPMedia {
+  id: number;
+  source_url: string;
+  alt_text: string;
+  media_details: {
+    width: number;
+    height: number;
+    sizes: {
+      [key: string]: {
+        source_url: string;
+        width: number;
+        height: number;
+      };
+    };
+  };
+}
+
 interface Post {
   id: number;
   date: string;
@@ -14,6 +31,19 @@ interface Post {
   featured_media?: number;
   author?: number;
   categories?: number[];
+  _embedded?: {
+    'wp:featuredmedia'?: WPMedia[];
+    'wp:author'?: Array<{
+      id: number;
+      name: string;
+      slug: string;
+    }>;
+    'wp:term'?: Array<Array<{
+      id: number;
+      name: string;
+      slug: string;
+    }>>;
+  };
 }
 
 const Blog = () => {
@@ -38,6 +68,41 @@ const Blog = () => {
     });
   };
 
+  // Get featured image URL from post
+  const getFeaturedImageUrl = (post: Post): string => {
+    // Try to get the featured image from embedded data
+    const featuredMedia = post._embedded?.['wp:featuredmedia']?.[0];
+    
+    if (featuredMedia?.source_url) {
+      return featuredMedia.source_url;
+    }
+    
+    // Fallback to a default image based on post ID for variety
+    const fallbackImages = [
+      'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800',
+      'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800'
+    ];
+    
+    return fallbackImages[post.id % fallbackImages.length];
+  };
+
+  // Get author name from post
+  const getAuthorName = (post: Post): string => {
+    const author = post._embedded?.['wp:author']?.[0];
+    return author?.name || 'Bizvisor Team';
+  };
+
+  // Get category name from post
+  const getCategoryName = (post: Post): string => {
+    const categories = post._embedded?.['wp:term']?.[0];
+    const category = categories?.find(cat => cat.slug !== 'uncategorized');
+    return category?.name || 'Business';
+  };
+
   // Fetch posts from WordPress API
   useEffect(() => {
     const fetchPosts = async () => {
@@ -45,13 +110,15 @@ const Blog = () => {
         setLoading(true);
         setError(null);
         
-        const response = await fetch('https://www.bizvisor.ae/wp-json/wp/v2/posts');
+        // Add _embed parameter to get featured media and author data
+        const response = await fetch('https://www.bizvisor.ae/wp-json/wp/v2/posts?_embed');
         
         if (!response.ok) {
           throw new Error(`Failed to fetch posts: ${response.status} ${response.statusText}`);
         }
         
         const data: Post[] = await response.json();
+        console.log('Fetched posts with embedded data:', data);
         setPosts(data);
       } catch (err) {
         console.error('Error fetching blog posts:', err);
@@ -129,13 +196,18 @@ const Blog = () => {
               <div className="grid lg:grid-cols-2 gap-0">
                 <div className="relative">
                   <img 
-                    src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                    src={getFeaturedImageUrl(featuredPost)} 
                     alt={stripHtmlTags(featuredPost.title.rendered)}
                     className="w-full h-64 lg:h-full object-cover"
+                    onError={(e) => {
+                      // Fallback to default image if the featured image fails to load
+                      const target = e.target as HTMLImageElement;
+                      target.src = 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800';
+                    }}
                   />
                   <div className="absolute top-4 left-4">
                     <span className="bg-primary-red text-white px-3 py-1 rounded-full text-sm font-medium">
-                      Featured
+                      {getCategoryName(featuredPost)}
                     </span>
                   </div>
                 </div>
@@ -148,7 +220,7 @@ const Blog = () => {
                   </p>
                   <div className="flex items-center text-sm text-grey-500 mb-6">
                     <User className="w-4 h-4 mr-2" />
-                    <span className="mr-4">Bizvisor Team</span>
+                    <span className="mr-4">{getAuthorName(featuredPost)}</span>
                     <Calendar className="w-4 h-4 mr-2" />
                     <span className="mr-4">{formatDate(featuredPost.date)}</span>
                     <Clock className="w-4 h-4 mr-2" />
@@ -184,13 +256,25 @@ const Blog = () => {
                 <article key={post.id} className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
                   <div className="relative">
                     <img 
-                      src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                      src={getFeaturedImageUrl(post)} 
                       alt={stripHtmlTags(post.title.rendered)}
                       className="w-full h-48 object-cover"
+                      onError={(e) => {
+                        // Fallback to default image if the featured image fails to load
+                        const target = e.target as HTMLImageElement;
+                        const fallbackImages = [
+                          'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400',
+                          'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400',
+                          'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400',
+                          'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=400',
+                          'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400'
+                        ];
+                        target.src = fallbackImages[post.id % fallbackImages.length];
+                      }}
                     />
                     <div className="absolute top-4 left-4">
                       <span className="bg-primary-navy text-white px-3 py-1 rounded-full text-xs font-medium">
-                        Business
+                        {getCategoryName(post)}
                       </span>
                     </div>
                   </div>
@@ -203,7 +287,7 @@ const Blog = () => {
                     </p>
                     <div className="flex items-center text-xs text-grey-500 mb-4">
                       <User className="w-3 h-3 mr-1" />
-                      <span className="mr-3">Bizvisor Team</span>
+                      <span className="mr-3">{getAuthorName(post)}</span>
                       <Calendar className="w-3 h-3 mr-1" />
                       <span className="mr-3">{formatDate(post.date)}</span>
                       <Clock className="w-3 h-3 mr-1" />
