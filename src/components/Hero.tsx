@@ -10,9 +10,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="pt-24 pb-16 bg-gradient-to-br from-grey-50 to-white">
-      </section>
-      <section className="pt-24 pb-16 bg-gradient-to-br from-grey-50 to-white">
+      <section className="pt-28 pb-12 bg-gradient-to-br from-grey-50 to-white">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
