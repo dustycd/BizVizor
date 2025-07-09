@@ -1,28 +1,8 @@
 import React from 'react';
-import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Youtube, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
-  const [email, setEmail] = useState('');
-  const [isSubscribing, setIsSubscribing] = useState(false);
-
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.trim()) return;
-    
-    setIsSubscribing(true);
-    // TODO: Implement newsletter subscription logic
-    console.log('Newsletter subscription for:', email);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubscribing(false);
-      setEmail('');
-      alert('Thank you for subscribing to our newsletter!');
-    }, 1000);
-  };
-
   const services = [
     { name: 'Mainland Formation', href: '/mainland-formation' },
     { name: 'Free Zone Setup', href: '/freezone-setup' },
@@ -91,13 +71,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="mb-6">
-              <Link to="/" onClick={scrollToTop}>
-                <img 
-                  src="/logoo.png" 
-                  alt="Bizvisor" 
-                  className="h-12 w-auto brightness-0 invert hover:opacity-80 transition-opacity"
-                />
-              </Link>
+              <img 
+                src="/logoo.png" 
+                alt="Bizvisor" 
+                className="h-12 w-auto brightness-0 invert"
+              />
             </div>
             <p className="text-grey-300 mb-6 leading-relaxed">
               Transforming businesses through expert advisory services. We partner with organizations to unlock their full potential and achieve sustainable growth.
@@ -167,23 +145,14 @@ const Footer = () => {
               </p>
             </div>
             <div className="flex gap-3">
-              <form onSubmit={handleNewsletterSubmit} className="flex gap-3 w-full">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-2 bg-grey-800 border border-grey-600 rounded-lg text-white placeholder-grey-400 focus:ring-2 focus:ring-primary-red focus:border-transparent"
-                  required
-                />
-                <button 
-                  type="submit"
-                  disabled={isSubscribing}
-                  className="bg-primary-red text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors duration-200 font-medium disabled:bg-grey-600 disabled:cursor-not-allowed"
-                >
-                  {isSubscribing ? 'Subscribing...' : 'Subscribe'}
-                </button>
-              </form>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-2 bg-grey-800 border border-grey-600 rounded-lg text-white placeholder-grey-400 focus:ring-2 focus:ring-primary-red focus:border-transparent"
+              />
+              <button className="bg-primary-red text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors duration-200 font-medium">
+                Subscribe
+              </button>
             </div>
           </div>
         </div>

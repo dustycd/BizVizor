@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Clock, CheckCircle, AlertCircle } from 'lucide-react';
-import CalendlyModal from '../components/CalendlyModal';
-import { useCalendly } from '../hooks/useCalendly';
 
 const Contact = () => {
-  const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
-
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -182,10 +178,7 @@ const Contact = () => {
                 <p className="text-sm opacity-90 mb-4">
                   Schedule a 30-minute call to discuss your business setup requirements and explore how we can help.
                 </p>
-                <button 
-                  onClick={openCalendly}
-                  className="bg-white text-primary-navy px-4 py-2 rounded-lg text-sm font-medium hover:bg-grey-100 transition-colors"
-                >
+                <button className="bg-white text-primary-navy px-4 py-2 rounded-lg text-sm font-medium hover:bg-grey-100 transition-colors">
                   Book Now
                 </button>
               </div>
@@ -466,28 +459,15 @@ const Contact = () => {
             Contact our team today for a free consultation and take the first step towards establishing your business in the UAE.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
-              onClick={openCalendly}
-              className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold"
-            >
+            <button className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold">
               Schedule Free Consultation
             </button>
-            <a 
-              href="tel:+971564960040"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold text-center"
-            >
+            <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold">
               Call +971 56 496 0040
-            </a>
+            </button>
           </div>
         </div>
       </section>
-
-      {/* Calendly Modal */}
-      <CalendlyModal 
-        isOpen={isCalendlyOpen} 
-        onClose={closeCalendly}
-        url="https://calendly.com/saidtouma-bizvisor/consultation?month=2025-06"
-      />
     </div>
   );
 };

@@ -50,24 +50,6 @@ const Blog = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [email, setEmail] = useState('');
-  const [isSubscribing, setIsSubscribing] = useState(false);
-
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.trim()) return;
-    
-    setIsSubscribing(true);
-    // TODO: Implement newsletter subscription logic
-    console.log('Newsletter subscription for:', email);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubscribing(false);
-      setEmail('');
-      alert('Thank you for subscribing to our newsletter!');
-    }, 1000);
-  };
 
   // Utility function to strip HTML tags
   const stripHtmlTags = (html: string): string => {
@@ -349,23 +331,14 @@ const Blog = () => {
             Subscribe to our newsletter and get the latest UAE business updates, regulatory changes, and expert insights delivered to your inbox.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 w-full">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="flex-1 px-6 py-3 rounded-lg text-grey-700 placeholder-grey-400 focus:ring-2 focus:ring-white focus:outline-none"
-                required
-              />
-              <button 
-                type="submit"
-                disabled={isSubscribing}
-                className="bg-primary-navy text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold disabled:bg-grey-600 disabled:cursor-not-allowed"
-              >
-                {isSubscribing ? 'Subscribing...' : 'Subscribe'}
-              </button>
-            </form>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="flex-1 px-6 py-3 rounded-lg text-grey-700 placeholder-grey-400 focus:ring-2 focus:ring-white focus:outline-none"
+            />
+            <button className="bg-primary-navy text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold">
+              Subscribe
+            </button>
           </div>
         </div>
       </section>

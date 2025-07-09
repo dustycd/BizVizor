@@ -1,18 +1,7 @@
 import React from 'react';
 import { Building2, CheckCircle, ArrowRight, Clock, DollarSign, Shield, Users } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import CalendlyModal from '../components/CalendlyModal';
-import { useCalendly } from '../hooks/useCalendly';
 
 const MainlandFormation = () => {
-  const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
-
-  const handleDownloadGuide = () => {
-    // TODO: Implement guide download logic
-    console.log('Downloading mainland formation guide...');
-    alert('Guide download will be available soon!');
-  };
-
   const services = [
     {
       title: 'Accounting & Book-Keeping',
@@ -113,13 +102,10 @@ const MainlandFormation = () => {
               Establish your company in Dubai mainland with 100% foreign ownership, full market access, and complete operational flexibility. Get expert guidance through every step of the process.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact" className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold text-center">
+              <button className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold">
                 Start Your Application
-              </Link>
-              <button 
-                onClick={handleDownloadGuide}
-                className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold"
-              >
+              </button>
+              <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold">
                 Download Guide
               </button>
             </div>
@@ -189,10 +175,10 @@ const MainlandFormation = () => {
                     </li>
                   ))}
                 </ul>
-                <Link to="/contact" className="text-primary-red font-medium flex items-center group hover:text-primary-navy transition-colors">
+                <button className="text-primary-red font-medium flex items-center group hover:text-primary-navy transition-colors">
                   Learn More
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                </button>
               </div>
             ))}
           </div>
@@ -239,28 +225,15 @@ const MainlandFormation = () => {
             Get expert guidance and complete support for your business formation. Contact us today for a free consultation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
-              onClick={openCalendly}
-              className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold"
-            >
+            <button className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold">
               Get Free Consultation
             </button>
-            <a 
-              href="tel:+971564960040"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold text-center"
-            >
+            <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold">
               Call +971 4 123 4567
-            </a>
+            </button>
           </div>
         </div>
       </section>
-
-      {/* Calendly Modal */}
-      <CalendlyModal 
-        isOpen={isCalendlyOpen} 
-        onClose={closeCalendly}
-        url="https://calendly.com/saidtouma-bizvisor/consultation?month=2025-06"
-      />
     </div>
   );
 };

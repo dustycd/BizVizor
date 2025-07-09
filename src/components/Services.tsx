@@ -155,18 +155,10 @@ const Services = () => {
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-grey-200">
-                  <Link 
-                    to={
-                      category.title.includes('Mainland') ? '/mainland-formation' :
-                      category.title.includes('Free Zone') ? '/freezone-setup' :
-                      category.title.includes('PRO') ? '/pro-services' :
-                      '/offshore-formation'
-                    }
-                    className="text-primary-red font-semibold hover:text-primary-navy transition-colors duration-200 flex items-center group"
-                  >
+                  <button className="text-primary-red font-semibold hover:text-primary-navy transition-colors duration-200 flex items-center group">
                     Learn More
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))}
@@ -180,9 +172,9 @@ const Services = () => {
               </div>
               <h4 className="text-lg font-semibold text-heading-dark mb-2">Accounting Services</h4>
               <p className="text-grey-600 text-sm mb-4">Professional bookkeeping and financial management</p>
-              <Link to="/accounting-services" className="text-primary-navy font-medium hover:text-primary-red transition-colors">
+              <button className="text-primary-navy font-medium hover:text-primary-red transition-colors">
                 Learn More →
-              </Link>
+              </button>
             </div>
 
             <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
@@ -191,9 +183,9 @@ const Services = () => {
               </div>
               <h4 className="text-lg font-semibold text-heading-dark mb-2">Business Consultation</h4>
               <p className="text-grey-600 text-sm mb-4">Expert guidance for your business setup journey</p>
-              <Link to="/contact" className="text-primary-red font-medium hover:text-primary-navy transition-colors">
+              <button className="text-primary-red font-medium hover:text-primary-navy transition-colors">
                 Get Started →
-              </Link>
+              </button>
             </div>
 
             <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
@@ -202,9 +194,9 @@ const Services = () => {
               </div>
               <h4 className="text-lg font-semibold text-heading-dark mb-2">Visa Services</h4>
               <p className="text-grey-600 text-sm mb-4">Complete visa processing and PRO services</p>
-              <Link to="/visa-services" className="text-alert-success font-medium hover:text-primary-red transition-colors">
+              <button className="text-alert-success font-medium hover:text-primary-red transition-colors">
                 Apply Now →
-              </Link>
+              </button>
             </div>
           </div>
 
