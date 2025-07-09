@@ -150,10 +150,9 @@ const Careers = () => {
             <p className="text-xl mb-8 opacity-90 leading-relaxed">
               Build your career with UAE's leading business formation specialists. We're looking for passionate professionals who want to help entrepreneurs achieve their dreams.
             </p>
-            <button className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold">
             <a href="#open-positions">
               <button className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold">
-              View Open Positions
+                View Open Positions
               </button>
             </a>
           </div>
@@ -361,10 +360,11 @@ const Careers = () => {
             Join our team of professionals and help shape the future of business formation in the UAE.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#open-positions">
-              <button className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold">
+            <a 
+              href="#open-positions"
+              className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold inline-flex items-center justify-center"
+            >
               Browse All Positions
-              </button>
             </a>
             <Link 
               to="/contact"
