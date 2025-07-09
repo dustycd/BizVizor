@@ -18,10 +18,9 @@ const Hero = () => {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover -z-10"
-          poster="https://ik.imagekit.io/dust/dubai.mp4?updatedAt=1752077048587"
         >
           <source
-            src="https://videos.pexels.com/video-files/3143828/3143828-uhd_2732_1440_25fps.mp4"
+            src="https://ik.imagekit.io/dust/dubai.mp4?updatedAt=1752077048587"
             type="video/mp4"
           />
           {/* Fallback for browsers that don't support video */}
