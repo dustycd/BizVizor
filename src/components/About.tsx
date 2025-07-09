@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Award, Users, Globe, CheckCircle, Target, TrendingUp, Shield, Building2, FileText, Star } from 'lucide-react';
 
 const About = () => {
