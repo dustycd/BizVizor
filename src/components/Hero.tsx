@@ -11,15 +11,13 @@ const Hero = () => {
   return (
     <>
       <section className="pt-28 pb-12 bg-gradient-to-br from-grey-50 to-white relative overflow-hidden">
-        {/* Video Background - ImageKit Embed */}
+        {/* Video Background */}
         <div className="absolute inset-0 w-full h-full -z-10 overflow-hidden">
-          <iframe 
-            width="100%" 
-            height="100%" 
-            src="https://ik.imagekit.io/dust/dubai.mp4?updatedAt=1752077048587" 
-            title="Dubai Background Video" 
-            frameBorder="0" 
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen; autoplay"
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
             className="w-full h-full object-cover scale-110"
             style={{ 
               minWidth: '100%', 
@@ -27,11 +25,22 @@ const Hero = () => {
               transform: 'scale(1.1)',
               transformOrigin: 'center center'
             }}
-          />
+            onError={(e) => {
+              console.log('Video failed to load:', e);
+              // Hide video container on error
+              const videoContainer = e.currentTarget.parentElement;
+              if (videoContainer) {
+                videoContainer.style.display = 'none';
+              }
+            }}
+          >
+            <source src="https://ik.imagekit.io/dust/dubai.mp4?updatedAt=1752077048587" type="video/mp4" />
+            {/* Fallback for browsers that don't support video */}
+            <div className="w-full h-full bg-gradient-to-br from-primary-navy/20 to-blue-700/20"></div>
+          </video>
         </div>
         
         {/* Video Overlay */}
-        <div className="absolute inset-0 bg-black/40 -z-5"></div>
         
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
