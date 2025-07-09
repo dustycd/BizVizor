@@ -18,7 +18,7 @@ const Hero = () => {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover -z-10"
-          poster="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          poster="https://ik.imagekit.io/dust/dubai.mp4?updatedAt=1752077048587"
         >
           <source
             src="https://videos.pexels.com/video-files/3143828/3143828-uhd_2732_1440_25fps.mp4"
