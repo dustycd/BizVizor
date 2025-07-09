@@ -136,27 +136,27 @@ const CookieConsent = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-[10000] flex items-end justify-center p-4">
-      {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+    <div className="fixed inset-0 z-[10000] flex items-end justify-center p-3 sm:p-4">
+      {/* Backdrop - removed blur for better performance */}
+      <div className="absolute inset-0 bg-black/40" />
       
-      {/* Cookie Banner */}
-      <div className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
-        {/* Header */}
-        <div className="bg-gradient-to-r from-primary-navy to-blue-700 text-white p-6">
+      {/* Cookie Banner - Made smaller and more mobile-friendly */}
+      <div className="relative bg-white rounded-xl shadow-2xl w-full max-w-lg sm:max-w-2xl max-h-[85vh] overflow-hidden">
+        {/* Header - Made more compact */}
+        <div className="bg-gradient-to-r from-primary-navy to-blue-700 text-white p-4 sm:p-5">
           <div className="flex items-start justify-between">
             <div className="flex items-center">
-              <Cookie className="w-8 h-8 mr-3 flex-shrink-0" />
+              <Cookie className="w-6 h-6 sm:w-7 sm:h-7 mr-2 sm:mr-3 flex-shrink-0" />
               <div>
-                <h2 className="text-2xl font-bold mb-2">Cookie Preferences</h2>
-                <p className="text-blue-100 text-sm">
-                  We use cookies to enhance your browsing experience and provide personalized content.
+                <h2 className="text-lg sm:text-xl font-bold mb-1">Cookie Preferences</h2>
+                <p className="text-blue-100 text-xs sm:text-sm">
+                  We use cookies to enhance your browsing experience.
                 </p>
               </div>
             </div>
             <button
               onClick={() => setIsVisible(false)}
-              className="w-8 h-8 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors ml-4"
+              className="w-7 h-7 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors ml-2 flex-shrink-0"
               aria-label="Close cookie banner"
             >
               <X className="w-4 h-4" />
@@ -164,13 +164,13 @@ const CookieConsent = () => {
           </div>
         </div>
 
-        {/* Content */}
-        <div className="p-6 max-h-96 overflow-y-auto">
-          <div className="mb-6">
-            <p className="text-grey-700 leading-relaxed mb-4">
-              We respect your privacy and are committed to protecting your personal data. This website uses cookies to improve your experience, analyze site traffic, and for marketing purposes. You can choose which types of cookies to allow.
+        {/* Content - Made more compact */}
+        <div className="p-4 sm:p-5 max-h-64 sm:max-h-80 overflow-y-auto">
+          <div className="mb-4 sm:mb-5">
+            <p className="text-grey-700 leading-relaxed mb-3 text-sm sm:text-base">
+              We respect your privacy and are committed to protecting your personal data. This website uses cookies to improve your experience, analyze site traffic, and for marketing purposes.
             </p>
-            <p className="text-sm text-grey-600">
+            <p className="text-xs sm:text-sm text-grey-600">
               By clicking "Accept All", you consent to our use of cookies. You can manage your preferences or learn more in our{' '}
               <Link to="/privacy-policy" className="text-primary-red hover:underline font-medium">
                 Privacy Policy
@@ -178,25 +178,25 @@ const CookieConsent = () => {
             </p>
           </div>
 
-          {/* Cookie Types */}
+          {/* Cookie Types - Only show when details are expanded */}
           {showDetails && (
-            <div className="mb-6 space-y-4">
-              <h3 className="text-lg font-semibold text-heading-dark mb-4">Cookie Categories</h3>
+            <div className="mb-4 sm:mb-5 space-y-3">
+              <h3 className="text-base sm:text-lg font-semibold text-heading-dark mb-3">Cookie Categories</h3>
               {cookieTypes.map((type) => (
-                <div key={type.id} className="bg-grey-50 rounded-lg p-4">
+                <div key={type.id} className="bg-grey-50 rounded-lg p-3">
                   <div className="flex items-start justify-between">
                     <div className="flex items-start flex-1">
-                      <div className="w-10 h-10 bg-primary-navy/10 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
-                        <type.icon className="w-5 h-5 text-primary-navy" />
+                      <div className="w-8 h-8 bg-primary-navy/10 rounded-lg flex items-center justify-center mr-2 flex-shrink-0">
+                        <type.icon className="w-4 h-4 text-primary-navy" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-semibold text-heading-dark mb-1">{type.title}</h4>
-                        <p className="text-sm text-grey-600">{type.description}</p>
+                        <h4 className="font-semibold text-heading-dark mb-1 text-sm">{type.title}</h4>
+                        <p className="text-xs text-grey-600">{type.description}</p>
                       </div>
                     </div>
-                    <div className="ml-4">
+                    <div className="ml-3">
                       {type.required ? (
-                        <div className="bg-grey-300 rounded-full px-3 py-1">
+                        <div className="bg-grey-300 rounded-full px-2 py-1">
                           <span className="text-xs font-medium text-grey-600">Required</span>
                         </div>
                       ) : (
@@ -207,7 +207,7 @@ const CookieConsent = () => {
                             onChange={() => handlePreferenceChange(type.id)}
                             className="sr-only peer"
                           />
-                          <div className="w-11 h-6 bg-grey-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-red/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-red"></div>
+                          <div className="w-9 h-5 bg-grey-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary-red/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-red"></div>
                         </label>
                       )}
                     </div>
@@ -218,43 +218,49 @@ const CookieConsent = () => {
           )}
         </div>
 
-        {/* Actions */}
-        <div className="bg-grey-50 p-6 border-t border-grey-200">
-          <div className="flex flex-col sm:flex-row gap-3">
-            <button
-              onClick={() => setShowDetails(!showDetails)}
-              className="flex items-center justify-center px-4 py-2 text-primary-navy border border-primary-navy rounded-lg hover:bg-primary-navy hover:text-white transition-colors font-medium"
-            >
-              <Settings className="w-4 h-4 mr-2" />
-              {showDetails ? 'Hide Details' : 'Customize'}
-            </button>
-            
-            <button
-              onClick={handleRejectAll}
-              className="flex-1 px-6 py-3 text-grey-600 border border-grey-300 rounded-lg hover:bg-grey-100 transition-colors font-medium"
-            >
-              Reject All
-            </button>
-            
-            {showDetails && (
+        {/* Actions - Made more compact */}
+        <div className="bg-grey-50 p-4 sm:p-5 border-t border-grey-200">
+          <div className="flex flex-col gap-2 sm:gap-3">
+            {/* First row - Customize and Reject buttons */}
+            <div className="flex gap-2 sm:gap-3">
               <button
-                onClick={handleAcceptSelected}
-                className="flex-1 px-6 py-3 bg-primary-navy text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                onClick={() => setShowDetails(!showDetails)}
+                className="flex items-center justify-center px-3 py-2 text-primary-navy border border-primary-navy rounded-lg hover:bg-primary-navy hover:text-white transition-colors font-medium text-sm flex-1"
               >
-                Accept Selected
+                <Settings className="w-4 h-4 mr-1" />
+                {showDetails ? 'Hide' : 'Customize'}
               </button>
-            )}
+              
+              <button
+                onClick={handleRejectAll}
+                className="flex-1 px-3 py-2 text-grey-600 border border-grey-300 rounded-lg hover:bg-grey-100 transition-colors font-medium text-sm"
+              >
+                Reject All
+              </button>
+            </div>
             
-            <button
-              onClick={handleAcceptAll}
-              className="flex-1 px-6 py-3 bg-primary-red text-white rounded-lg hover:bg-red-700 transition-colors font-medium"
-            >
-              Accept All
-            </button>
+            {/* Second row - Accept buttons */}
+            <div className="flex gap-2 sm:gap-3">
+              {showDetails && (
+                <button
+                  onClick={handleAcceptSelected}
+                  className="flex-1 px-3 py-2 bg-primary-navy text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm"
+                >
+                  Accept Selected
+                </button>
+              )}
+              
+              <button
+                onClick={handleAcceptAll}
+                className="flex-1 px-3 py-2 bg-primary-red text-white rounded-lg hover:bg-red-700 transition-colors font-medium text-sm"
+              >
+                Accept All
+              </button>
+            </div>
           </div>
           
-          <p className="text-xs text-grey-500 mt-3 text-center">
-            You can change your preferences at any time by visiting our cookie settings.
+          <p className="text-xs text-grey-500 mt-2 text-center">
+            You can change your preferences at any time in our cookie settings.
           </p>
         </div>
       </div>
