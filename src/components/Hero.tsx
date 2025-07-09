@@ -11,21 +11,24 @@ const Hero = () => {
   return (
     <>
       <section className="pt-28 pb-12 bg-gradient-to-br from-grey-50 to-white relative overflow-hidden">
-        {/* Video Background */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover -z-10"
-        >
-          <source
-            src="https://ik.imagekit.io/dust/dubai.mp4?updatedAt=1752077048587"
-            type="video/mp4"
+        {/* Video Background - ImageKit Embed */}
+        <div className="absolute inset-0 w-full h-full -z-10 overflow-hidden">
+          <iframe 
+            width="100%" 
+            height="100%" 
+            src="https://imagekit.io/player/embed/dust/dubai.mp4?updatedAt=1752077048587&thumbnail=https%3A%2F%2Fik.imagekit.io%2Fdust%2Fdubai.mp4%2Fik-thumbnail.jpg%3FupdatedAt%3D1752077048587&updatedAt=1752077048587&autoplay=true&loop=true&muted=true&controls=false" 
+            title="Dubai Background Video" 
+            frameBorder="0" 
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen; autoplay"
+            className="w-full h-full object-cover scale-110"
+            style={{ 
+              minWidth: '100%', 
+              minHeight: '100%',
+              transform: 'scale(1.1)',
+              transformOrigin: 'center center'
+            }}
           />
-          {/* Fallback for browsers that don't support video */}
-          Your browser does not support the video tag.
-        </video>
+        </div>
         
         {/* Video Overlay */}
         <div className="absolute inset-0 bg-black/40 -z-5"></div>
