@@ -27,7 +27,7 @@ const Hero = () => {
               }
             }}
           >
-            <source src="https://ik.imagekit.io/dust/dubai1.mp4?updatedAt=1752078067280" type="video/mp4" />
+            <source src="https://ik.imagekit.io/dust/dubai.mp4?updatedAt=1752077048587" type="video/mp4" />
             <div className="w-full h-full bg-gradient-to-br from-primary-navy to-blue-700"></div>
           </video>
         </div>
@@ -63,50 +63,4 @@ const Hero = () => {
               to="/cost-calculator"
               className="group bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-full text-sm sm:text-base lg:text-lg font-semibold hover:bg-white hover:text-primary-navy transition-all duration-300 flex items-center shadow-xl hover:shadow-2xl transform hover:-translate-y-1 w-full sm:w-auto justify-center"
             >
-              <Calculator className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 mr-2 sm:mr-3 group-hover:scale-110 transition-transform" />
-              Calculate Cost
-            </Link>
-          </div>
-          
-          {/* Quick Stats - Mobile responsive layout and sizing */}
-          <div className="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-6 md:space-x-8 lg:space-x-12 text-white/80 px-4">
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1">2000+</div>
-              <div className="text-xs sm:text-sm uppercase tracking-wider">Companies</div>
-            </div>
-            
-            {/* Vertical divider - hidden on mobile, shown on sm+ */}
-            <div className="hidden sm:block w-px h-8 sm:h-10 lg:h-12 bg-white/30"></div>
-            
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1">7 Days</div>
-              <div className="text-xs sm:text-sm uppercase tracking-wider">Setup</div>
-            </div>
-            
-            {/* Vertical divider - hidden on mobile, shown on sm+ */}
-            <div className="hidden sm:block w-px h-8 sm:h-10 lg:h-12 bg-white/30"></div>
-            
-            <div className="text-center">
-              <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-1">15+ Years</div>
-              <div className="text-xs sm:text-sm uppercase tracking-wider">Experience</div>
-            </div>
-          </div>
-        </div>
-        
-        {/* WhatsApp Button */}
-        <WhatsAppButton 
-          message="Hello! I'm interested in starting a business in UAE. Can you provide me with more information about your services?"
-        />
-      </section>
-
-      {/* Calendly Modal */}
-      <CalendlyModal 
-        isOpen={isCalendlyOpen} 
-        onClose={closeCalendly}
-        url="https://calendly.com/saidtouma-bizvisor/consultation?month=2025-06"
-      />
-    </>
-  );
-};
-
-export default Hero;
+              <Calculator cl
