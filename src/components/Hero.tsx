@@ -10,16 +10,36 @@ const Hero = () => {
 
   return (
     <>
-      <section className="pt-28 pb-12 bg-gradient-to-br from-grey-50 to-white">
+      <section className="pt-28 pb-12 bg-gradient-to-br from-grey-50 to-white relative overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover -z-10"
+          poster="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        >
+          <source
+            src="https://videos.pexels.com/video-files/3143828/3143828-uhd_2732_1440_25fps.mp4"
+            type="video/mp4"
+          />
+          {/* Fallback for browsers that don't support video */}
+          Your browser does not support the video tag.
+        </video>
+        
+        {/* Video Overlay */}
+        <div className="absolute inset-0 bg-black/40 -z-5"></div>
+        
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
-            <div className="animate-slide-up">
+            <div className="animate-slide-up relative z-10">
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-heading-dark mb-6 leading-tight">
                 Start Your Business in 
-                <span className="text-primary-red"> UAE</span> Today
+                <span className="text-primary-red drop-shadow-lg"> UAE</span> Today
               </h1>
-              <p className="text-lg lg:text-xl text-grey-600 mb-8 leading-relaxed">
+              <p className="text-lg lg:text-xl text-white mb-8 leading-relaxed drop-shadow-md">
                 Complete business setup solutions across UAE mainland, free zones, and offshore jurisdictions. Get 100% ownership, expert guidance, and seamless registration process.
               </p>
               
@@ -33,7 +53,7 @@ const Hero = () => {
                 ].map((benefit, index) => (
                   <div key={index} className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
-                    <span className="text-grey-700 font-medium">{benefit}</span>
+                    <span className="text-white font-medium drop-shadow-sm">{benefit}</span>
                   </div>
                 ))}
               </div>
@@ -42,14 +62,14 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <button 
                   onClick={openCalendly}
-                  className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold flex items-center justify-center group hover:shadow-lg transform hover:-translate-y-0.5"
+                  className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold flex items-center justify-center group hover:shadow-xl transform hover:-translate-y-0.5 shadow-lg"
                 >
                   Start Free Consultation
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button 
                   onClick={openCalendly}
-                  className="border-2 border-primary-red text-primary-red px-8 py-4 rounded-lg hover:bg-primary-red hover:text-white transition-all duration-200 font-semibold flex items-center justify-center"
+                  className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold flex items-center justify-center shadow-lg backdrop-blur-sm"
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   Get Expert Advice
@@ -57,7 +77,7 @@ const Hero = () => {
               </div>
 
               {/* Cost Calculator CTA */}
-              <div className="bg-primary-navy/10 rounded-xl p-6 mb-8 border border-primary-navy/20">
+              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 mb-8 border border-white/30 shadow-lg">
                 <div className="flex items-center justify-between">
                   <div>
                     <h3 className="text-lg font-semibold text-heading-dark mb-2">
@@ -69,7 +89,7 @@ const Hero = () => {
                   </div>
                   <Link
                     to="/cost-calculator"
-                    className="bg-primary-navy text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-200 font-semibold flex items-center group hover:shadow-lg transform hover:-translate-y-0.5"
+                    className="bg-primary-navy text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-200 font-semibold flex items-center group hover:shadow-xl transform hover:-translate-y-0.5 shadow-md"
                   >
                     <Calculator className="w-5 h-5 mr-2" />
                     Calculate Now
@@ -81,23 +101,23 @@ const Hero = () => {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-red mb-1">2000+</div>
-                  <div className="text-sm text-grey-600">Companies Formed</div>
+                  <div className="text-3xl font-bold text-white mb-1 drop-shadow-lg">2000+</div>
+                  <div className="text-sm text-white/90 drop-shadow-sm">Companies Formed</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-red mb-1">7</div>
-                  <div className="text-sm text-grey-600">Days Average Setup</div>
+                  <div className="text-3xl font-bold text-white mb-1 drop-shadow-lg">7</div>
+                  <div className="text-sm text-white/90 drop-shadow-sm">Days Average Setup</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary-red mb-1">15+</div>
-                  <div className="text-sm text-grey-600">Years Experience</div>
+                  <div className="text-3xl font-bold text-white mb-1 drop-shadow-lg">15+</div>
+                  <div className="text-sm text-white/90 drop-shadow-sm">Years Experience</div>
                 </div>
               </div>
             </div>
 
             {/* Visual */}
-            <div className="relative animate-fade-in">
-              <div className="bg-white rounded-2xl shadow-xl p-8 border border-grey-200">
+            <div className="relative animate-fade-in z-10">
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 border border-white/30">
                 <div className="text-center mb-6">
                   <h3 className="text-xl font-bold text-heading-dark mb-2">Popular Business Setup Options</h3>
                   <p className="text-grey-600">Choose the perfect structure for your business</p>
@@ -163,7 +183,7 @@ const Hero = () => {
                 <div className="mt-6 pt-6 border-t border-grey-200">
                   <Link
                     to="/cost-calculator"
-                    className="w-full bg-gradient-to-r from-primary-navy to-blue-700 text-white py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 font-semibold flex items-center justify-center group"
+                    className="w-full bg-gradient-to-r from-primary-navy to-blue-700 text-white py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 font-semibold flex items-center justify-center group shadow-lg"
                   >
                     <Calculator className="w-5 h-5 mr-2" />
                     Calculate Setup Cost
