@@ -16,7 +16,7 @@ const Hero = () => {
           <iframe 
             width="100%" 
             height="100%" 
-            src="https://imagekit.io/player/embed/dust/dubai.mp4?updatedAt=1752077048587&thumbnail=https%3A%2F%2Fik.imagekit.io%2Fdust%2Fdubai.mp4%2Fik-thumbnail.jpg%3FupdatedAt%3D1752077048587&updatedAt=1752077048587&autoplay=true&loop=true&muted=true&controls=false" 
+            src="https://ik.imagekit.io/dust/dubai.mp4?updatedAt=1752077048587" 
             title="Dubai Background Video" 
             frameBorder="0" 
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen; autoplay"
