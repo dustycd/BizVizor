@@ -155,11 +155,10 @@ const OffshoreFormation = () => {
               >
                 Start Formation
               </Link>
-              <a 
-                href="#jurisdictions-section"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-grey-700 transition-all duration-200 font-semibold inline-flex items-center justify-center"
-              >
+              <a href="#jurisdictions-section">
+                <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-grey-700 transition-all duration-200 font-semibold">
                 Compare Jurisdictions
+                </button>
               </a>
             </div>
           </div>

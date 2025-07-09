@@ -108,11 +108,10 @@ const FreeZoneSetup = () => {
               Choose from multiple UAE free zones offering 100% foreign ownership, tax benefits, and streamlined business setup processes. Find the perfect location for your business success.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="#comparison-table"
-                className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold inline-flex items-center justify-center"
-              >
+              <a href="#comparison-table">
+                <button className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold">
                 Compare Free Zones
+                </button>
               </a>
               <button 
                 onClick={openCalendly}
@@ -313,11 +312,10 @@ const FreeZoneSetup = () => {
             >
               Start Your Application
             </Link>
-            <a 
-              href="#comparison-table"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold inline-flex items-center justify-center"
-            >
+            <a href="#comparison-table">
+              <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold">
               Compare All Zones
+              </button>
             </a>
           </div>
         </div>

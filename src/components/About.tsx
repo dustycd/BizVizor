@@ -1,8 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Award, Users, Globe, CheckCircle, Target, TrendingUp, Shield, Building2, FileText, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import CalendlyModal from './CalendlyModal';
+import { useCalendly } from '../hooks/useCalendly';
 
 const About = () => {
+  const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
+
   const achievements = [
     {
       icon: Award,
@@ -331,12 +335,12 @@ const About = () => {
             To empower entrepreneurs and businesses by providing comprehensive, efficient, and transparent business formation services in the UAE. We are committed to turning business dreams into reality through expert guidance, innovative solutions, and unwavering support.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              to="/contact"
-              className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold inline-flex items-center justify-center"
+            <button 
+              onClick={openCalendly}
+              className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold"
             >
               Start Your Business Journey
-            </Link>
+            </button>
             <Link 
               to="/contact"
               className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold inline-flex items-center justify-center"
@@ -346,6 +350,13 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* Calendly Modal */}
+      <CalendlyModal 
+        isOpen={isCalendlyOpen} 
+        onClose={closeCalendly}
+        url="https://calendly.com/saidtouma-bizvisor/consultation?month=2025-06"
+      />
     </div>
   );
 };

@@ -129,11 +129,10 @@ const ProServices = () => {
               >
                 Get PRO Services
               </Link>
-              <a 
-                href="#visa-types-section"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-alert-success transition-all duration-200 font-semibold inline-flex items-center justify-center"
-              >
+              <a href="#visa-types-section">
+                <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-alert-success transition-all duration-200 font-semibold">
                 Check Requirements
+                </button>
               </a>
             </div>
           </div>
@@ -324,11 +323,10 @@ const ProServices = () => {
             >
               Get PRO Services
             </Link>
-            <a 
-              href="tel:+971412344567"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold inline-flex items-center justify-center"
-            >
+            <a href="tel:+971412344567">
+              <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold">
               Call +971 4 123 4567
+              </button>
             </a>
           </div>
         </div>

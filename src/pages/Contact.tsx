@@ -472,11 +472,10 @@ const Contact = () => {
             >
               Schedule Free Consultation
             </button>
-            <a 
-              href="tel:+971564960040"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold inline-flex items-center justify-center"
-            >
+            <a href="tel:+971564960040">
+              <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold">
               Call +971 56 496 0040
+              </button>
             </a>
           </div>
         </div>
