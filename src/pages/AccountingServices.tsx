@@ -1,7 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Calculator, CheckCircle, ArrowRight, FileText, BarChart3, TrendingUp, Shield } from 'lucide-react';
+import CalendlyModal from '../components/CalendlyModal';
+import { useCalendly } from '../hooks/useCalendly';
 
 const AccountingServices = () => {
+  const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
+
   const services = [
     {
       title: 'Bookkeeping Services',
@@ -126,10 +131,16 @@ const AccountingServices = () => {
               Comprehensive accounting services to keep your business compliant and financially healthy. From bookkeeping to tax filing, we handle all your accounting needs professionally.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold">
+              <Link 
+                to="/contact"
+                className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold inline-flex items-center justify-center"
+              >
                 Get Accounting Services
-              </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold">
+              </Link>
+              <button 
+                onClick={openCalendly}
+                className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold"
+              >
                 Free Consultation
               </button>
             </div>
@@ -202,9 +213,12 @@ const AccountingServices = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full bg-primary-navy text-white py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold">
+                <Link 
+                  to="/contact"
+                  className="w-full bg-primary-navy text-white py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold inline-flex items-center justify-center"
+                >
                   Get Quote
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -318,9 +332,12 @@ const AccountingServices = () => {
                   <span className="text-grey-700">Email Support</span>
                 </li>
               </ul>
-              <button className="w-full bg-primary-navy text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+              <Link 
+                to="/contact"
+                className="w-full bg-primary-navy text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold inline-flex items-center justify-center"
+              >
                 Get Started
-              </button>
+              </Link>
             </div>
 
             <div className="bg-primary-red rounded-xl p-8 text-center text-white relative">
@@ -352,9 +369,12 @@ const AccountingServices = () => {
                   <span>Phone & Email Support</span>
                 </li>
               </ul>
-              <button className="w-full bg-white text-primary-red py-3 rounded-lg hover:bg-grey-100 transition-colors font-semibold">
+              <Link 
+                to="/contact"
+                className="w-full bg-white text-primary-red py-3 rounded-lg hover:bg-grey-100 transition-colors font-semibold inline-flex items-center justify-center"
+              >
                 Get Started
-              </button>
+              </Link>
             </div>
 
             <div className="bg-grey-50 rounded-xl p-8 text-center">
@@ -383,9 +403,12 @@ const AccountingServices = () => {
                   <span className="text-grey-700">Dedicated Manager</span>
                 </li>
               </ul>
-              <button className="w-full bg-primary-navy text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+              <Link 
+                to="/contact"
+                className="w-full bg-primary-navy text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold inline-flex items-center justify-center"
+              >
                 Get Started
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -401,15 +424,28 @@ const AccountingServices = () => {
             Let our expert accountants handle your books while you focus on growing your business. Get started today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold">
+            <button 
+              onClick={openCalendly}
+              className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold"
+            >
               Get Free Consultation
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold">
+            <Link 
+              to="/"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold inline-flex items-center justify-center"
+            >
               View All Services
-            </button>
+            </Link>
           </div>
         </div>
       </section>
+
+      {/* Calendly Modal */}
+      <CalendlyModal 
+        isOpen={isCalendlyOpen} 
+        onClose={closeCalendly}
+        url="https://calendly.com/saidtouma-bizvisor/consultation?month=2025-06"
+      />
     </div>
   );
 };

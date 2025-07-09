@@ -1,7 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Globe, CheckCircle, ArrowRight, MapPin, DollarSign, Shield, Zap } from 'lucide-react';
+import CalendlyModal from '../components/CalendlyModal';
+import { useCalendly } from '../hooks/useCalendly';
 
 const FreeZoneSetup = () => {
+  const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
+
   const freeZones = [
     {
       name: 'Sharjah Free Zone',
@@ -103,10 +108,16 @@ const FreeZoneSetup = () => {
               Choose from multiple UAE free zones offering 100% foreign ownership, tax benefits, and streamlined business setup processes. Find the perfect location for your business success.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold">
+              <a 
+                href="#comparison-table"
+                className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold inline-flex items-center justify-center"
+              >
                 Compare Free Zones
-              </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold">
+              </a>
+              <button 
+                onClick={openCalendly}
+                className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold"
+              >
                 Get Free Consultation
               </button>
             </div>
@@ -186,9 +197,12 @@ const FreeZoneSetup = () => {
                   ))}
                 </div>
                 
-                <button className="w-full bg-primary-red text-white py-3 rounded-lg hover:bg-red-700 transition-colors duration-200 font-semibold">
+                <Link 
+                  to="/contact"
+                  className="w-full bg-primary-red text-white py-3 rounded-lg hover:bg-red-700 transition-colors duration-200 font-semibold inline-flex items-center justify-center"
+                >
                   Get Quote
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -226,7 +240,7 @@ const FreeZoneSetup = () => {
       </section>
 
       {/* Comparison Section */}
-      <section className="py-20 bg-grey-50">
+      <section id="comparison-table" className="py-20 bg-grey-50">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
@@ -267,9 +281,12 @@ const FreeZoneSetup = () => {
                         </div>
                       </td>
                       <td className="px-6 py-4">
-                        <button className="text-primary-red font-medium hover:text-primary-navy transition-colors">
+                        <Link 
+                          to="/contact"
+                          className="text-primary-red font-medium hover:text-primary-navy transition-colors"
+                        >
                           Learn More →
-                        </button>
+                        </Link>
                       </td>
                     </tr>
                   ))}
@@ -290,15 +307,28 @@ const FreeZoneSetup = () => {
             Get expert guidance to choose the right free zone and complete your business setup quickly and efficiently.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold">
+            <Link 
+              to="/contact"
+              className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold inline-flex items-center justify-center"
+            >
               Start Your Application
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold">
+            </Link>
+            <a 
+              href="#comparison-table"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold inline-flex items-center justify-center"
+            >
               Compare All Zones
-            </button>
+            </a>
           </div>
         </div>
       </section>
+
+      {/* Calendly Modal */}
+      <CalendlyModal 
+        isOpen={isCalendlyOpen} 
+        onClose={closeCalendly}
+        url="https://calendly.com/saidtouma-bizvisor/consultation?month=2025-06"
+      />
     </div>
   );
 };

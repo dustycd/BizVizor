@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FileText, CheckCircle, ArrowRight, Users, Home, UserCheck, Clock } from 'lucide-react';
 
 const ProServices = () => {
@@ -122,12 +123,18 @@ const ProServices = () => {
               Complete PRO services for visa processing, government relations, and business compliance. Let our experienced professionals handle all your government-related requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-alert-success px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold">
+              <Link 
+                to="/contact"
+                className="bg-white text-alert-success px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold inline-flex items-center justify-center"
+              >
                 Get PRO Services
-              </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-alert-success transition-all duration-200 font-semibold">
+              </Link>
+              <a 
+                href="#visa-types-section"
+                className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-alert-success transition-all duration-200 font-semibold inline-flex items-center justify-center"
+              >
                 Check Requirements
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -204,9 +211,12 @@ const ProServices = () => {
                   ))}
                 </div>
 
-                <button className="w-full bg-alert-success text-white py-3 rounded-lg hover:bg-green-600 transition-colors duration-200 font-semibold">
+                <Link 
+                  to="/contact"
+                  className="w-full bg-alert-success text-white py-3 rounded-lg hover:bg-green-600 transition-colors duration-200 font-semibold inline-flex items-center justify-center"
+                >
                   Get Quote
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -214,7 +224,7 @@ const ProServices = () => {
       </section>
 
       {/* Visa Types Section */}
-      <section className="py-20 bg-white">
+      <section id="visa-types-section" className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
@@ -255,10 +265,13 @@ const ProServices = () => {
                   </div>
                 </div>
                 
-                <button className="text-alert-success font-medium flex items-center group hover:text-green-600 transition-colors">
+                <Link 
+                  to="/contact"
+                  className="text-alert-success font-medium flex items-center group hover:text-green-600 transition-colors"
+                >
                   Apply Now
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -305,12 +318,18 @@ const ProServices = () => {
             Let our experienced PRO team handle all your government relations and visa processing needs efficiently.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-alert-success text-white px-8 py-4 rounded-lg hover:bg-green-600 transition-all duration-200 font-semibold">
+            <Link 
+              to="/contact"
+              className="bg-alert-success text-white px-8 py-4 rounded-lg hover:bg-green-600 transition-all duration-200 font-semibold inline-flex items-center justify-center"
+            >
               Get PRO Services
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold">
+            </Link>
+            <a 
+              href="tel:+971412344567"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold inline-flex items-center justify-center"
+            >
               Call +971 4 123 4567
-            </button>
+            </a>
           </div>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, Clock, DollarSign, Users, Award, TrendingUp, Heart, Coffee } from 'lucide-react';
 
 const Careers = () => {
@@ -150,8 +151,12 @@ const Careers = () => {
               Build your career with UAE's leading business formation specialists. We're looking for passionate professionals who want to help entrepreneurs achieve their dreams.
             </p>
             <button className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold">
+            <a 
+              href="#open-positions"
+              className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold inline-flex items-center justify-center"
+            >
               View Open Positions
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -214,7 +219,7 @@ const Careers = () => {
       </section>
 
       {/* Open Positions */}
-      <section className="py-20 bg-white">
+      <section id="open-positions" className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
@@ -276,12 +281,18 @@ const Careers = () => {
                   </div>
                   
                   <div className="flex flex-col justify-center">
-                    <button className="bg-primary-red text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors duration-200 font-semibold mb-3">
+                    <Link 
+                      to="/contact"
+                      className="bg-primary-red text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors duration-200 font-semibold mb-3 inline-flex items-center justify-center"
+                    >
                       Apply Now
-                    </button>
-                    <button className="border-2 border-primary-navy text-primary-navy px-6 py-3 rounded-lg hover:bg-primary-navy hover:text-white transition-colors duration-200 font-semibold">
+                    </Link>
+                    <Link 
+                      to="/careers"
+                      className="border-2 border-primary-navy text-primary-navy px-6 py-3 rounded-lg hover:bg-primary-navy hover:text-white transition-colors duration-200 font-semibold inline-flex items-center justify-center"
+                    >
                       Learn More
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -351,12 +362,18 @@ const Careers = () => {
             Join our team of professionals and help shape the future of business formation in the UAE.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold">
+            <a 
+              href="#open-positions"
+              className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold inline-flex items-center justify-center"
+            >
               Browse All Positions
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold">
+            </a>
+            <Link 
+              to="/contact"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold inline-flex items-center justify-center"
+            >
               Contact HR Team
-            </button>
+            </Link>
           </div>
         </div>
       </section>
