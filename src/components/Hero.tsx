@@ -10,47 +10,48 @@ const Hero = () => {
 
   return (
     <>
-      <section className="pt-28 pb-12 bg-gradient-to-br from-grey-50 to-white relative overflow-hidden">
+      <section className="pt-28 pb-12 relative overflow-hidden min-h-screen flex items-center">
         {/* Video Background */}
-        <div className="absolute inset-0 w-full h-full -z-10 overflow-hidden">
+        <div className="absolute inset-0 w-full h-full -z-10">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover scale-110"
+            className="w-full h-full object-cover"
             style={{ 
               minWidth: '100%', 
-              minHeight: '100%',
-              transform: 'scale(1.1)',
-              transformOrigin: 'center center'
+              minHeight: '100%'
             }}
             onError={(e) => {
               console.log('Video failed to load:', e);
-              // Hide video container on error
+              // Hide video container on error and show fallback
               const videoContainer = e.currentTarget.parentElement;
               if (videoContainer) {
-                videoContainer.style.display = 'none';
+                videoContainer.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-primary-navy to-blue-700"></div>';
               }
             }}
           >
             <source src="https://ik.imagekit.io/dust/dubai.mp4?updatedAt=1752077048587" type="video/mp4" />
             {/* Fallback for browsers that don't support video */}
-            <div className="w-full h-full bg-gradient-to-br from-primary-navy/20 to-blue-700/20"></div>
+            <div className="w-full h-full bg-gradient-to-br from-primary-navy to-blue-700"></div>
           </video>
         </div>
         
-        {/* Video Overlay */}
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40 -z-5"></div>
         
-        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
-            <div className="animate-slide-up relative z-10">
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-heading-dark mb-6 leading-tight">
-                Start Your Business in 
-                <span className="text-primary-red drop-shadow-lg"> UAE</span> Today
+            <div className="animate-slide-up">
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
+                <span className="text-white drop-shadow-lg">Start Your Business in</span>
+                <br />
+                <span className="text-primary-red drop-shadow-lg bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm inline-block mt-2">UAE</span>
+                <span className="text-white drop-shadow-lg"> Today</span>
               </h1>
-              <p className="text-lg lg:text-xl text-white mb-8 leading-relaxed drop-shadow-md">
+              <p className="text-lg lg:text-xl text-white mb-8 leading-relaxed drop-shadow-md bg-black/20 p-4 rounded-lg backdrop-blur-sm">
                 Complete business setup solutions across UAE mainland, free zones, and offshore jurisdictions. Get 100% ownership, expert guidance, and seamless registration process.
               </p>
               
@@ -62,8 +63,8 @@ const Hero = () => {
                   'Expert PRO Services',
                   'Complete Compliance'
                 ].map((benefit, index) => (
-                  <div key={index} className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
+                  <div key={index} className="flex items-center bg-white/10 p-3 rounded-lg backdrop-blur-sm">
+                    <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0 drop-shadow-sm" />
                     <span className="text-white font-medium drop-shadow-sm">{benefit}</span>
                   </div>
                 ))}
@@ -73,14 +74,14 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <button 
                   onClick={openCalendly}
-                  className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold flex items-center justify-center group hover:shadow-xl transform hover:-translate-y-0.5 shadow-lg"
+                  className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold flex items-center justify-center group hover:shadow-2xl transform hover:-translate-y-1 shadow-xl backdrop-blur-sm"
                 >
                   Start Free Consultation
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button 
                   onClick={openCalendly}
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold flex items-center justify-center shadow-lg backdrop-blur-sm"
+                  className="border-2 border-white bg-white/10 text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold flex items-center justify-center shadow-xl backdrop-blur-sm"
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   Get Expert Advice
@@ -88,8 +89,8 @@ const Hero = () => {
               </div>
 
               {/* Cost Calculator CTA */}
-              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 mb-8 border border-white/30 shadow-lg">
-                <div className="flex items-center justify-between">
+              <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 mb-8 border border-white/30 shadow-xl">
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                   <div>
                     <h3 className="text-lg font-semibold text-heading-dark mb-2">
                       Calculate Your Setup Cost
@@ -100,7 +101,7 @@ const Hero = () => {
                   </div>
                   <Link
                     to="/cost-calculator"
-                    className="bg-primary-navy text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-200 font-semibold flex items-center group hover:shadow-xl transform hover:-translate-y-0.5 shadow-md"
+                    className="bg-primary-navy text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-200 font-semibold flex items-center group hover:shadow-xl transform hover:-translate-y-0.5 shadow-md whitespace-nowrap"
                   >
                     <Calculator className="w-5 h-5 mr-2" />
                     Calculate Now
@@ -111,15 +112,15 @@ const Hero = () => {
 
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6">
-                <div className="text-center">
+                <div className="text-center bg-white/10 p-4 rounded-lg backdrop-blur-sm">
                   <div className="text-3xl font-bold text-white mb-1 drop-shadow-lg">2000+</div>
                   <div className="text-sm text-white/90 drop-shadow-sm">Companies Formed</div>
                 </div>
-                <div className="text-center">
+                <div className="text-center bg-white/10 p-4 rounded-lg backdrop-blur-sm">
                   <div className="text-3xl font-bold text-white mb-1 drop-shadow-lg">7</div>
                   <div className="text-sm text-white/90 drop-shadow-sm">Days Average Setup</div>
                 </div>
-                <div className="text-center">
+                <div className="text-center bg-white/10 p-4 rounded-lg backdrop-blur-sm">
                   <div className="text-3xl font-bold text-white mb-1 drop-shadow-lg">15+</div>
                   <div className="text-sm text-white/90 drop-shadow-sm">Years Experience</div>
                 </div>
@@ -127,7 +128,7 @@ const Hero = () => {
             </div>
 
             {/* Visual */}
-            <div className="relative animate-fade-in z-10">
+            <div className="relative animate-fade-in">
               <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 border border-white/30">
                 <div className="text-center mb-6">
                   <h3 className="text-xl font-bold text-heading-dark mb-2">Popular Business Setup Options</h3>
@@ -137,7 +138,7 @@ const Hero = () => {
                 <div className="space-y-4">
                   <Link 
                     to="/mainland-formation"
-                    className="bg-primary-red/10 rounded-xl p-4 hover:bg-primary-red/20 transition-colors cursor-pointer block"
+                    className="bg-primary-red/10 rounded-xl p-4 hover:bg-primary-red/20 transition-all duration-200 cursor-pointer block group hover:shadow-md transform hover:-translate-y-0.5"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
@@ -149,13 +150,13 @@ const Hero = () => {
                           <p className="text-sm text-grey-600">100% ownership, local market access</p>
                         </div>
                       </div>
-                      <ArrowRight className="w-4 h-4 text-primary-red" />
+                      <ArrowRight className="w-4 h-4 text-primary-red group-hover:translate-x-1 transition-transform" />
                     </div>
                   </Link>
                   
                   <Link 
                     to="/freezone-setup"
-                    className="bg-primary-navy/10 rounded-xl p-4 hover:bg-primary-navy/20 transition-colors cursor-pointer block"
+                    className="bg-primary-navy/10 rounded-xl p-4 hover:bg-primary-navy/20 transition-all duration-200 cursor-pointer block group hover:shadow-md transform hover:-translate-y-0.5"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
@@ -167,13 +168,13 @@ const Hero = () => {
                           <p className="text-sm text-grey-600">Tax benefits, 100% repatriation</p>
                         </div>
                       </div>
-                      <ArrowRight className="w-4 h-4 text-primary-navy" />
+                      <ArrowRight className="w-4 h-4 text-primary-navy group-hover:translate-x-1 transition-transform" />
                     </div>
                   </Link>
                   
                   <Link 
                     to="/offshore-formation"
-                    className="bg-alert-success/10 rounded-xl p-4 hover:bg-alert-success/20 transition-colors cursor-pointer block"
+                    className="bg-alert-success/10 rounded-xl p-4 hover:bg-alert-success/20 transition-all duration-200 cursor-pointer block group hover:shadow-md transform hover:-translate-y-0.5"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
@@ -185,7 +186,7 @@ const Hero = () => {
                           <p className="text-sm text-grey-600">Asset protection, privacy</p>
                         </div>
                       </div>
-                      <ArrowRight className="w-4 h-4 text-alert-success" />
+                      <ArrowRight className="w-4 h-4 text-alert-success group-hover:translate-x-1 transition-transform" />
                     </div>
                   </Link>
                 </div>
@@ -194,7 +195,7 @@ const Hero = () => {
                 <div className="mt-6 pt-6 border-t border-grey-200">
                   <Link
                     to="/cost-calculator"
-                    className="w-full bg-gradient-to-r from-primary-navy to-blue-700 text-white py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 font-semibold flex items-center justify-center group shadow-lg"
+                    className="w-full bg-gradient-to-r from-primary-navy to-blue-700 text-white py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 font-semibold flex items-center justify-center group shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                   >
                     <Calculator className="w-5 h-5 mr-2" />
                     Calculate Setup Cost
