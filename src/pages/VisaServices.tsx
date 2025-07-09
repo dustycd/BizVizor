@@ -1,7 +1,12 @@
 import React from 'react';
 import { Users, CheckCircle, ArrowRight, Import as Passport, Clock, Shield, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import CalendlyModal from '../components/CalendlyModal';
+import { useCalendly } from '../hooks/useCalendly';
 
 const VisaServices = () => {
+  const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
+
   const visaTypes = [
     {
       title: 'Employment Visa',
@@ -138,12 +143,12 @@ const VisaServices = () => {
               Professional visa processing services for all types of UAE visas. From employment to family visas, we handle the entire process with expert guidance and fast processing times.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-alert-success px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold">
+              <Link to="/contact" className="bg-white text-alert-success px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold text-center">
                 Apply for Visa
-              </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-alert-success transition-all duration-200 font-semibold">
+              </Link>
+              <Link to="/contact" className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-alert-success transition-all duration-200 font-semibold text-center">
                 Check Requirements
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -246,9 +251,9 @@ const VisaServices = () => {
                   </div>
                 </div>
                 
-                <button className="w-full bg-alert-success text-white py-3 rounded-lg hover:bg-green-600 transition-colors duration-200 font-semibold">
+                <Link to="/contact" className="w-full bg-alert-success text-white py-3 rounded-lg hover:bg-green-600 transition-colors duration-200 font-semibold text-center block">
                   Apply Now
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -407,15 +412,25 @@ const VisaServices = () => {
             Get expert assistance with your UAE visa application. Our team ensures fast processing and high success rates.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-alert-success text-white px-8 py-4 rounded-lg hover:bg-green-600 transition-all duration-200 font-semibold">
+            <Link to="/contact" className="bg-alert-success text-white px-8 py-4 rounded-lg hover:bg-green-600 transition-all duration-200 font-semibold text-center">
               Start Visa Application
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold">
+            </Link>
+            <button 
+              onClick={openCalendly}
+              className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold"
+            >
               Free Consultation
             </button>
           </div>
         </div>
       </section>
+
+      {/* Calendly Modal */}
+      <CalendlyModal 
+        isOpen={isCalendlyOpen} 
+        onClose={closeCalendly}
+        url="https://calendly.com/saidtouma-bizvisor/consultation?month=2025-06"
+      />
     </div>
   );
 };

@@ -105,7 +105,7 @@ const Hero = () => {
                 
                 <div className="space-y-4">
                   <div className="bg-primary-red/10 rounded-xl p-4 hover:bg-primary-red/20 transition-colors cursor-pointer">
-                    <div className="flex items-center justify-between">
+                    <Link to="/mainland-formation" className="flex items-center justify-between">
                       <div className="flex items-center">
                         <div className="w-10 h-10 bg-primary-red rounded-lg flex items-center justify-center mr-3">
                           <Building2 className="w-5 h-5 text-white" />
@@ -116,11 +116,11 @@ const Hero = () => {
                         </div>
                       </div>
                       <ArrowRight className="w-4 h-4 text-primary-red" />
-                    </div>
+                    </Link>
                   </div>
                   
                   <div className="bg-primary-navy/10 rounded-xl p-4 hover:bg-primary-navy/20 transition-colors cursor-pointer">
-                    <div className="flex items-center justify-between">
+                    <Link to="/freezone-setup" className="flex items-center justify-between">
                       <div className="flex items-center">
                         <div className="w-10 h-10 bg-primary-navy rounded-lg flex items-center justify-center mr-3">
                           <Target className="w-5 h-5 text-white" />
@@ -131,11 +131,11 @@ const Hero = () => {
                         </div>
                       </div>
                       <ArrowRight className="w-4 h-4 text-primary-navy" />
-                    </div>
+                    </Link>
                   </div>
                   
                   <div className="bg-alert-success/10 rounded-xl p-4 hover:bg-alert-success/20 transition-colors cursor-pointer">
-                    <div className="flex items-center justify-between">
+                    <Link to="/offshore-formation" className="flex items-center justify-between">
                       <div className="flex items-center">
                         <div className="w-10 h-10 bg-alert-success rounded-lg flex items-center justify-center mr-3">
                           <Users className="w-5 h-5 text-white" />
@@ -146,7 +146,7 @@ const Hero = () => {
                         </div>
                       </div>
                       <ArrowRight className="w-4 h-4 text-alert-success" />
-                    </div>
+                    </Link>
                   </div>
                 </div>
 

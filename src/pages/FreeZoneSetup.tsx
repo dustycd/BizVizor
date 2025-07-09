@@ -1,7 +1,12 @@
 import React from 'react';
 import { Globe, CheckCircle, ArrowRight, MapPin, DollarSign, Shield, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import CalendlyModal from '../components/CalendlyModal';
+import { useCalendly } from '../hooks/useCalendly';
 
 const FreeZoneSetup = () => {
+  const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
+
   const freeZones = [
     {
       name: 'Sharjah Free Zone',
@@ -103,10 +108,13 @@ const FreeZoneSetup = () => {
               Choose from multiple UAE free zones offering 100% foreign ownership, tax benefits, and streamlined business setup processes. Find the perfect location for your business success.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold">
+              <Link to="/contact" className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold text-center">
                 Compare Free Zones
-              </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold">
+              </Link>
+              <button 
+                onClick={openCalendly}
+                className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold"
+              >
                 Get Free Consultation
               </button>
             </div>
@@ -186,9 +194,9 @@ const FreeZoneSetup = () => {
                   ))}
                 </div>
                 
-                <button className="w-full bg-primary-red text-white py-3 rounded-lg hover:bg-red-700 transition-colors duration-200 font-semibold">
+                <Link to="/contact" className="w-full bg-primary-red text-white py-3 rounded-lg hover:bg-red-700 transition-colors duration-200 font-semibold text-center block">
                   Get Quote
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -267,9 +275,9 @@ const FreeZoneSetup = () => {
                         </div>
                       </td>
                       <td className="px-6 py-4">
-                        <button className="text-primary-red font-medium hover:text-primary-navy transition-colors">
+                        <Link to="/contact" className="text-primary-red font-medium hover:text-primary-navy transition-colors">
                           Learn More →
-                        </button>
+                        </Link>
                       </td>
                     </tr>
                   ))}
@@ -290,15 +298,22 @@ const FreeZoneSetup = () => {
             Get expert guidance to choose the right free zone and complete your business setup quickly and efficiently.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold">
+            <Link to="/contact" className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold text-center">
               Start Your Application
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold">
+            </Link>
+            <Link to="/contact" className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold text-center">
               Compare All Zones
-            </button>
+            </Link>
           </div>
         </div>
       </section>
+
+      {/* Calendly Modal */}
+      <CalendlyModal 
+        isOpen={isCalendlyOpen} 
+        onClose={closeCalendly}
+        url="https://calendly.com/saidtouma-bizvisor/consultation?month=2025-06"
+      />
     </div>
   );
 };

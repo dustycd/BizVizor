@@ -1,7 +1,12 @@
 import React from 'react';
 import { Shield, CheckCircle, ArrowRight, Globe, Lock, DollarSign, Zap, Users, TrendingUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import CalendlyModal from '../components/CalendlyModal';
+import { useCalendly } from '../hooks/useCalendly';
 
 const OffshoreFormation = () => {
+  const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
+
   const offshoreJurisdictions = [
     {
       name: 'Ajman Offshore',
@@ -144,12 +149,12 @@ const OffshoreFormation = () => {
               Create offshore companies for asset protection, tax optimization, and international business operations. Choose from established UAE offshore jurisdictions with proven track records.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold">
+              <Link to="/contact" className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold text-center">
                 Start Formation
-              </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-grey-700 transition-all duration-200 font-semibold">
+              </Link>
+              <Link to="/contact" className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-grey-700 transition-all duration-200 font-semibold text-center">
                 Compare Jurisdictions
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -232,9 +237,9 @@ const OffshoreFormation = () => {
                   ))}
                 </div>
                 
-                <button className="w-full bg-grey-700 text-white py-3 rounded-lg hover:bg-grey-800 transition-colors duration-200 font-semibold">
+                <Link to="/contact" className="w-full bg-grey-700 text-white py-3 rounded-lg hover:bg-grey-800 transition-colors duration-200 font-semibold text-center block">
                   Get Started
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -341,15 +346,25 @@ const OffshoreFormation = () => {
             Get expert guidance on offshore company formation and choose the right jurisdiction for your business needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold">
+            <Link to="/contact" className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold text-center">
               Start Formation
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-grey-700 transition-all duration-200 font-semibold">
+            </Link>
+            <button 
+              onClick={openCalendly}
+              className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-grey-700 transition-all duration-200 font-semibold"
+            >
               Schedule Consultation
             </button>
           </div>
         </div>
       </section>
+
+      {/* Calendly Modal */}
+      <CalendlyModal 
+        isOpen={isCalendlyOpen} 
+        onClose={closeCalendly}
+        url="https://calendly.com/saidtouma-bizvisor/consultation?month=2025-06"
+      />
     </div>
   );
 };

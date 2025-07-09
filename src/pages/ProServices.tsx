@@ -1,5 +1,6 @@
 import React from 'react';
 import { FileText, CheckCircle, ArrowRight, Users, Home, UserCheck, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ProServices = () => {
   const services = [
@@ -122,12 +123,12 @@ const ProServices = () => {
               Complete PRO services for visa processing, government relations, and business compliance. Let our experienced professionals handle all your government-related requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-alert-success px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold">
+              <Link to="/contact" className="bg-white text-alert-success px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold text-center">
                 Get PRO Services
-              </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-alert-success transition-all duration-200 font-semibold">
+              </Link>
+              <Link to="/contact" className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-alert-success transition-all duration-200 font-semibold text-center">
                 Check Requirements
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -204,9 +205,9 @@ const ProServices = () => {
                   ))}
                 </div>
 
-                <button className="w-full bg-alert-success text-white py-3 rounded-lg hover:bg-green-600 transition-colors duration-200 font-semibold">
+                <Link to="/contact" className="w-full bg-alert-success text-white py-3 rounded-lg hover:bg-green-600 transition-colors duration-200 font-semibold text-center block">
                   Get Quote
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -255,10 +256,10 @@ const ProServices = () => {
                   </div>
                 </div>
                 
-                <button className="text-alert-success font-medium flex items-center group hover:text-green-600 transition-colors">
+                <Link to="/contact" className="text-alert-success font-medium flex items-center group hover:text-green-600 transition-colors">
                   Apply Now
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -305,12 +306,15 @@ const ProServices = () => {
             Let our experienced PRO team handle all your government relations and visa processing needs efficiently.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-alert-success text-white px-8 py-4 rounded-lg hover:bg-green-600 transition-all duration-200 font-semibold">
+            <Link to="/contact" className="bg-alert-success text-white px-8 py-4 rounded-lg hover:bg-green-600 transition-all duration-200 font-semibold text-center">
               Get PRO Services
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold">
+            </Link>
+            <a 
+              href="tel:+971564960040"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold text-center"
+            >
               Call +971 4 123 4567
-            </button>
+            </a>
           </div>
         </div>
       </section>
