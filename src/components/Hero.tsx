@@ -63,4 +63,20 @@ const Hero = () => {
               to="/cost-calculator"
               className="group bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-full text-sm sm:text-base lg:text-lg font-semibold hover:bg-white hover:text-primary-navy transition-all duration-300 flex items-center shadow-xl hover:shadow-2xl transform hover:-translate-y-1 w-full sm:w-auto justify-center"
             >
-              <Calculator cl
+              <Calculator className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 mr-2 sm:mr-3 group-hover:scale-110 transition-transform" />
+              Cost Calculator
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 ml-2 sm:ml-3 group-hover:translate-x-2 transition-transform" />
+            </Link>
+          </div>
+          
+          {/* WhatsApp Button */}
+          <WhatsAppButton />
+        </div>
+      </section>
+      
+      <CalendlyModal isOpen={isCalendlyOpen} onClose={closeCalendly} />
+    </>
+  );
+};
+
+export default Hero;
