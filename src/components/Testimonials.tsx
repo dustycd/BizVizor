@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star, Quote } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Testimonials = () => {
   const testimonials = [
@@ -122,6 +123,29 @@ const Testimonials = () => {
           </div>
         </div>
       </div>
+        {/* CTA Section */}
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-bold text-heading-dark mb-4">
+            Ready to Join Our Success Stories?
+          </h3>
+          <p className="text-grey-600 mb-8 max-w-2xl mx-auto">
+            Start your UAE business journey today and become our next success story.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              to="/cost-calculator"
+              className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold inline-flex items-center justify-center"
+            >
+              Calculate Setup Cost
+            </Link>
+            <Link 
+              to="/contact"
+              className="border-2 border-primary-red text-primary-red px-8 py-4 rounded-lg hover:bg-primary-red hover:text-white transition-all duration-200 font-semibold inline-flex items-center justify-center"
+            >
+              Get Free Consultation
+            </Link>
+          </div>
+        </div>
     </section>
   );
 };

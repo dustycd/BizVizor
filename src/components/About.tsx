@@ -330,12 +330,18 @@ const About = () => {
             To empower entrepreneurs and businesses by providing comprehensive, efficient, and transparent business formation services in the UAE. We are committed to turning business dreams into reality through expert guidance, innovative solutions, and unwavering support.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold">
+            <Link 
+              to="/contact"
+              className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold inline-flex items-center justify-center"
+            >
               Start Your Business Journey
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold">
+            </Link>
+            <Link 
+              to="/contact"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold inline-flex items-center justify-center"
+            >
               Contact Our Team
-            </button>
+            </Link>
           </div>
         </div>
       </section>

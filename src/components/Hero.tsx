@@ -104,7 +104,10 @@ const Hero = () => {
                 </div>
                 
                 <div className="space-y-4">
-                  <div className="bg-primary-red/10 rounded-xl p-4 hover:bg-primary-red/20 transition-colors cursor-pointer">
+                  <Link 
+                    to="/mainland-formation"
+                    className="bg-primary-red/10 rounded-xl p-4 hover:bg-primary-red/20 transition-colors cursor-pointer block"
+                  >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
                         <div className="w-10 h-10 bg-primary-red rounded-lg flex items-center justify-center mr-3">
@@ -117,9 +120,12 @@ const Hero = () => {
                       </div>
                       <ArrowRight className="w-4 h-4 text-primary-red" />
                     </div>
-                  </div>
+                  </Link>
                   
-                  <div className="bg-primary-navy/10 rounded-xl p-4 hover:bg-primary-navy/20 transition-colors cursor-pointer">
+                  <Link 
+                    to="/freezone-setup"
+                    className="bg-primary-navy/10 rounded-xl p-4 hover:bg-primary-navy/20 transition-colors cursor-pointer block"
+                  >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
                         <div className="w-10 h-10 bg-primary-navy rounded-lg flex items-center justify-center mr-3">
@@ -132,9 +138,12 @@ const Hero = () => {
                       </div>
                       <ArrowRight className="w-4 h-4 text-primary-navy" />
                     </div>
-                  </div>
+                  </Link>
                   
-                  <div className="bg-alert-success/10 rounded-xl p-4 hover:bg-alert-success/20 transition-colors cursor-pointer">
+                  <Link 
+                    to="/offshore-formation"
+                    className="bg-alert-success/10 rounded-xl p-4 hover:bg-alert-success/20 transition-colors cursor-pointer block"
+                  >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
                         <div className="w-10 h-10 bg-alert-success rounded-lg flex items-center justify-center mr-3">
@@ -147,7 +156,7 @@ const Hero = () => {
                       </div>
                       <ArrowRight className="w-4 h-4 text-alert-success" />
                     </div>
-                  </div>
+                  </Link>
                 </div>
 
                 {/* Calculator CTA in Visual */}

@@ -71,11 +71,13 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="mb-6">
-              <img 
-                src="/logoo.png" 
-                alt="Bizvisor" 
-                className="h-12 w-auto brightness-0 invert"
-              />
+              <Link to="/">
+                <img 
+                  src="/logoo.png" 
+                  alt="Bizvisor" 
+                  className="h-12 w-auto brightness-0 invert"
+                />
+              </Link>
             </div>
             <p className="text-grey-300 mb-6 leading-relaxed">
               Transforming businesses through expert advisory services. We partner with organizations to unlock their full potential and achieve sustainable growth.
@@ -85,11 +87,21 @@ const Footer = () => {
             <div className="space-y-3 mb-6">
               <div className="flex items-center">
                 <Mail className="w-4 h-4 text-primary-red mr-3" />
-                <span className="text-sm text-grey-300">hello@bizvisor.com</span>
+                <a 
+                  href="mailto:hello@bizvisor.com"
+                  className="text-sm text-grey-300 hover:text-primary-red transition-colors"
+                >
+                  hello@bizvisor.com
+                </a>
               </div>
               <div className="flex items-center">
                 <Phone className="w-4 h-4 text-primary-red mr-3" />
-                <span className="text-sm text-grey-300">+971 56 496 0040</span>
+                <a 
+                  href="tel:+971564960040"
+                  className="text-sm text-grey-300 hover:text-primary-red transition-colors"
+                >
+                  +971 56 496 0040
+                </a>
               </div>
               <div className="flex items-center">
                 <MapPin className="w-4 h-4 text-primary-red mr-3" />
@@ -150,7 +162,10 @@ const Footer = () => {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-2 bg-grey-800 border border-grey-600 rounded-lg text-white placeholder-grey-400 focus:ring-2 focus:ring-primary-red focus:border-transparent"
               />
-              <button className="bg-primary-red text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors duration-200 font-medium">
+              <button 
+                onClick={() => alert('Newsletter subscription coming soon!')}
+                className="bg-primary-red text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors duration-200 font-medium"
+              >
                 Subscribe
               </button>
             </div>
