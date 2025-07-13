@@ -7,17 +7,38 @@ import { useCalendly } from '../hooks/useCalendly';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
   const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      const currentScrollY = window.scrollY;
+      
+      // Set scrolled state for background styling
+      setIsScrolled(currentScrollY > 10);
+      
+      // Header visibility logic
+      if (currentScrollY < 10) {
+        // Always show header at the top
+        setIsHeaderVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and past 100px - hide header
+        setIsHeaderVisible(false);
+        setIsServicesOpen(false); // Close dropdown when hiding
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up - show header
+        setIsHeaderVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const navigation = [
     { name: 'About', href: '/about' },
@@ -60,7 +81,9 @@ const Header = () => {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      <header className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+        isHeaderVisible ? 'top-0' : '-top-20'
+      } ${
         isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
       }`}>
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
