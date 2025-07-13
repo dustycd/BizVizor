@@ -102,24 +102,15 @@ const Header = () => {
                                     <Link
                                       key={link.name}
                                       to={link.href}
-                    <div className="ml-4 space-y-3 border-l-2 border-grey-200 pl-4">
-                      {item.dropdownCategories?.map((category) => (
-                        <div key={category.categoryName}>
-                          <h4 className="text-xs font-semibold text-grey-500 uppercase tracking-wider mb-2">
-                            {category.categoryName}
-                          </h4>
-                          <div className="space-y-1">
-                            {category.links.map((link) => (
-                              <Link
-                                key={link.name}
-                                to={link.href}
-                                className="text-grey-500 hover:text-primary-red transition-colors duration-200 text-sm block py-1"
-                                onClick={() => setIsMenuOpen(false)}
-                              >
-                                {link.name}
-                              </Link>
-                            ))}
-                          </div>
+                                      className="text-grey-500 hover:text-primary-red transition-colors duration-200 text-sm block py-1"
+                                    >
+                                      {link.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                          ))}
                         </div>
                       )}
                     </div>
