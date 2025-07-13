@@ -115,7 +115,7 @@ const PrivacyPolicy = () => {
               At Bizvisor, accessible from https://www.bizvisor.ae/, one of our major priorities is visitors' privacy. This Policy document contains types of information collected and recorded by Bizvisor and how we use it.
             </p>
             <p className="text-lg opacity-80">
-              Last updated: December 2024
+              Last updated: July 2025
             </p>
           </div>
         </div>
