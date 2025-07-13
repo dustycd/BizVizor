@@ -181,7 +181,7 @@ const Services = () => {
               <h4 className="text-lg font-semibold text-heading-dark mb-2">Accounting Services</h4>
               <p className="text-grey-600 text-sm mb-4">Professional bookkeeping and financial management</p>
               <Link 
-                to="/accounting-services"
+                to="/accounting-bookkeeping-services-dubai-uae"
                 className="text-primary-navy font-medium hover:text-primary-red transition-colors"
               >
                 Learn More →
