@@ -25,18 +25,33 @@ const Header = () => {
       name: 'Services', 
       href: '/#services',
       hasDropdown: true,
-      dropdownItems: [
-        { name: 'Mainland Formation', href: '/mainland-formation' },
-        { name: 'Sharjah Free Zone', href: '/sharjah-freezone' },
-        { name: 'Ajman Free Zone', href: '/ajman-freezone' },
-        { name: 'RAK Free Zone', href: '/rak-freezone' },
-        { name: 'UAQ Free Zone', href: '/uaq-freezone' },
-        { name: 'Dubai Free Zone', href: '/dubai-freezone' },
-        { name: 'Fujairah Free Zone', href: '/fujairah-freezone' },
-        { name: 'PRO Services', href: '/pro-services' },
-        { name: 'Offshore Formation', href: '/offshore-formation' },
-        { name: 'Accounting Services', href: '/accounting-services' },
-        { name: 'Visa Services', href: '/visa-services' }
+      dropdownCategories: [
+        {
+          categoryName: 'Company Formation',
+          links: [
+            { name: 'Mainland Formation', href: '/mainland-formation' },
+            { name: 'Offshore Formation', href: '/offshore-formation' }
+          ]
+        },
+        {
+          categoryName: 'Free Zone Setup',
+          links: [
+            { name: 'Sharjah Free Zone', href: '/sharjah-freezone' },
+            { name: 'Ajman Free Zone', href: '/ajman-freezone' },
+            { name: 'RAK Free Zone', href: '/rak-freezone' },
+            { name: 'UAQ Free Zone', href: '/uaq-freezone' },
+            { name: 'Dubai Free Zone', href: '/dubai-freezone' },
+            { name: 'Fujairah Free Zone', href: '/fujairah-freezone' }
+          ]
+        },
+        {
+          categoryName: 'Business Support Services',
+          links: [
+            { name: 'PRO Services', href: '/pro-services' },
+            { name: 'Accounting Services', href: '/accounting-services' },
+            { name: 'Visa Services', href: '/visa-services' }
+          ]
+        }
       ]
     },
     { name: 'Blog', href: '/blog' },
@@ -75,16 +90,36 @@ const Header = () => {
                       </button>
                       
                       {isServicesOpen && (
-                        <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-grey-200 py-3 z-50 animate-fade-in">
-                          {item.dropdownItems?.map((dropdownItem) => (
-                            <Link
-                              key={dropdownItem.name}
-                              to={dropdownItem.href}
-                              className="block px-4 py-3 text-grey-600 hover:text-primary-red hover:bg-grey-50 transition-colors duration-200 text-sm font-medium"
-                            >
-                              {dropdownItem.name}
-                            </Link>
-                          ))}
+                        <div className="absolute top-full left-0 mt-1 w-72 bg-white rounded-xl shadow-xl border border-grey-200 py-4 z-50 animate-fade-in">
+                          {item.dropdownCategories?.map((category, categoryIndex) => (
+                            <div key={category.categoryName} className={categoryIndex > 0 ? 'border-t border-grey-100 pt-3 mt-3' : ''}>
+                              <div className="px-4 py-2">
+                                <h4 className="text-xs font-semibold text-grey-500 uppercase tracking-wider mb-2">
+                                  {category.categoryName}
+                                </h4>
+                                <div className="space-y-1">
+                                  {category.links.map((link) => (
+                                    <Link
+                                      key={link.name}
+                                      to={link.href}
+                    <div className="ml-4 space-y-3 border-l-2 border-grey-200 pl-4">
+                      {item.dropdownCategories?.map((category) => (
+                        <div key={category.categoryName}>
+                          <h4 className="text-xs font-semibold text-grey-500 uppercase tracking-wider mb-2">
+                            {category.categoryName}
+                          </h4>
+                          <div className="space-y-1">
+                            {category.links.map((link) => (
+                              <Link
+                                key={link.name}
+                                to={link.href}
+                                className="text-grey-500 hover:text-primary-red transition-colors duration-200 text-sm block py-1"
+                                onClick={() => setIsMenuOpen(false)}
+                              >
+                                {link.name}
+                              </Link>
+                            ))}
+                          </div>
                         </div>
                       )}
                     </div>
