@@ -44,16 +44,16 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/careers" element={<Careers />} />
-          <Route path="/mainland-formation" element={<MainlandFormation />} />
-          <Route path="/sharjah-freezone" element={<SharjahFreeZone />} />
-          <Route path="/ajman-freezone" element={<AjmanFreeZone />} />
-          <Route path="/rak-freezone" element={<RAKFreeZone />} />
-          <Route path="/uaq-freezone" element={<UAQFreeZone />} />
-          <Route path="/dubai-freezone" element={<DubaiFreeZone />} />
-          <Route path="/fujairah-freezone" element={<FujairahFreeZone />} />
-          <Route path="/pro-services" element={<ProServices />} />
-          <Route path="/offshore-formation" element={<OffshoreFormation />} />
-          <Route path="/accounting-services" element={<AccountingServices />} />
+          <Route path="/dubai-mainland-company-formation" element={<MainlandFormation />} />
+          <Route path="/sharjah-free-zone-business-set-up" element={<SharjahFreeZone />} />
+          <Route path="/ajman-free-zones-company-formation-uae" element={<AjmanFreeZone />} />
+          <Route path="/ras-al-khaimah-free-zone-business-setup" element={<RAKFreeZone />} />
+          <Route path="/umm-al-quwain-free-zones-company-formation-uae" element={<UAQFreeZone />} />
+          <Route path="/freezone-company-setup-in-dubai" element={<DubaiFreeZone />} />
+          <Route path="/business-setup-fujairah-free-zone-uae" element={<FujairahFreeZone />} />
+          <Route path="/pro-services-overview-dubai-uae" element={<ProServices />} />
+          <Route path="/offshore-company-formation-dubai-overview" element={<OffshoreFormation />} />
+          <Route path="/accounting-bookkeeping-services-dubai-uae" element={<AccountingServices />} />
           <Route path="/visa-services" element={<VisaServices />} />
           <Route path="/cost-calculator" element={<CostCalculator />} />
           <Route path="/contact" element={<Contact />} />

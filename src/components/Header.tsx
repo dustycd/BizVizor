@@ -29,26 +29,26 @@ const Header = () => {
         {
           categoryName: 'Company Formation',
           links: [
-            { name: 'Mainland Formation', href: '/mainland-formation' },
-            { name: 'Offshore Formation', href: '/offshore-formation' }
+            { name: 'Dubai Mainland Company Formation', href: '/dubai-mainland-company-formation' },
+            { name: 'Offshore Company Formation', href: '/offshore-company-formation-dubai-overview' }
           ]
         },
         {
           categoryName: 'Free Zone Setup',
           links: [
-            { name: 'Sharjah Free Zone', href: '/sharjah-freezone' },
-            { name: 'Ajman Free Zone', href: '/ajman-freezone' },
-            { name: 'RAK Free Zone', href: '/rak-freezone' },
-            { name: 'UAQ Free Zone', href: '/uaq-freezone' },
-            { name: 'Dubai Free Zone', href: '/dubai-freezone' },
-            { name: 'Fujairah Free Zone', href: '/fujairah-freezone' }
+            { name: 'Sharjah Free Zone', href: '/sharjah-free-zone-business-set-up' },
+            { name: 'Ajman Free Zone', href: '/ajman-free-zones-company-formation-uae' },
+            { name: 'RAK Free Zone', href: '/ras-al-khaimah-free-zone-business-setup' },
+            { name: 'UAQ Free Zone', href: '/umm-al-quwain-free-zones-company-formation-uae' },
+            { name: 'Dubai Free Zone', href: '/freezone-company-setup-in-dubai' },
+            { name: 'Fujairah Free Zone', href: '/business-setup-fujairah-free-zone-uae' }
           ]
         },
         {
           categoryName: 'Business Support Services',
           links: [
-            { name: 'PRO Services', href: '/pro-services' },
-            { name: 'Accounting Services', href: '/accounting-services' },
+            { name: 'PRO Services', href: '/pro-services-overview-dubai-uae' },
+            { name: 'Accounting Services', href: '/accounting-bookkeeping-services-dubai-uae' },
             { name: 'Visa Services', href: '/visa-services' }
           ]
         }
