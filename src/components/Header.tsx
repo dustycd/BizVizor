@@ -27,7 +27,12 @@ const Header = () => {
       hasDropdown: true,
       dropdownItems: [
         { name: 'Mainland Formation', href: '/mainland-formation' },
-        { name: 'Free Zone Setup', href: '/freezone-setup' },
+        { name: 'Sharjah Free Zone', href: '/sharjah-freezone' },
+        { name: 'Ajman Free Zone', href: '/ajman-freezone' },
+        { name: 'RAK Free Zone', href: '/rak-freezone' },
+        { name: 'UAQ Free Zone', href: '/uaq-freezone' },
+        { name: 'Dubai Free Zone', href: '/dubai-freezone' },
+        { name: 'Fujairah Free Zone', href: '/fujairah-freezone' },
         { name: 'PRO Services', href: '/pro-services' },
         { name: 'Offshore Formation', href: '/offshore-formation' },
         { name: 'Accounting Services', href: '/accounting-services' },

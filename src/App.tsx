@@ -8,7 +8,12 @@ import About from './pages/About';
 import Blog from './pages/Blog';
 import Careers from './pages/Careers';
 import MainlandFormation from './pages/MainlandFormation';
-import FreeZoneSetup from './pages/FreeZoneSetup';
+import SharjahFreeZone from './pages/SharjahFreeZone';
+import AjmanFreeZone from './pages/AjmanFreeZone';
+import RAKFreeZone from './pages/RAKFreeZone';
+import UAQFreeZone from './pages/UAQFreeZone';
+import DubaiFreeZone from './pages/DubaiFreeZone';
+import FujairahFreeZone from './pages/FujairahFreeZone';
 import ProServices from './pages/ProServices';
 import OffshoreFormation from './pages/OffshoreFormation';
 import AccountingServices from './pages/AccountingServices';
@@ -40,7 +45,12 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/mainland-formation" element={<MainlandFormation />} />
-          <Route path="/freezone-setup" element={<FreeZoneSetup />} />
+          <Route path="/sharjah-freezone" element={<SharjahFreeZone />} />
+          <Route path="/ajman-freezone" element={<AjmanFreeZone />} />
+          <Route path="/rak-freezone" element={<RAKFreeZone />} />
+          <Route path="/uaq-freezone" element={<UAQFreeZone />} />
+          <Route path="/dubai-freezone" element={<DubaiFreeZone />} />
+          <Route path="/fujairah-freezone" element={<FujairahFreeZone />} />
           <Route path="/pro-services" element={<ProServices />} />
           <Route path="/offshore-formation" element={<OffshoreFormation />} />
           <Route path="/accounting-services" element={<AccountingServices />} />
