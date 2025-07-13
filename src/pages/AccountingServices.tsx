@@ -214,10 +214,10 @@ const AccountingServices = () => {
                   ))}
                 </ul>
                 <Link 
-                  to="/contact"
+                  to="/accounting-bookkeeping-services-dubai-uae"
                   className="w-full bg-primary-navy text-white py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold inline-flex items-center justify-center"
                 >
-                  Get Quote
+                  Learn More
                 </Link>
               </div>
             ))}
@@ -248,7 +248,7 @@ const AccountingServices = () => {
                     {area.title}
                   </h3>
                 </div>
-                
+                  to="/accounting-bookkeeping-services-dubai-uae"
                 <p className="text-grey-600 mb-4">
                   {area.description}
                 </p>

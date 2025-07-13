@@ -243,10 +243,10 @@ const OffshoreFormation = () => {
                 </div>
                 
                 <Link 
-                  to="/contact"
+                  to={getOffshoreUrl(jurisdiction.name)}
                   className="w-full bg-grey-700 text-white py-3 rounded-lg hover:bg-grey-800 transition-colors duration-200 font-semibold inline-flex items-center justify-center"
                 >
-                  Get Started
+                  Learn More
                 </Link>
               </div>
             ))}
@@ -378,6 +378,17 @@ const OffshoreFormation = () => {
       />
     </div>
   );
+};
+
+// Helper function to get the correct URL for each offshore jurisdiction
+const getOffshoreUrl = (jurisdictionName: string): string => {
+  const jurisdictionUrls: { [key: string]: string } = {
+    'Ajman Offshore': '/ajman-offshore-company-formation-dubai-uae',
+    'Jafza Offshore': '/jafza-offshore-company-formation-dubai-uae',
+    'RAK Offshore': '/ras-al-khaimah-offshore-company-formation-dubai-uae'
+  };
+  
+  return jurisdictionUrls[jurisdictionName] || '/contact';
 };
 
 export default OffshoreFormation;

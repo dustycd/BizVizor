@@ -286,12 +286,6 @@ const Careers = () => {
                     >
                       Apply Now
                     </Link>
-                    <Link 
-                      to="/careers"
-                      className="border-2 border-primary-navy text-primary-navy px-6 py-3 rounded-lg hover:bg-primary-navy hover:text-white transition-colors duration-200 font-semibold inline-flex items-center justify-center"
-                    >
-                      Learn More
-                    </Link>
                   </div>
                 </div>
               </div>

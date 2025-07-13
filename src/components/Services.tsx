@@ -139,9 +139,10 @@ const Services = () => {
                 {/* Services List */}
                 <div className="space-y-3">
                   {category.services.map((service, serviceIndex) => (
-                    <div 
+                    <Link
+                      to={getServiceUrl(category.title, service)}
                       key={serviceIndex}
-                      className="flex items-center justify-between p-3 rounded-lg hover:bg-grey-50 transition-colors duration-200 group cursor-pointer"
+                      className="flex items-center justify-between p-3 rounded-lg hover:bg-grey-50 transition-colors duration-200 group cursor-pointer block"
                     >
                       <div className="flex items-center">
                         <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
@@ -150,17 +151,17 @@ const Services = () => {
                         </span>
                       </div>
                       <ArrowRight className="w-4 h-4 text-grey-400 group-hover:text-primary-red group-hover:translate-x-1 transition-all opacity-0 group-hover:opacity-100" />
-                    </div>
+                    </Link>
                   ))}
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-grey-200">
                   <Link 
                     to={
-                      categoryIndex === 0 ? '/mainland-formation' :
-                      categoryIndex === 1 ? '/freezone-setup' :
-                      categoryIndex === 2 ? '/pro-services' :
-                      '/offshore-formation'
+                      categoryIndex === 0 ? '/dubai-mainland-company-formation' :
+                      categoryIndex === 1 ? '/freezone-company-setup-in-dubai' :
+                      categoryIndex === 2 ? '/pro-services-overview-dubai-uae' :
+                      '/offshore-company-formation-dubai-overview'
                     }
                     className="text-primary-red font-semibold hover:text-primary-navy transition-colors duration-200 flex items-center group"
                   >
@@ -249,6 +250,41 @@ const Services = () => {
       />
     </>
   );
+};
+
+// Helper function to get the correct URL for each service
+const getServiceUrl = (categoryTitle: string, serviceName: string): string => {
+  const serviceUrls: { [key: string]: string } = {
+    // Mainland Company Formation services
+    'Accounting & Book-Keeping': '/accounting-bookkeeping-services-dubai-uae',
+    'Auditing Services': '/auditing-firm-dubai',
+    'Company Liquidation': '/company-liquidation-in-dubai-uae',
+    'Branch Office Setup': '/branch-office-of-a-foreign-company-uae',
+    'Company Registration': '/company-registration-dubai',
+    'E-Commerce Formation': '/ecommerce-company-setup-dubai-uae',
+    'LLC Formation': '/llc-company-formation-dubai-uae',
+    
+    // Free Zone services
+    'Sharjah Free Zone': '/sharjah-free-zone-business-set-up',
+    'Ajman Free Zone': '/ajman-free-zones-company-formation-uae',
+    'RAK Free Zone': '/ras-al-khaimah-free-zone-business-setup',
+    'UAQ Free Zone': '/umm-al-quwain-free-zones-company-formation-uae',
+    'Dubai Free Zone': '/freezone-company-setup-in-dubai',
+    'Fujairah Free Zone': '/business-setup-fujairah-free-zone-uae',
+    
+    // PRO Services
+    'Ejari Registration': '/ejari-registration-dubai-uae',
+    'Family Residence Visa': '/family-residence-dubai-uae',
+    'Maid Residence Service': '/maid-residence-service-dubai-uae',
+    'PRO Services': '/pro-services-overview-dubai-uae',
+    
+    // Offshore services
+    'Ajman Offshore': '/ajman-offshore-company-formation-dubai-uae',
+    'Jafza Offshore': '/jafza-offshore-company-formation-dubai-uae',
+    'RAK Offshore': '/ras-al-khaimah-offshore-company-formation-dubai-uae'
+  };
+  
+  return serviceUrls[serviceName] || '/contact';
 };
 
 export default Services;

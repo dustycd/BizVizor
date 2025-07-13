@@ -211,10 +211,10 @@ const ProServices = () => {
                 </div>
 
                 <Link 
-                  to="/contact"
+                  to={getProServiceUrl(service.title)}
                   className="w-full bg-alert-success text-white py-3 rounded-lg hover:bg-green-600 transition-colors duration-200 font-semibold inline-flex items-center justify-center"
                 >
-                  Get Quote
+                  Learn More
                 </Link>
               </div>
             ))}
@@ -333,6 +333,18 @@ const ProServices = () => {
       </section>
     </div>
   );
+};
+
+// Helper function to get the correct URL for each PRO service
+const getProServiceUrl = (serviceTitle: string): string => {
+  const serviceUrls: { [key: string]: string } = {
+    'Ejari Registration': '/ejari-registration-dubai-uae',
+    'Family Residence Visa': '/family-residence-dubai-uae',
+    'Maid Residence Service': '/maid-residence-service-dubai-uae',
+    'PRO Services': '/pro-residence-services-dubai-uae'
+  };
+  
+  return serviceUrls[serviceTitle] || '/contact';
 };
 
 export default ProServices;

@@ -183,13 +183,7 @@ const MainlandFormation = () => {
                     </li>
                   ))}
                 </ul>
-                <Link 
-                  to="/contact"
-                  className="text-primary-red font-medium flex items-center group hover:text-primary-navy transition-colors"
-                >
-                  Learn More
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                {getServiceLink(service.title)}
               </div>
             ))}
           </div>
@@ -258,6 +252,31 @@ const MainlandFormation = () => {
         url="https://calendly.com/saidtouma-bizvisor/consultation?month=2025-06"
       />
     </div>
+  );
+};
+
+// Helper function to get the correct link for each mainland service
+const getServiceLink = (serviceTitle: string) => {
+  const serviceUrls: { [key: string]: string } = {
+    'Accounting & Book-Keeping': '/accounting-bookkeeping-services-dubai-uae',
+    'Auditing Services': '/auditing-firm-dubai',
+    'Company Liquidation': '/company-liquidation-in-dubai-uae',
+    'Branch Office Setup': '/branch-office-of-a-foreign-company-uae',
+    'Company Registration': '/company-registration-dubai',
+    'E-Commerce Formation': '/ecommerce-company-setup-dubai-uae',
+    'LLC Formation': '/llc-company-formation-dubai-uae'
+  };
+  
+  const url = serviceUrls[serviceTitle] || '/contact';
+  
+  return (
+    <Link 
+      to={url}
+      className="text-primary-red font-medium flex items-center group hover:text-primary-navy transition-colors"
+    >
+      Learn More
+      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+    </Link>
   );
 };
 
