@@ -90,27 +90,27 @@ const Header = () => {
                       </button>
                       
                       {isServicesOpen && (
-                        <div className="absolute top-full left-0 mt-1 w-72 bg-white rounded-xl shadow-xl border border-grey-200 py-4 z-50 animate-fade-in">
-                          {item.dropdownCategories?.map((category, categoryIndex) => (
-                            <div key={category.categoryName} className={categoryIndex > 0 ? 'border-t border-grey-100 pt-3 mt-3' : ''}>
-                              <div className="px-4 py-2">
-                                <h4 className="text-xs font-semibold text-grey-500 uppercase tracking-wider mb-2">
+                        <div className="absolute top-full left-0 mt-1 w-[800px] bg-white rounded-xl shadow-xl border border-grey-200 py-6 z-50 animate-fade-in">
+                          <div className="grid grid-cols-3 gap-8 px-6">
+                            {item.dropdownCategories?.map((category, categoryIndex) => (
+                              <div key={category.categoryName}>
+                                <h4 className="text-xs font-semibold text-grey-500 uppercase tracking-wider mb-3 border-b border-grey-100 pb-2">
                                   {category.categoryName}
                                 </h4>
-                                <div className="space-y-1">
+                                <div className="space-y-2">
                                   {category.links.map((link) => (
                                     <Link
                                       key={link.name}
                                       to={link.href}
-                                      className="text-grey-500 hover:text-primary-red transition-colors duration-200 text-sm block py-1"
+                                      className="text-grey-600 hover:text-primary-red transition-colors duration-200 text-sm block py-1 hover:bg-grey-50 px-2 rounded"
                                     >
                                       {link.name}
                                     </Link>
                                   ))}
                                 </div>
                               </div>
-                            </div>
-                          ))}
+                            ))}
+                          </div>
                         </div>
                       )}
                     </div>
