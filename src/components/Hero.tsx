@@ -40,7 +40,7 @@ const Hero = () => {
           {/* Hook Title - Mobile responsive sizing */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 lg:mb-8 leading-tight">
             <span className="block mb-1 sm:mb-2">Your Business</span>
-            <span className="block text-primary-red drop-shadow-2xl">Starts Here</span>
+            <span className="block text-white drop-shadow-2xl">Starts Here</span>
           </h1>
           
           {/* Subtitle - Mobile responsive sizing */}
