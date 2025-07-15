@@ -188,26 +188,51 @@ const Header = () => {
               <nav className="flex flex-col space-y-2">
                 {navigation.map((item) => (
                   <div key={item.name}>
-                    <Link
-                      to={item.href}
-                      className="text-grey-600 hover:text-primary-red transition-colors duration-200 font-medium block py-3 px-2 rounded-lg hover:bg-grey-50"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                    {item.hasDropdown && (
-                      <div className="ml-4 space-y-1 border-l-2 border-grey-200 pl-4">
-                        {item.dropdownItems?.map((dropdownItem) => (
-                          <Link
-                            key={dropdownItem.name}
-                            to={dropdownItem.href}
-                            className="text-grey-500 hover:text-primary-red transition-colors duration-200 text-sm block py-2"
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            {dropdownItem.name}
-                          </Link>
-                        ))}
+                    {item.hasDropdown ? (
+                      <div>
+                        <button
+                          onClick={() => setIsServicesOpen(!isServicesOpen)}
+                          className="text-grey-600 hover:text-primary-red transition-colors duration-200 font-medium flex items-center justify-between w-full py-3 px-2 rounded-lg hover:bg-grey-50"
+                        >
+                          {item.name}
+                          <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                        </button>
+                        
+                        {isServicesOpen && (
+                          <div className="mt-2 space-y-1">
+                            {item.dropdownCategories?.map((category, categoryIndex) => (
+                              <div key={category.categoryName} className="ml-4">
+                                <div className="text-xs font-semibold text-grey-500 uppercase tracking-wider mb-2 px-2">
+                                  {category.categoryName}
+                                </div>
+                                <div className="space-y-1 border-l-2 border-grey-200 pl-4">
+                                  {category.links.map((link) => (
+                                    <Link
+                                      key={link.name}
+                                      to={link.href}
+                                      className="text-grey-600 hover:text-primary-red transition-colors duration-200 text-sm block py-2 px-2 rounded hover:bg-grey-50"
+                                      onClick={() => {
+                                        setIsMenuOpen(false);
+                                        setIsServicesOpen(false);
+                                      }}
+                                    >
+                                      {link.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
+                    ) : (
+                      <Link
+                        to={item.href}
+                        className="text-grey-600 hover:text-primary-red transition-colors duration-200 font-medium block py-3 px-2 rounded-lg hover:bg-grey-50"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
                     )}
                   </div>
                 ))}
