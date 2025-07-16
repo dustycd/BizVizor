@@ -38,22 +38,26 @@ const About = () => {
     {
       icon: Target,
       title: 'Excellence in Service',
-      description: 'We strive for excellence in every client engagement and business formation process.'
+      description: 'We strive for excellence in every client engagement and business formation process.',
+      oneLiner: 'Delivering exceptional results that exceed expectations every time.'
     },
     {
       icon: Shield,
       title: 'Trust & Transparency',
-      description: 'Building lasting relationships through honest communication and reliable service delivery.'
+      description: 'Building lasting relationships through honest communication and reliable service delivery.',
+      oneLiner: 'Open communication and honest pricing with no hidden surprises.'
     },
     {
-      icon: TrendingUp,
-      title: 'Innovation & Growth',
-      description: 'Embracing innovative solutions to help businesses grow and succeed in competitive markets.'
+      icon: Shield,
+      title: 'Compliance',
+      description: 'Every setup is handled with legal precision and up-to-date expertise.',
+      oneLiner: 'Full regulatory compliance guaranteed with expert legal guidance.'
     },
     {
       icon: Users,
       title: 'Client-Centric Approach',
-      description: 'Putting our clients first with personalized solutions tailored to their unique needs.'
+      description: 'Putting our clients first with personalized solutions tailored to their unique needs.',
+      oneLiner: 'Your success is our priority—personalized service every step of the way.'
     }
   ];
 
@@ -257,6 +261,9 @@ const About = () => {
                 <h3 className="text-xl font-semibold text-heading-dark mb-4">
                   {value.title}
                 </h3>
+                <p className="text-sm text-primary-red font-medium mb-3">
+                  {value.oneLiner}
+                </p>
                 <p className="text-grey-600 leading-relaxed">
                   {value.description}
                 </p>
