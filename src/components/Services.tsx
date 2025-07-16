@@ -118,6 +118,15 @@ const Services = () => {
             </div>
           </div>
 
+          {/* Free Zone Section Header */}
+          <div className="text-center mb-12">
+            <h3 className="text-2xl lg:text-3xl font-bold text-heading-dark mb-4">
+              Top Free Zones for Business Setup in Dubai
+            </h3>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Choose from the most popular UAE free zones, each offering unique advantages for different business types and industries.
+            </p>
+          </div>
           {/* Service Categories Grid */}
           <div className="grid lg:grid-cols-2 gap-8 mb-16">
             {serviceCategories.map((category, categoryIndex) => (
