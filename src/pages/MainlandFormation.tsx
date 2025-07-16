@@ -79,6 +79,54 @@ const MainlandFormation = () => {
   ];
 
 
+  const process = [
+    {
+      step: '01',
+      title: 'Consultation',
+      description: 'Discuss your requirements and choose the right service'
+    },
+    {
+      step: '02',
+      title: 'Documentation',
+      description: 'Prepare and verify all required documents'
+    },
+    {
+      step: '03',
+      title: 'Application',
+      description: 'Submit applications to relevant authorities'
+    },
+    {
+      step: '04',
+      title: 'Completion',
+      description: 'Receive approvals and complete the process'
+    }
+  ];
+
+  // Helper function to get the correct link for each mainland service
+  const getServiceLink = (serviceTitle: string) => {
+    const serviceUrls: { [key: string]: string } = {
+      'Accounting & Book-Keeping': '/accounting-bookkeeping-services-dubai-uae',
+      'Auditing Services': '/auditing-firm-dubai',
+      'Company Liquidation': '/company-liquidation-in-dubai-uae',
+      'Branch Office Setup': '/branch-office-of-a-foreign-company-uae',
+      'Company Registration': '/company-registration-dubai',
+      'E-Commerce Formation': '/ecommerce-company-setup-dubai-uae',
+      'LLC Formation': '/llc-company-formation-dubai-uae'
+    };
+    
+    const url = serviceUrls[serviceTitle] || '/contact';
+    
+    return (
+      <Link 
+        to={url}
+        className="text-primary-red font-medium flex items-center group hover:text-primary-navy transition-colors"
+      >
+        Learn More
+        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+      </Link>
+    );
+  };
+
   return (
     <div className="pt-24">
       {/* Hero Section */}
@@ -567,31 +615,6 @@ const MainlandFormation = () => {
         url="https://calendly.com/saidtouma-bizvisor/consultation?month=2025-06"
       />
     </div>
-  );
-};
-
-// Helper function to get the correct link for each mainland service
-const getServiceLink = (serviceTitle: string) => {
-  const serviceUrls: { [key: string]: string } = {
-    'Accounting & Book-Keeping': '/accounting-bookkeeping-services-dubai-uae',
-    'Auditing Services': '/auditing-firm-dubai',
-    'Company Liquidation': '/company-liquidation-in-dubai-uae',
-    'Branch Office Setup': '/branch-office-of-a-foreign-company-uae',
-    'Company Registration': '/company-registration-dubai',
-    'E-Commerce Formation': '/ecommerce-company-setup-dubai-uae',
-    'LLC Formation': '/llc-company-formation-dubai-uae'
-  };
-  
-  const url = serviceUrls[serviceTitle] || '/contact';
-  
-  return (
-    <Link 
-      to={url}
-      className="text-primary-red font-medium flex items-center group hover:text-primary-navy transition-colors"
-    >
-      Learn More
-      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-    </Link>
   );
 };
 
