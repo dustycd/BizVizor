@@ -178,6 +178,148 @@ const MainlandFormation = () => {
         </div>
       </section>
 
+      {/* Mainland License Types Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Mainland License Types We Offer
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Bizvisor helps you choose the right license type based on your business activity and target market.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Professional License */}
+            <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-primary-red/20">
+              <div className="w-16 h-16 bg-primary-navy/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Users className="w-8 h-8 text-primary-navy" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4 text-center">
+                Professional License
+              </h3>
+              <p className="text-grey-600 text-center mb-6 leading-relaxed">
+                For consultancy, IT, and service-oriented businesses
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center text-sm text-grey-700">
+                  <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
+                  Management Consulting
+                </div>
+                <div className="flex items-center text-sm text-grey-700">
+                  <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
+                  IT Services & Software
+                </div>
+                <div className="flex items-center text-sm text-grey-700">
+                  <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
+                  Legal & Financial Services
+                </div>
+                <div className="flex items-center text-sm text-grey-700">
+                  <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
+                  Marketing & Advertising
+                </div>
+                <div className="flex items-center text-sm text-grey-700">
+                  <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
+                  Engineering Services
+                </div>
+              </div>
+            </div>
+
+            {/* Commercial License */}
+            <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-primary-red/20">
+              <div className="w-16 h-16 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Building2 className="w-8 h-8 text-primary-red" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4 text-center">
+                Commercial License
+              </h3>
+              <p className="text-grey-600 text-center mb-6 leading-relaxed">
+                For trading, retail, ecommerce
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center text-sm text-grey-700">
+                  <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
+                  Import & Export Trading
+                </div>
+                <div className="flex items-center text-sm text-grey-700">
+                  <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
+                  Retail & Wholesale
+                </div>
+                <div className="flex items-center text-sm text-grey-700">
+                  <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
+                  E-commerce Platforms
+                </div>
+                <div className="flex items-center text-sm text-grey-700">
+                  <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
+                  Distribution Services
+                </div>
+                <div className="flex items-center text-sm text-grey-700">
+                  <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
+                  General Trading
+                </div>
+              </div>
+            </div>
+
+            {/* Industrial License */}
+            <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-primary-red/20">
+              <div className="w-16 h-16 bg-alert-success/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Globe className="w-8 h-8 text-alert-success" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4 text-center">
+                Industrial License
+              </h3>
+              <p className="text-grey-600 text-center mb-6 leading-relaxed">
+                For manufacturing, warehousing, and production
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center text-sm text-grey-700">
+                  <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
+                  Manufacturing Operations
+                </div>
+                <div className="flex items-center text-sm text-grey-700">
+                  <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
+                  Warehousing & Storage
+                </div>
+                <div className="flex items-center text-sm text-grey-700">
+                  <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
+                  Production Facilities
+                </div>
+                <div className="flex items-center text-sm text-grey-700">
+                  <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
+                  Assembly Operations
+                </div>
+                <div className="flex items-center text-sm text-grey-700">
+                  <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
+                  Logistics Services
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Below License Types */}
+          <div className="text-center mt-12">
+            <p className="text-grey-600 mb-6">
+              Not sure which license type is right for your business?
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={openCalendly}
+                className="bg-primary-red text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold"
+              >
+                Get Expert Guidance
+              </button>
+              <Link 
+                to="/cost-calculator"
+                className="border-2 border-primary-red text-primary-red px-8 py-3 rounded-lg hover:bg-primary-red hover:text-white transition-all duration-200 font-semibold inline-flex items-center justify-center"
+              >
+                Calculate License Cost
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section className="py-20 bg-grey-50">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
