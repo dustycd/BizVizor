@@ -91,23 +91,21 @@ const Home = () => {
             <div className="text-center bg-gradient-to-r from-primary-red to-red-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
                 Still have questions? Let's talk.
-            Get in touch with our team
+              </h3>
               <p className="text-red-100 mb-6 max-w-2xl mx-auto">
                 Get personalized answers from our UAE business setup experts. Schedule your free consultation today.
-            Let's explore the best structure for your UAE company and get started within days.
+              </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
-            <button 
-              onClick={openCalendly}
-              className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold"
+                  onClick={openCalendly}
+                  className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold"
+                >
                   Schedule Free Consultation
-              Book Free Consultation
-            </button>
-                  <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold">
-                    Call +971 56 496 0040
-              className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold inline-flex items-center justify-center"
-                </a>
-              Contact Our Team
+                </button>
+                <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold">
+                  Call +971 56 496 0040
+                </button>
+              </div>
             </div>
           </div>
         </div>
