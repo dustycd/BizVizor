@@ -1,11 +1,36 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, CheckCircle, ArrowRight, Clock, DollarSign, Shield, Users, MapPin, FileText, Globe, Briefcase, Calculator, Award, Star } from 'lucide-react';
+import { Building2, CheckCircle, ArrowRight, Clock, DollarSign, Shield, Users, MapPin, FileText, Globe, Briefcase, Calculator, Award, Star, ChevronDown, ChevronUp } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
 
 const MainlandFormation = () => {
   const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      question: "Can I own 100% of a Dubai Mainland business?",
+      answer: "Yes, for most activities, foreign entrepreneurs can now own 100% of their Mainland company."
+    },
+    {
+      question: "Do I need to rent an office for a Mainland license?",
+      answer: "Yes, physical office space is mandatory. Bizvisor offers affordable options like Flexi Desks."
+    },
+    {
+      question: "How long does the setup take?",
+      answer: "With complete documents, the setup typically takes 4–7 working days."
+    },
+    {
+      question: "Can I apply for employee visas under my license?",
+      answer: "Absolutely. Mainland licenses allow a flexible quota based on your office size and business activity."
+    }
+  ];
 
   const services = [
     {
@@ -845,6 +870,81 @@ const MainlandFormation = () => {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              FAQs – Dubai Mainland Company Formation
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Get answers to the most commonly asked questions about Dubai mainland company formation and our services.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <div 
+                  key={index}
+                  className="bg-white rounded-xl shadow-sm border border-grey-200 overflow-hidden"
+                >
+                  <button
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-grey-50 transition-colors duration-200"
+                  >
+                    <h3 className="text-lg font-semibold text-heading-dark pr-4">
+                      {faq.question}
+                    </h3>
+                    <div className="flex-shrink-0">
+                      {openFAQ === index ? (
+                        <ChevronUp className="w-5 h-5 text-primary-red" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-grey-400" />
+                      )}
+                    </div>
+                  </button>
+                  
+                  {openFAQ === index && (
+                    <div className="px-6 pb-5">
+                      <div className="pt-2 border-t border-grey-100">
+                        <p className="text-grey-700 leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* FAQ CTA */}
+          <div className="text-center mt-12">
+            <div className="bg-gradient-to-r from-primary-navy to-blue-700 rounded-2xl p-8 text-white max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold mb-4">Still Have Questions?</h3>
+              <p className="text-blue-100 mb-6 leading-relaxed">
+                Get personalized answers from our Dubai mainland formation experts. Schedule your free consultation today.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button 
+                  onClick={openCalendly}
+                  className="bg-white text-primary-navy px-8 py-3 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold"
+                >
+                  Ask Our Experts
+                </button>
+                <button 
+                  onClick={openCalendly}
+                  className="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold"
+                >
+                  Schedule Call
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
