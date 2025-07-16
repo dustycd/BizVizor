@@ -57,6 +57,7 @@ const Header = () => {
         {
           categoryName: 'Free Zone Setup',
           links: [
+            { name: 'UAE Free Zone Overview', href: '/uae-free-zone-company-formation' },
             { name: 'Sharjah Free Zone', href: '/sharjah-free-zone-business-set-up' },
             { name: 'Ajman Free Zone', href: '/ajman-free-zones-company-formation-uae' },
             { name: 'RAK Free Zone', href: '/ras-al-khaimah-free-zone-business-setup' },

@@ -121,10 +121,10 @@ const Services = () => {
           {/* Free Zone Section Header */}
           <div className="text-center mb-12">
             <h3 className="text-2xl lg:text-3xl font-bold text-heading-dark mb-4">
-              Top Free Zones for Business Setup in Dubai
+              Complete UAE Business Setup Solutions
             </h3>
             <p className="text-lg text-grey-600 max-w-3xl mx-auto">
-              Choose from the most popular UAE free zones, each offering unique advantages for different business types and industries.
+              From mainland company formation to free zone setups, we provide comprehensive business establishment services across the UAE with expert guidance and seamless execution.
             </p>
           </div>
           {/* Service Categories Grid */}

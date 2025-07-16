@@ -16,6 +16,7 @@ import RAKFreeZone from './pages/RAKFreeZone';
 import UAQFreeZone from './pages/UAQFreeZone';
 import DubaiFreeZone from './pages/DubaiFreeZone';
 import FujairahFreeZone from './pages/FujairahFreeZone';
+import FreeZoneOverview from './pages/FreeZoneOverview';
 import ProServices from './pages/ProServices';
 import OffshoreFormation from './pages/OffshoreFormation';
 import AccountingServices from './pages/AccountingServices';
@@ -53,6 +54,7 @@ function App() {
           <Route path="/umm-al-quwain-free-zones-company-formation-uae" element={<UAQFreeZone />} />
           <Route path="/freezone-company-setup-in-dubai" element={<DubaiFreeZone />} />
           <Route path="/business-setup-fujairah-free-zone-uae" element={<FujairahFreeZone />} />
+          <Route path="/uae-free-zone-company-formation" element={<FreeZoneOverview />} />
           <Route path="/pro-services-overview-dubai-uae" element={<ProServices />} />
           <Route path="/offshore-company-formation-dubai-overview" element={<OffshoreFormation />} />
           <Route path="/accounting-bookkeeping-services-dubai-uae" element={<AccountingServices />} />
