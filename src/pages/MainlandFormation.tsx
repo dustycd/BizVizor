@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, CheckCircle, ArrowRight, Clock, DollarSign, Shield, Users, MapPin, FileText, Globe, Briefcase, Calculator } from 'lucide-react';
+import { Building2, CheckCircle, ArrowRight, Clock, DollarSign, Shield, Users, MapPin, FileText, Globe, Briefcase, Calculator, Award, Star } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
 
