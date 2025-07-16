@@ -129,6 +129,69 @@ const About = () => {
         </div>
       </section>
 
+      {/* Achievements Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Our Achievements
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Numbers that reflect our commitment to excellence and the trust our clients place in us.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {achievements.map((item, index) => (
+              <div 
+                key={index}
+                className="bg-white rounded-xl p-8 text-center shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="w-16 h-16 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <item.icon className="w-8 h-8 text-primary-red" />
+                </div>
+                <div className="text-3xl font-bold text-primary-red mb-2">
+                  {item.number}
+                </div>
+                <div className="font-semibold text-heading-dark mb-2">
+                  {item.label}
+                </div>
+                <div className="text-sm text-grey-600">
+                  {item.description}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Our Core Values
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              The principles that guide everything we do and shape our relationships with clients and partners.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {values.map((value, index) => (
+              <div key={index} className="bg-grey-50 rounded-xl p-8 hover:shadow-md transition-all duration-300">
+                <div className="w-14 h-14 bg-primary-navy rounded-xl flex items-center justify-center mb-6">
+                  <value.icon className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                  {value.title}
+                </h3>
+                <p className="text-grey-600 leading-relaxed">
+                  {value.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
