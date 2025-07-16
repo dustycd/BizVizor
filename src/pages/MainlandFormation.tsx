@@ -320,6 +320,174 @@ const MainlandFormation = () => {
         </div>
       </section>
 
+      {/* Step-by-Step Process Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              How to Start Your Mainland Business with Bizvisor
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Our proven 5-step process ensures smooth and efficient mainland company formation with expert guidance at every stage.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            {/* Desktop Process Flow */}
+            <div className="hidden lg:block relative">
+              {/* Connection Line */}
+              <div className="absolute top-16 left-0 right-0 h-0.5 bg-primary-red/20"></div>
+              
+              <div className="grid grid-cols-5 gap-4">
+                {/* Step 1 */}
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary-red rounded-full flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg">
+                    <span className="text-2xl font-bold text-white">1</span>
+                  </div>
+                  <div className="bg-grey-50 rounded-xl p-4 hover:shadow-md transition-all duration-300">
+                    <h3 className="font-semibold text-heading-dark mb-2 text-sm">
+                      Free Consultation & Activity Selection
+                    </h3>
+                    <p className="text-xs text-grey-600">
+                      Discuss your business goals and select the right activities for your license
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 2 */}
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary-red rounded-full flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg">
+                    <span className="text-2xl font-bold text-white">2</span>
+                  </div>
+                  <div className="bg-grey-50 rounded-xl p-4 hover:shadow-md transition-all duration-300">
+                    <h3 className="font-semibold text-heading-dark mb-2 text-sm">
+                      Name Reservation & Initial Approvals
+                    </h3>
+                    <p className="text-xs text-grey-600">
+                      Reserve your company name and obtain initial approvals from authorities
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 3 */}
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary-red rounded-full flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg">
+                    <span className="text-2xl font-bold text-white">3</span>
+                  </div>
+                  <div className="bg-grey-50 rounded-xl p-4 hover:shadow-md transition-all duration-300">
+                    <h3 className="font-semibold text-heading-dark mb-2 text-sm">
+                      Document Processing & Office Lease
+                    </h3>
+                    <p className="text-xs text-grey-600">
+                      Process all required documents and secure your business office location
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 4 */}
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary-red rounded-full flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg">
+                    <span className="text-2xl font-bold text-white">4</span>
+                  </div>
+                  <div className="bg-grey-50 rounded-xl p-4 hover:shadow-md transition-all duration-300">
+                    <h3 className="font-semibold text-heading-dark mb-2 text-sm">
+                      License Issuance & MOA Signing
+                    </h3>
+                    <p className="text-xs text-grey-600">
+                      Receive your trade license and complete MOA signing procedures
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 5 */}
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary-red rounded-full flex items-center justify-center mx-auto mb-4 relative z-10 shadow-lg">
+                    <span className="text-2xl font-bold text-white">5</span>
+                  </div>
+                  <div className="bg-grey-50 rounded-xl p-4 hover:shadow-md transition-all duration-300">
+                    <h3 className="font-semibold text-heading-dark mb-2 text-sm">
+                      Visa Applications & Corporate Bank Account Opening
+                    </h3>
+                    <p className="text-xs text-grey-600">
+                      Process visa applications and open your corporate bank account
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile/Tablet Process Flow */}
+            <div className="lg:hidden space-y-6">
+              {[
+                {
+                  number: "1",
+                  title: "Free Consultation & Activity Selection",
+                  description: "Discuss your business goals and select the right activities for your license"
+                },
+                {
+                  number: "2", 
+                  title: "Name Reservation & Initial Approvals",
+                  description: "Reserve your company name and obtain initial approvals from authorities"
+                },
+                {
+                  number: "3",
+                  title: "Document Processing & Office Lease", 
+                  description: "Process all required documents and secure your business office location"
+                },
+                {
+                  number: "4",
+                  title: "License Issuance & MOA Signing",
+                  description: "Receive your trade license and complete MOA signing procedures"
+                },
+                {
+                  number: "5",
+                  title: "Visa Applications & Corporate Bank Account Opening",
+                  description: "Process visa applications and open your corporate bank account"
+                }
+              ].map((step, index) => (
+                <div key={index} className="flex items-start">
+                  <div className="w-12 h-12 bg-primary-red rounded-full flex items-center justify-center mr-4 flex-shrink-0 shadow-lg">
+                    <span className="text-lg font-bold text-white">{step.number}</span>
+                  </div>
+                  <div className="bg-grey-50 rounded-xl p-4 flex-1 hover:shadow-md transition-all duration-300">
+                    <h3 className="font-semibold text-heading-dark mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-grey-600">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Below Process */}
+          <div className="text-center mt-16">
+            <div className="bg-gradient-to-r from-primary-navy to-blue-700 rounded-2xl p-8 text-white max-w-3xl mx-auto">
+              <h3 className="text-2xl font-bold mb-4">Ready to Start Your Mainland Company?</h3>
+              <p className="text-blue-100 mb-6 leading-relaxed">
+                Our expert team will guide you through each step of the process. Get started with a free consultation today.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button 
+                  onClick={openCalendly}
+                  className="bg-primary-red text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold"
+                >
+                  Start Step 1: Free Consultation
+                </button>
+                <Link 
+                  to="/cost-calculator"
+                  className="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold inline-flex items-center justify-center"
+                >
+                  Calculate Total Cost
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section className="py-20 bg-grey-50">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
