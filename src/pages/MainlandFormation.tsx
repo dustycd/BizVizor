@@ -514,6 +514,159 @@ const MainlandFormation = () => {
         </div>
       </section>
 
+      {/* Setup Cost Breakdown Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Dubai Mainland Company Setup Cost (2025)
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Company formation costs vary based on activity, number of visas, and office space needs. We offer custom packages for startups and growing businesses.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            {/* Cost Breakdown Cards */}
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              {/* License Fees */}
+              <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-primary-red">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 bg-primary-red/10 rounded-xl flex items-center justify-center">
+                    <FileText className="w-6 h-6 text-primary-red" />
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-primary-red">AED 12,500</div>
+                    <div className="text-sm text-grey-600">Starting from</div>
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold text-heading-dark mb-2">License Fees</h3>
+                <p className="text-grey-600 text-sm">
+                  Government fees for trade license registration and initial approvals
+                </p>
+              </div>
+
+              {/* Local Service Agent */}
+              <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-primary-navy">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 bg-primary-navy/10 rounded-xl flex items-center justify-center">
+                    <Users className="w-6 h-6 text-primary-navy" />
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-primary-navy">AED 5,000–8,000</div>
+                    <div className="text-sm text-grey-600">per year</div>
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold text-heading-dark mb-2">Local Service Agent</h3>
+                <p className="text-grey-600 text-sm">
+                  Required for certain activities - professional local representation
+                </p>
+              </div>
+
+              {/* Office Lease */}
+              <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-alert-success">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 bg-alert-success/10 rounded-xl flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-alert-success" />
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-alert-success">AED 6,000</div>
+                    <div className="text-sm text-grey-600">per year</div>
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold text-heading-dark mb-2">Office Lease</h3>
+                <p className="text-grey-600 text-sm">
+                  Starting from flexi desks - scalable office solutions available
+                </p>
+              </div>
+
+              {/* Visa Processing */}
+              <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-grey-700">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 bg-grey-700/10 rounded-xl flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-grey-700" />
+                  </div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-grey-700">AED 3,500–7,000</div>
+                    <div className="text-sm text-grey-600">per visa</div>
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold text-heading-dark mb-2">Visa Processing</h3>
+                <p className="text-grey-600 text-sm">
+                  Residence visa fees for owners, employees, and family members
+                </p>
+              </div>
+            </div>
+
+            {/* Total Cost Summary */}
+            <div className="bg-gradient-to-r from-primary-red to-red-600 rounded-2xl p-8 text-white text-center mb-8">
+              <h3 className="text-2xl font-bold mb-4">Complete Package Starting From</h3>
+              <div className="text-4xl font-bold mb-2">AED 27,000</div>
+              <p className="text-red-100 mb-6">
+                Includes license, office space, and 1 visa - customizable based on your needs
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button 
+                  onClick={openCalendly}
+                  className="bg-white text-primary-red px-8 py-3 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold"
+                >
+                  Get a Custom Quote
+                </button>
+                <Link 
+                  to="/cost-calculator"
+                  className="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold inline-flex items-center justify-center"
+                >
+                  <Calculator className="w-4 h-4 mr-2" />
+                  Use Cost Calculator
+                </Link>
+              </div>
+            </div>
+
+            {/* Additional Info */}
+            <div className="bg-white rounded-xl p-6 border border-grey-200">
+              <div className="flex items-start">
+                <div className="w-8 h-8 bg-primary-navy/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                  <CheckCircle className="w-5 h-5 text-primary-navy" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-heading-dark mb-2">What's Included in Our Service</h4>
+                  <div className="grid md:grid-cols-2 gap-4 text-sm text-grey-600">
+                    <div className="space-y-2">
+                      <div className="flex items-center">
+                        <CheckCircle className="w-3 h-3 text-alert-success mr-2" />
+                        Trade license processing
+                      </div>
+                      <div className="flex items-center">
+                        <CheckCircle className="w-3 h-3 text-alert-success mr-2" />
+                        MOA preparation & signing
+                      </div>
+                      <div className="flex items-center">
+                        <CheckCircle className="w-3 h-3 text-alert-success mr-2" />
+                        Office lease assistance
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="flex items-center">
+                        <CheckCircle className="w-3 h-3 text-alert-success mr-2" />
+                        Visa application support
+                      </div>
+                      <div className="flex items-center">
+                        <CheckCircle className="w-3 h-3 text-alert-success mr-2" />
+                        Bank account opening
+                      </div>
+                      <div className="flex items-center">
+                        <CheckCircle className="w-3 h-3 text-alert-success mr-2" />
+                        Ongoing compliance support
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section className="py-20 bg-grey-50">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
