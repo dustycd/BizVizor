@@ -437,6 +437,100 @@ const About = () => {
         </div>
       </section>
 
+      {/* Our Journey Timeline Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Our Journey
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              From a small consultancy to UAE's trusted business formation partner - here's how we've grown alongside our clients.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              {/* Timeline Line */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-primary-red/20 hidden md:block"></div>
+              
+              {/* Timeline Items */}
+              <div className="space-y-12">
+                {/* 2009 */}
+                <div className="relative flex items-center md:justify-center">
+                  <div className="flex flex-col md:flex-row items-center md:items-start w-full">
+                    <div className="md:w-1/2 md:text-right md:pr-8 mb-4 md:mb-0">
+                      <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-primary-red">
+                        <div className="text-2xl font-bold text-primary-red mb-2">2009</div>
+                        <h3 className="text-lg font-semibold text-heading-dark mb-2">Our Story Begins</h3>
+                        <p className="text-grey-600 text-sm">Founded with a mission to simplify UAE business formation for entrepreneurs worldwide.</p>
+                      </div>
+                    </div>
+                    <div className="hidden md:block w-4 h-4 bg-primary-red rounded-full border-4 border-white shadow-lg relative z-10"></div>
+                    <div className="md:w-1/2 md:pl-8"></div>
+                  </div>
+                </div>
+
+                {/* 2015 */}
+                <div className="relative flex items-center md:justify-center">
+                  <div className="flex flex-col md:flex-row items-center md:items-start w-full">
+                    <div className="md:w-1/2 md:pr-8"></div>
+                    <div className="hidden md:block w-4 h-4 bg-primary-red rounded-full border-4 border-white shadow-lg relative z-10"></div>
+                    <div className="md:w-1/2 md:pl-8 mb-4 md:mb-0">
+                      <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-primary-red">
+                        <div className="text-2xl font-bold text-primary-red mb-2">2015</div>
+                        <h3 className="text-lg font-semibold text-heading-dark mb-2">Expanded Across UAE</h3>
+                        <p className="text-grey-600 text-sm">Extended our services to cover all Emirates with comprehensive free zone and mainland solutions.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2018 */}
+                <div className="relative flex items-center md:justify-center">
+                  <div className="flex flex-col md:flex-row items-center md:items-start w-full">
+                    <div className="md:w-1/2 md:text-right md:pr-8 mb-4 md:mb-0">
+                      <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-primary-red">
+                        <div className="text-2xl font-bold text-primary-red mb-2">2018</div>
+                        <h3 className="text-lg font-semibold text-heading-dark mb-2">25+ Countries Served</h3>
+                        <p className="text-grey-600 text-sm">Achieved global reach, helping entrepreneurs from over 25 countries establish their UAE presence.</p>
+                      </div>
+                    </div>
+                    <div className="hidden md:block w-4 h-4 bg-primary-red rounded-full border-4 border-white shadow-lg relative z-10"></div>
+                    <div className="md:w-1/2 md:pl-8"></div>
+                  </div>
+                </div>
+
+                {/* 2022 */}
+                <div className="relative flex items-center md:justify-center">
+                  <div className="flex flex-col md:flex-row items-center md:items-start w-full">
+                    <div className="md:w-1/2 md:pr-8"></div>
+                    <div className="hidden md:block w-4 h-4 bg-primary-red rounded-full border-4 border-white shadow-lg relative z-10"></div>
+                    <div className="md:w-1/2 md:pl-8 mb-4 md:mb-0">
+                      <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-primary-red">
+                        <div className="text-2xl font-bold text-primary-red mb-2">2022</div>
+                        <h3 className="text-lg font-semibold text-heading-dark mb-2">Trusted by 1000+ Businesses</h3>
+                        <p className="text-grey-600 text-sm">Reached the milestone of helping over 1000 businesses successfully launch and scale in the UAE.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Future Vision */}
+          <div className="text-center mt-16">
+            <div className="bg-gradient-to-r from-primary-red to-red-600 rounded-2xl p-8 text-white max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold mb-4">Looking Ahead</h3>
+              <p className="text-red-100 leading-relaxed">
+                As the UAE continues to innovate and grow, we're committed to evolving our services and expanding our reach to help even more entrepreneurs achieve their business dreams.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Values Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
