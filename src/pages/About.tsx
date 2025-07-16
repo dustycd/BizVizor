@@ -239,6 +239,9 @@ const About = () => {
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
             Our Mission
           </h2>
+          <div className="text-xl mb-4 opacity-90 leading-relaxed font-medium">
+            We help entrepreneurs launch their UAE companies with clarity, speed, and full compliance.
+          </div>
           <p className="text-xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed">
             To empower entrepreneurs and businesses by providing comprehensive, efficient, and transparent business formation services in the UAE. We are committed to turning business dreams into reality through expert guidance, innovative solutions, and unwavering support.
           </p>
