@@ -844,36 +844,6 @@ const MainlandFormation = () => {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
-              Simple 4-Step Process
-            </h2>
-            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
-              Our streamlined process ensures quick and hassle-free company formation in Dubai mainland.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-primary-navy rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <span className="text-2xl font-bold text-white">{step.step}</span>
-                </div>
-                <h3 className="text-xl font-semibold text-heading-dark mb-4">
-                  {step.title}
-                </h3>
-                <p className="text-grey-600">
-                  {step.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section className="py-20 bg-grey-50">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
