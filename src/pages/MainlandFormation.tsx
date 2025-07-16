@@ -667,6 +667,119 @@ const MainlandFormation = () => {
         </div>
       </section>
 
+      {/* Why Bizvisor Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Why Work with Bizvisor?
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Choose Bizvisor for proven expertise, transparent processes, and comprehensive support throughout your mainland company formation journey.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* 15+ Years Experience */}
+            <div className="bg-grey-50 rounded-xl p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-primary-red/20">
+              <div className="w-20 h-20 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Award className="w-10 h-10 text-primary-red" />
+              </div>
+              <div className="text-4xl font-bold text-primary-red mb-3">15+</div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Years of Setup Experience
+              </h3>
+              <p className="text-grey-600 leading-relaxed">
+                Over a decade of expertise in UAE mainland company formation with deep knowledge of regulations and processes.
+              </p>
+            </div>
+
+            {/* 1000+ Companies Registered */}
+            <div className="bg-grey-50 rounded-xl p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-primary-red/20">
+              <div className="w-20 h-20 bg-primary-navy/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Building2 className="w-10 h-10 text-primary-navy" />
+              </div>
+              <div className="text-4xl font-bold text-primary-navy mb-3">1000+</div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Companies Registered
+              </h3>
+              <p className="text-grey-600 leading-relaxed">
+                Successfully registered over 1000 mainland companies across diverse industries and business activities.
+              </p>
+            </div>
+
+            {/* Free Consultation & Custom Planning */}
+            <div className="bg-grey-50 rounded-xl p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-primary-red/20">
+              <div className="w-20 h-20 bg-alert-success/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Users className="w-10 h-10 text-alert-success" />
+              </div>
+              <div className="text-2xl font-bold text-alert-success mb-3">FREE</div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Consultation & Custom Planning
+              </h3>
+              <p className="text-grey-600 leading-relaxed">
+                Complimentary consultation with tailored business setup plans designed for your specific requirements.
+              </p>
+            </div>
+
+            {/* 100% Regulatory Compliance */}
+            <div className="bg-grey-50 rounded-xl p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-primary-red/20">
+              <div className="w-20 h-20 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Shield className="w-10 h-10 text-primary-red" />
+              </div>
+              <div className="text-4xl font-bold text-primary-red mb-3">100%</div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Regulatory Compliance
+              </h3>
+              <p className="text-grey-600 leading-relaxed">
+                Full compliance with UAE mainland regulations ensuring your business setup meets all legal requirements.
+              </p>
+            </div>
+
+            {/* Transparent Pricing & No Delays */}
+            <div className="bg-grey-50 rounded-xl p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-primary-red/20 md:col-span-2 lg:col-span-1">
+              <div className="w-20 h-20 bg-primary-navy/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="w-10 h-10 text-primary-navy" />
+              </div>
+              <div className="text-2xl font-bold text-primary-navy mb-3">NO</div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Hidden Costs or Delays
+              </h3>
+              <p className="text-grey-600 leading-relaxed">
+                Transparent pricing with no hidden fees and guaranteed timelines for efficient mainland company formation.
+              </p>
+            </div>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="mt-16 bg-gradient-to-r from-primary-red to-red-600 rounded-2xl p-8 text-white text-center">
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="flex flex-col items-center">
+                <div className="flex items-center mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-6 h-6 text-yellow-300 fill-current" />
+                  ))}
+                </div>
+                <div className="text-2xl font-bold mb-1">4.9/5 Rating</div>
+                <div className="text-red-100">Based on 500+ reviews</div>
+              </div>
+              
+              <div className="flex flex-col items-center">
+                <CheckCircle className="w-12 h-12 text-white mb-3" />
+                <div className="text-2xl font-bold mb-1">98% Success Rate</div>
+                <div className="text-red-100">Consistently exceeding expectations</div>
+              </div>
+              
+              <div className="flex flex-col items-center">
+                <Shield className="w-12 h-12 text-white mb-3" />
+                <div className="text-2xl font-bold mb-1">Licensed & Certified</div>
+                <div className="text-red-100">DED Licensed CSP #1145129</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section className="py-20 bg-grey-50">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
