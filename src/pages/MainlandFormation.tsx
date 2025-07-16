@@ -849,27 +849,28 @@ const MainlandFormation = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Call to Action Section (Bottom Banner) */}
       <section className="py-20 bg-gradient-to-r from-primary-red to-red-600">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            Ready to Start Your Dubai Mainland Company?
+            Let's Set Up Your Mainland Business in Dubai
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Get expert guidance and complete support for your business formation. Contact us today for a free consultation.
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+            End-to-end company formation. Free consultation. No hidden fees.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={openCalendly}
-              className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold"
+              className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold hover:shadow-lg transform hover:-translate-y-0.5"
             >
-              Get Free Consultation
+              Start My Business
             </button>
-            <a href="tel:+971412344567">
-              <button className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold">
-              Call +971 4 123 4567
+            <button 
+              onClick={openCalendly}
+              className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-red transition-all duration-200 font-semibold"
+            >
+              Talk to a Specialist
               </button>
-            </a>
           </div>
         </div>
       </section>
