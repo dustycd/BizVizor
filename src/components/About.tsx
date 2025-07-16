@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Users, Globe, CheckCircle, Target, TrendingUp, Shield, Building2, FileText, Star, Clock } from 'lucide-react';
+import { Award, Users, Globe, CheckCircle, Target, TrendingUp, Shield, Building2, FileText, Star, Clock, Briefcase, MapPin, CreditCard, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CalendlyModal from './CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
@@ -58,6 +58,34 @@ const About = () => {
       title: 'Client-Centric Approach',
       description: 'Putting our clients first with personalized solutions tailored to their unique needs.',
       oneLiner: 'Your success is our priority—personalized service every step of the way.'
+    }
+  ];
+
+  const services = [
+    {
+      icon: Globe,
+      title: 'Free Zone Company Setup',
+      description: 'Complete setup across all major UAE free zones with 100% foreign ownership'
+    },
+    {
+      icon: Building2,
+      title: 'Mainland Business Formation',
+      description: 'Full mainland company formation with operational flexibility and market access'
+    },
+    {
+      icon: Users,
+      title: 'Visa & PRO Services',
+      description: 'Comprehensive visa processing and government relations support'
+    },
+    {
+      icon: CreditCard,
+      title: 'Banking & Documentation Support',
+      description: 'Bank account opening assistance and complete documentation services'
+    },
+    {
+      icon: HelpCircle,
+      title: 'Business License Advisory',
+      description: 'Expert guidance on license types and regulatory compliance requirements'
     }
   ];
 
@@ -353,6 +381,57 @@ const About = () => {
                 <div className="text-2xl font-bold mb-1">Licensed & Certified</div>
                 <div className="text-red-100">DED Licensed CSP #1145129</div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What We Offer Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              💼 What We Offer
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Comprehensive business formation services designed to make your UAE company setup seamless and successful.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div key={index} className="bg-grey-50 rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-primary-red/20">
+                <div className="w-16 h-16 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <service.icon className="w-8 h-8 text-primary-red" />
+                </div>
+                <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-grey-600 text-sm leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Below Services */}
+          <div className="text-center mt-12">
+            <p className="text-grey-600 mb-6">
+              Ready to explore our comprehensive business setup solutions?
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={openCalendly}
+                className="bg-primary-red text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold"
+              >
+                Schedule Consultation
+              </button>
+              <Link 
+                to="/cost-calculator"
+                className="border-2 border-primary-red text-primary-red px-8 py-3 rounded-lg hover:bg-primary-red hover:text-white transition-all duration-200 font-semibold inline-flex items-center justify-center"
+              >
+                Calculate Setup Cost
+              </Link>
             </div>
           </div>
         </div>
