@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Users, Globe, CheckCircle, Target, TrendingUp, Shield, Building2, FileText, Star } from 'lucide-react';
+import { Award, Users, Globe, CheckCircle, Target, TrendingUp, Shield, Building2, FileText, Star, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CalendlyModal from './CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
@@ -209,6 +209,124 @@ const About = () => {
                 </div>
               </div>
             ))}
+          </div>
+          
+          {/* Trust Badges */}
+          <div className="mt-16 bg-gradient-to-r from-primary-red to-red-600 rounded-2xl p-8 text-white text-center">
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="flex flex-col items-center">
+                <div className="flex items-center mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-6 h-6 text-yellow-300 fill-current" />
+                  ))}
+                </div>
+                <div className="text-2xl font-bold mb-1">4.9/5 Rating</div>
+                <div className="text-red-100">Based on 500+ reviews</div>
+              </div>
+              
+              <div className="flex flex-col items-center">
+                <CheckCircle className="w-12 h-12 text-white mb-3" />
+                <div className="text-2xl font-bold mb-1">98% Success Rate</div>
+                <div className="text-red-100">Consistently exceeding expectations</div>
+              </div>
+              
+              <div className="flex flex-col items-center">
+                <Shield className="w-12 h-12 text-white mb-3" />
+                <div className="text-2xl font-bold mb-1">Licensed & Certified</div>
+                <div className="text-red-100">DED Licensed CSP #1145129</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Achievements Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Our Achievements
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              <strong>Numbers that speak louder than words.</strong> Our track record demonstrates why 500+ entrepreneurs trust Bizvisor for their UAE business setup.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 border-primary-red/10">
+              <div className="w-20 h-20 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Building2 className="w-10 h-10 text-primary-red" />
+              </div>
+              <div className="text-4xl font-bold text-primary-red mb-2">
+                1000+
+              </div>
+              <div className="font-bold text-heading-dark mb-2 text-lg">
+                Businesses Launched
+              </div>
+              <div className="text-sm text-grey-600 font-medium">
+                Across Free Zone, Mainland, and Offshore
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 border-primary-red/10">
+              <div className="w-20 h-20 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Globe className="w-10 h-10 text-primary-red" />
+              </div>
+              <div className="text-4xl font-bold text-primary-red mb-2">
+                25+
+              </div>
+              <div className="font-bold text-heading-dark mb-2 text-lg">
+                Countries Served
+              </div>
+              <div className="text-sm text-grey-600 font-medium">
+                Entrepreneurs, SMEs, and global firms
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 border-primary-red/10">
+              <div className="w-20 h-20 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Clock className="w-10 h-10 text-primary-red" />
+              </div>
+              <div className="text-4xl font-bold text-primary-red mb-2">
+                3-5
+              </div>
+              <div className="font-bold text-heading-dark mb-2 text-lg">
+                Business Days
+              </div>
+              <div className="text-sm text-grey-600 font-medium">
+                Average setup time
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 border-primary-red/10">
+              <div className="w-20 h-20 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Award className="w-10 h-10 text-primary-red" />
+              </div>
+              <div className="text-4xl font-bold text-primary-red mb-2">
+                99%
+              </div>
+              <div className="font-bold text-heading-dark mb-2 text-lg">
+                Approval Rate
+              </div>
+              <div className="text-sm text-grey-600 font-medium">
+                License approval on first submission
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 border-primary-red/10 md:col-span-2 lg:col-span-1">
+              <div className="w-20 h-20 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Users className="w-10 h-10 text-primary-red" />
+              </div>
+              <div className="text-2xl font-bold text-primary-red mb-2">
+                End-to-End
+              </div>
+              <div className="font-bold text-heading-dark mb-2 text-lg">
+                Service Model
+              </div>
+              <div className="text-sm text-grey-600 font-medium">
+                From setup to compliance and scaling
+              </div>
+            </div>
           </div>
           
           {/* Trust Badges */}
