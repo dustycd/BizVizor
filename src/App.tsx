@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import FloatingCTA from './components/FloatingCTA';
+import WhatsAppButton from './components/WhatsAppButton';
 import Home from './pages/Home';
 import About from './pages/About';
 import Blog from './pages/Blog';
@@ -60,6 +62,8 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
         <Footer />
+        <FloatingCTA />
+        <WhatsAppButton />
       </div>
     </Router>
   );

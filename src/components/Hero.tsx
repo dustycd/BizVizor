@@ -1,7 +1,6 @@
 import React from 'react';
 import { ArrowRight, Calculator, Phone, Play, Star, CheckCircle, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import WhatsAppButton from './WhatsAppButton';
 import CalendlyModal from './CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
 
@@ -68,8 +67,6 @@ const Hero = () => {
             </Link>
           </div>
           
-          {/* WhatsApp Button */}
-          <WhatsAppButton />
         </div>
       </section>
       
