@@ -134,6 +134,9 @@ const About = () => {
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
               Why Bizvisor is Your Trusted Partner
             </h1>
+            <div className="text-xl mb-4 opacity-90 leading-relaxed font-medium">
+              We help entrepreneurs launch their UAE companies with clarity, speed, and full compliance.
+            </div>
             <p className="text-xl mb-8 opacity-90 leading-relaxed">
               With 15+ years of expertise and 500+ successful business launches, we make UAE company formation effortless. Here's why entrepreneurs choose us as their trusted partner.
             </p>
