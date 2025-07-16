@@ -109,13 +109,13 @@ const About = () => {
                 Our Story
               </h2>
               <p className="text-lg text-grey-600 mb-6 leading-relaxed">
-                Founded in 2009, Bizvisor began with a simple mission: to make business formation in the UAE accessible, efficient, and transparent for entrepreneurs worldwide. What started as a small consultancy has grown into one of the region's most trusted business setup specialists.
+                Established in 2009, Bizvisor has been at the forefront of UAE business setup—offering seamless, compliant, and cost-effective solutions for entrepreneurs and enterprises alike.
               </p>
               <p className="text-lg text-grey-600 mb-6 leading-relaxed">
-                Over the years, we've witnessed the UAE's transformation into a global business hub and have been proud to facilitate the dreams of thousands of entrepreneurs who chose to make the UAE their business home.
+                With over a decade of experience, we've supported thousands of businesses in navigating the complexities of Free Zone, Mainland, and Offshore formation across all Emirates.
               </p>
               <p className="text-lg text-grey-600 leading-relaxed">
-                Today, we continue to innovate and expand our services, always staying ahead of regulatory changes and market trends to provide our clients with the most current and effective business solutions.
+                As the UAE continues to evolve into a global economic hub, Bizvisor remains committed to simplifying business formation and enabling founders to grow with confidence.
               </p>
             </div>
             <div className="relative">
