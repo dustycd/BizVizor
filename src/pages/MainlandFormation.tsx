@@ -78,28 +78,6 @@ const MainlandFormation = () => {
     }
   ];
 
-  const process = [
-    {
-      step: '01',
-      title: 'Initial Consultation',
-      description: 'Discuss your business requirements and choose the right structure'
-    },
-    {
-      step: '02',
-      title: 'Document Preparation',
-      description: 'Prepare and notarize all required documents and applications'
-    },
-    {
-      step: '03',
-      title: 'License Application',
-      description: 'Submit applications to DED and relevant authorities'
-    },
-    {
-      step: '04',
-      title: 'Approval & Setup',
-      description: 'Receive approvals and complete business setup process'
-    }
-  ];
 
   return (
     <div className="pt-24">
