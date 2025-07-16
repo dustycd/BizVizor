@@ -86,8 +86,6 @@ const Home = () => {
                 </div>
               ))}
             </div>
-  );
-};
 
             {/* CTA */}
             <div className="text-center bg-gradient-to-r from-primary-red to-red-600 rounded-2xl p-8 text-white">
@@ -124,4 +122,7 @@ const Home = () => {
         url="https://calendly.com/saidtouma-bizvisor/consultation?month=2025-06"
       />
     </div>
+  );
+};
+
 export default Home;
