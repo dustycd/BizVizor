@@ -1,11 +1,17 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Users, CheckCircle, ArrowRight, Heart, Clock, Shield, FileText } from 'lucide-react';
+import { Users, CheckCircle, ArrowRight, Heart, Clock, Shield, FileText, ChevronDown, ChevronUp } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
 
 const FamilyResidence = () => {
   const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
 
   const visaTypes = [
     {
@@ -299,6 +305,118 @@ const FamilyResidence = () => {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Get answers to the most commonly asked questions about family residence visas in the UAE.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-4">
+              {[
+                {
+                  question: "Who can sponsor a family residence visa in the UAE?",
+                  answer: "UAE residents earning AED 4,000 per month (or AED 3,000 with employer housing) can sponsor their spouse and children. Investors and business owners can also sponsor their dependents with valid residency status."
+                },
+                {
+                  question: "What is the validity of a family residence visa?",
+                  answer: "Employee-sponsored family visas are usually valid for 2 years, while investors can get up to 3 years validity. The visa is linked to the sponsor's residency status."
+                },
+                {
+                  question: "What documents are required?",
+                  answer: "You need a salary certificate or labour contract, Ejari tenancy, Emirates ID, marriage and birth certificates (attested), family members' passport copies, photos, and medical fitness reports."
+                },
+                {
+                  question: "What is the processing time for a family visa?",
+                  answer: "The process typically takes 5–10 working days, including medical testing, Emirates ID typing, and visa stamping by GDRFA."
+                },
+                {
+                  question: "Do I need Ejari to apply for a family visa?",
+                  answer: "Yes, a valid Ejari tenancy contract is mandatory as proof of suitable housing for your family."
+                },
+                {
+                  question: "What medical tests are required?",
+                  answer: "Adults must undergo blood tests and chest X-rays to screen for infectious diseases such as HIV or TB before visa approval."
+                },
+                {
+                  question: "Can I sponsor my parents under a family visa?",
+                  answer: "Yes, but you need to earn at least AED 20,000 per month and provide medical insurance. Parent visas are subject to stricter GDRFA rules."
+                },
+                {
+                  question: "Can women sponsor family members?",
+                  answer: "Yes, women can sponsor their spouse or children if they earn AED 10,000+ (or AED 8,000 with housing) and meet job category requirements."
+                },
+                {
+                  question: "Can I apply for a family visa online?",
+                  answer: "Yes, applications can be submitted through the GDRFA or Amer online portals, but PRO services like Bizvisor ensure faster approvals and fewer errors."
+                },
+                {
+                  question: "Can Bizvisor handle family visa renewals?",
+                  answer: "Yes, Bizvisor manages renewals, cancellations, and Emirates ID updates, saving you from visiting government offices."
+                },
+                {
+                  question: "Is health insurance mandatory for family visas?",
+                  answer: "Yes, valid health insurance for each family member is required before visa stamping."
+                },
+                {
+                  question: "What if my visa gets delayed?",
+                  answer: "Bizvisor follows up directly with GDRFA to track pending applications and resolve approval delays."
+                },
+                {
+                  question: "Can I change my family visa status while in UAE?",
+                  answer: "Yes, status changes can be done without exiting the country if you are on a valid visit or tourist visa."
+                },
+                {
+                  question: "What happens if my family visa expires?",
+                  answer: "You have a 30-day grace period after expiry to renew the visa; otherwise, overstay fines will apply."
+                },
+                {
+                  question: "Is Bizvisor's service faster than doing it yourself?",
+                  answer: "Yes, Bizvisor's PRO experts can process family visas in as little as 5 days, ensuring accuracy and faster approvals."
+                }
+              ].map((faq, index) => (
+                <div 
+                  key={index}
+                  className="bg-grey-50 rounded-xl shadow-sm border border-grey-200 overflow-hidden"
+                >
+                  <button
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-grey-100 transition-colors duration-200"
+                  >
+                    <h3 className="text-lg font-semibold text-heading-dark pr-4">
+                      {faq.question}
+                    </h3>
+                    <div className="flex-shrink-0">
+                      {openFAQ === index ? (
+                        <ChevronUp className="w-5 h-5 text-alert-success" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-grey-400" />
+                      )}
+                    </div>
+                  </button>
+                  
+                  {openFAQ === index && (
+                    <div className="px-6 pb-5">
+                      <div className="pt-2 border-t border-grey-100">
+                        <p className="text-grey-700 leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
