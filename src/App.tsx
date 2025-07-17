@@ -24,6 +24,10 @@ import VisaServices from './pages/VisaServices';
 import CostCalculator from './pages/CostCalculator';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import EjariRegistration from './pages/EjariRegistration';
+import FamilyResidence from './pages/FamilyResidence';
+import MaidResidenceService from './pages/MaidResidenceService';
+import ProResidenceServices from './pages/ProResidenceServices';
 
 // Component to handle scroll to top on route change
 function ScrollToTop() {
@@ -62,6 +66,10 @@ function App() {
           <Route path="/cost-calculator" element={<CostCalculator />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/ejari-registration-dubai-uae" element={<EjariRegistration />} />
+          <Route path="/family-residence-dubai-uae" element={<FamilyResidence />} />
+          <Route path="/maid-residence-service-dubai-uae" element={<MaidResidenceService />} />
+          <Route path="/pro-residence-services-dubai-uae" element={<ProResidenceServices />} />
         </Routes>
         <Footer />
         <FloatingCTA />
