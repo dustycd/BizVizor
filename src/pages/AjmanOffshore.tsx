@@ -1,11 +1,17 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, CheckCircle, ArrowRight, Globe, Lock, DollarSign, Zap } from 'lucide-react';
+import { Shield, CheckCircle, ArrowRight, Globe, Lock, DollarSign, Zap, ChevronDown, ChevronUp } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
 
 const AjmanOffshore = () => {
   const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
 
   const benefits = [
     {
@@ -83,6 +89,69 @@ const AjmanOffshore = () => {
     'Estate Planning',
     'Intellectual Property Holding',
     'International Consulting'
+  ];
+
+  const faqs = [
+    {
+      question: "Why choose Ajman Offshore for company formation?",
+      answer: "Ajman Offshore is ideal for businesses seeking a cost-effective structure with full foreign ownership, no corporate taxes, and quick incorporation. It's a preferred choice for international trading, consultancy, and holding companies."
+    },
+    {
+      question: "What is the cost of setting up an Ajman Offshore company?",
+      answer: "The setup cost typically ranges from AED 8,000 to 12,000, depending on share capital requirements and service providers like Bizvisor."
+    },
+    {
+      question: "How long does it take to register an Ajman Offshore company?",
+      answer: "The incorporation process usually takes 2–3 working days if all documents are complete and approved by the Ajman Free Zone Authority."
+    },
+    {
+      question: "What business activities are allowed in Ajman Offshore?",
+      answer: "You can engage in international trading, holding, consultancy, and investment activities. Direct trading within the UAE mainland is not permitted."
+    },
+    {
+      question: "What documents are required to register an Ajman Offshore company?",
+      answer: "You need passport copies of shareholders, proof of address, bank reference letters, and details of business activities. Bizvisor prepares and submits these on your behalf."
+    },
+    {
+      question: "Can foreigners fully own an Ajman Offshore company?",
+      answer: "Yes, Ajman Offshore allows 100% foreign ownership with no requirement for a local sponsor or UAE partner."
+    },
+    {
+      question: "Is physical office space required in Ajman Offshore?",
+      answer: "No, offshore companies cannot lease physical offices in the UAE, making them cost-effective for international operations."
+    },
+    {
+      question: "Can an Ajman Offshore company open a UAE bank account?",
+      answer: "Yes, offshore companies can open both business and personal accounts in leading UAE banks, subject to compliance checks."
+    },
+    {
+      question: "Are visas available with Ajman Offshore companies?",
+      answer: "No, Ajman Offshore structures do not provide UAE residence visas for shareholders or employees."
+    },
+    {
+      question: "What are the tax benefits of Ajman Offshore?",
+      answer: "Ajman Offshore offers 0% corporate tax, no import/export duties, and 100% profit repatriation, making it tax-efficient for global investors."
+    },
+    {
+      question: "Can an Ajman Offshore company own property in Dubai or UAE?",
+      answer: "Yes, Ajman Offshore companies can own properties in certain designated areas of Dubai with proper approvals."
+    },
+    {
+      question: "Can I run an e-commerce business with an Ajman Offshore company?",
+      answer: "Yes, you can operate international e-commerce and online services, but you cannot sell directly to UAE mainland customers."
+    },
+    {
+      question: "Can I upgrade to a free zone or mainland company later?",
+      answer: "Yes, you can restructure into a free zone or mainland company later if you plan to operate locally."
+    },
+    {
+      question: "What is the annual renewal cost for Ajman Offshore companies?",
+      answer: "Annual renewal fees range from AED 5,000 to 8,000, depending on registered agent fees."
+    },
+    {
+      question: "Why choose Bizvisor for Ajman Offshore setup?",
+      answer: "Bizvisor ensures fast registration, compliant documentation, and banking assistance, helping you set up within days."
+    }
   ];
 
   return (
@@ -231,6 +300,57 @@ const AjmanOffshore = () => {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Get answers to the most commonly asked questions about Ajman Offshore company formation.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <div 
+                  key={index}
+                  className="bg-grey-50 rounded-xl shadow-sm border border-grey-200 overflow-hidden"
+                >
+                  <button
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-grey-100 transition-colors duration-200"
+                  >
+                    <h3 className="text-lg font-semibold text-heading-dark pr-4">
+                      {faq.question}
+                    </h3>
+                    <div className="flex-shrink-0">
+                      {openFAQ === index ? (
+                        <ChevronUp className="w-5 h-5 text-grey-700" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-grey-400" />
+                      )}
+                    </div>
+                  </button>
+                  
+                  {openFAQ === index && (
+                    <div className="px-6 pb-5">
+                      <div className="pt-2 border-t border-grey-100">
+                        <p className="text-grey-700 leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
