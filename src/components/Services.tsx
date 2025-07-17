@@ -56,7 +56,7 @@ const Services = () => {
         'Ejari Registration',
         'Family Residence Visa',
         'Maid Residence Service',
-        'PRO Services'
+        'Pro Residence Services'
       ]
     },
     {
