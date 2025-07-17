@@ -69,9 +69,17 @@ const Header = () => {
         {
           categoryName: 'Business Support Services',
           links: [
-            { name: 'PRO Services', href: '/pro-services-overview-dubai-uae' },
             { name: 'Accounting Services', href: '/accounting-bookkeeping-services-dubai-uae' },
             { name: 'Visa Services', href: '/visa-services' }
+          ]
+        },
+        {
+          categoryName: 'PRO Business Services',
+          links: [
+            { name: 'Ejari Registration', href: '/ejari-registration-dubai-uae' },
+            { name: 'Family Residence', href: '/family-residence-dubai-uae' },
+            { name: 'Maid Residence Service', href: '/maid-residence-service-dubai-uae' },
+            { name: 'Pro Residence Services', href: '/pro-residence-services-dubai-uae' }
           ]
         }
       ]
