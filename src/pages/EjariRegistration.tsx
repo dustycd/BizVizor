@@ -1,11 +1,17 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FileText, CheckCircle, ArrowRight, Home, Clock, Shield, Users } from 'lucide-react';
+import { FileText, CheckCircle, ArrowRight, Home, Clock, Shield, Users, ChevronDown, ChevronUp } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
 
 const EjariRegistration = () => {
   const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
 
   const services = [
     {
@@ -280,6 +286,118 @@ const EjariRegistration = () => {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Get answers to the most commonly asked questions about Ejari registration in Dubai.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-4">
+              {[
+                {
+                  question: "Why is Ejari registration mandatory in Dubai?",
+                  answer: "Ejari is a legal system by RERA that officially registers tenancy contracts to protect both tenants and landlords. Without Ejari, you cannot connect DEWA utilities, apply for visas, or get trade licenses. It also ensures transparency in rent-related disputes."
+                },
+                {
+                  question: "What is the cost of Ejari registration?",
+                  answer: "The standard fee for Ejari registration is between AED 120–200, depending on whether you register online via the Dubai REST app or through a trustee center. Some landlords or agents might charge additional service fees."
+                },
+                {
+                  question: "How fast can I get my Ejari certificate?",
+                  answer: "If you register online using the Dubai REST app, the certificate is generated instantly. For trustee offices, it usually takes 1–2 working days, but Bizvisor can help with express same-day registration."
+                },
+                {
+                  question: "Can I register Ejari online?",
+                  answer: "Yes, the Dubai REST app allows tenants to register Ejari by uploading the tenancy contract, Emirates ID, and required documents. It is the quickest method and is preferred by most UAE residents."
+                },
+                {
+                  question: "What documents are required for Ejari registration?",
+                  answer: "You need a valid tenancy contract, tenant's Emirates ID, passport with visa page, landlord's title deed, and a recent DEWA bill to confirm the property details."
+                },
+                {
+                  question: "Who is responsible for Ejari registration – landlord or tenant?",
+                  answer: "In residential leases, tenants usually handle Ejari registration, but for commercial properties, landlords or property managers often take responsibility."
+                },
+                {
+                  question: "Can I register Ejari before signing a tenancy contract?",
+                  answer: "No, a signed tenancy contract is mandatory before registering Ejari. RERA requires all tenancy details to be final before submission."
+                },
+                {
+                  question: "What happens if I don't register Ejari?",
+                  answer: "Without Ejari, you cannot apply for family or maid visas, utilities like DEWA will not be connected, and you won't have legal protection in rent disputes."
+                },
+                {
+                  question: "Do I need a new Ejari for lease renewals?",
+                  answer: "Yes, every lease renewal or contract extension requires a new Ejari registration to stay valid under RERA regulations."
+                },
+                {
+                  question: "Can a short-term lease be registered with Ejari?",
+                  answer: "Yes, even short-term rental contracts (monthly or yearly) must be registered, as RERA mandates Ejari for all tenancy agreements."
+                },
+                {
+                  question: "Can Bizvisor help with Ejari corrections or cancellations?",
+                  answer: "Yes, Bizvisor assists with updating tenant details, correcting contract errors, or cancelling Ejari when moving out or changing properties."
+                },
+                {
+                  question: "Is Ejari registration needed for office spaces or warehouses?",
+                  answer: "Yes, Ejari registration is mandatory for both residential and commercial spaces, including offices and warehouses."
+                },
+                {
+                  question: "Can Ejari be transferred to a new tenant?",
+                  answer: "No, each new tenant must register a fresh Ejari under their name when renting the same property."
+                },
+                {
+                  question: "Do I need Ejari for my visa renewal?",
+                  answer: "Yes, valid Ejari is required for family residence visas, maid visas, and even some work visa renewals in Dubai."
+                },
+                {
+                  question: "Does Bizvisor offer same-day Ejari registration?",
+                  answer: "Yes, Bizvisor's express service can complete your Ejari registration in just a few hours with all required documents ready."
+                }
+              ].map((faq, index) => (
+                <div 
+                  key={index}
+                  className="bg-grey-50 rounded-xl shadow-sm border border-grey-200 overflow-hidden"
+                >
+                  <button
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-grey-100 transition-colors duration-200"
+                  >
+                    <h3 className="text-lg font-semibold text-heading-dark pr-4">
+                      {faq.question}
+                    </h3>
+                    <div className="flex-shrink-0">
+                      {openFAQ === index ? (
+                        <ChevronUp className="w-5 h-5 text-primary-red" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-grey-400" />
+                      )}
+                    </div>
+                  </button>
+                  
+                  {openFAQ === index && (
+                    <div className="px-6 pb-5">
+                      <div className="pt-2 border-t border-grey-100">
+                        <p className="text-grey-700 leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
