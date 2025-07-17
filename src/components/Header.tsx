@@ -127,7 +127,7 @@ const Header = () => {
                       </button>
                       
                       {isServicesOpen && (
-                        <div className="absolute top-full left-0 mt-1 w-[1000px] bg-white rounded-xl shadow-xl border border-grey-200 py-6 z-50 animate-fade-in">
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-[1000px] bg-white rounded-xl shadow-xl border border-grey-200 py-6 z-50 animate-fade-in">
                           <div className="grid grid-cols-4 gap-8 px-6">
                             {item.dropdownCategories?.map((category, categoryIndex) => (
                               <div key={category.categoryName}>
