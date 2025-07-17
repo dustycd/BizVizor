@@ -73,7 +73,7 @@ const Header = () => {
         {
           categoryName: 'PRO Business Services Overview',
           links: [
-            { name: 'Ejari Registration', href: '/ejari-registration-dubai-uae', isRed: true },
+            { name: 'Ejari Registration', href: '/ejari-registration-dubai-uae' },
             { name: 'Family Residence', href: '/family-residence-dubai-uae' },
             { name: 'Maid Residence Service', href: '/maid-residence-service-dubai-uae' },
             { name: 'Pro Residence Services', href: '/pro-residence-services-dubai-uae' }
@@ -139,7 +139,7 @@ const Header = () => {
                                     <Link
                                       key={link.name}
                                       to={link.href}
-                                      className={`${link.isRed ? 'text-primary-red' : 'text-grey-600'} hover:text-primary-red transition-colors duration-200 text-sm block py-1 hover:bg-grey-50 px-2 rounded`}
+                                      className="text-grey-600 hover:text-primary-red transition-colors duration-200 text-sm block py-1 hover:bg-grey-50 px-2 rounded"
                                     >
                                       {link.name}
                                     </Link>
