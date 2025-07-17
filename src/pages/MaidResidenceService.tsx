@@ -1,11 +1,17 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Home, CheckCircle, ArrowRight, Users, Clock, Shield, FileText } from 'lucide-react';
+import { Home, CheckCircle, ArrowRight, Users, Clock, Shield, FileText, ChevronDown, ChevronUp } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
 
 const MaidResidenceService = () => {
   const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
 
   const services = [
     {
@@ -340,6 +346,118 @@ const MaidResidenceService = () => {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Get answers to the most commonly asked questions about maid residence visas in the UAE.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-4">
+              {[
+                {
+                  question: "Who can sponsor a maid in the UAE?",
+                  answer: "UAE residents earning AED 25,000 or more monthly or owning property can sponsor domestic workers, subject to GDRFA approval."
+                },
+                {
+                  question: "What documents are required for a maid visa?",
+                  answer: "You need the sponsor's Emirates ID, passport, salary certificate, Ejari tenancy, maid's passport & photos, and medical fitness certificate."
+                },
+                {
+                  question: "What is the cost of a maid visa?",
+                  answer: "Annual costs range from AED 5,000–6,500, including visa fees, deposits, typing fees, and mandatory health insurance."
+                },
+                {
+                  question: "What is the validity of a maid visa?",
+                  answer: "Maid visas are valid for 1 year and must be renewed annually as per UAE domestic worker regulations."
+                },
+                {
+                  question: "Can I sponsor a maid if I live in a 1-bedroom apartment?",
+                  answer: "No, you must have at least a 2-bedroom Ejari tenancy to prove sufficient accommodation for domestic workers."
+                },
+                {
+                  question: "How long does it take to get a maid visa?",
+                  answer: "The entire process, including medicals and Emirates ID, takes around 7–14 working days."
+                },
+                {
+                  question: "What medical tests are required?",
+                  answer: "The maid must undergo standard medical fitness tests, including screening for infectious diseases."
+                },
+                {
+                  question: "Can Bizvisor manage maid visa renewals?",
+                  answer: "Yes, Bizvisor handles yearly renewals, including insurance updates, Emirates ID, and GDRFA approvals."
+                },
+                {
+                  question: "Do I need to pay a deposit for a maid visa?",
+                  answer: "Yes, a refundable AED 2,000 deposit is required by immigration authorities."
+                },
+                {
+                  question: "Can I hire a maid from outside the UAE?",
+                  answer: "Yes, Bizvisor assists with overseas recruitment permits, entry permits, and visa processing for maids coming from abroad."
+                },
+                {
+                  question: "What happens if I don't renew on time?",
+                  answer: "Overstay fines will apply if the visa is not renewed within the grace period, and the sponsor may face penalties."
+                },
+                {
+                  question: "Can I transfer a maid visa to someone else?",
+                  answer: "Yes, but the transfer requires immigration approval and proper legal documentation."
+                },
+                {
+                  question: "Can I cancel a maid visa before expiry?",
+                  answer: "Yes, Bizvisor handles cancellations, exit permits, and deposit refunds if the maid leaves employment."
+                },
+                {
+                  question: "Is health insurance mandatory for maids?",
+                  answer: "Yes, health insurance is compulsory before the visa can be stamped or renewed."
+                },
+                {
+                  question: "Why use Bizvisor for maid visa processing?",
+                  answer: "Bizvisor manages the full process—from entry permits and medicals to Emirates ID and visa stamping—ensuring compliance and saving you time."
+                }
+              ].map((faq, index) => (
+                <div 
+                  key={index}
+                  className="bg-grey-50 rounded-xl shadow-sm border border-grey-200 overflow-hidden"
+                >
+                  <button
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-grey-100 transition-colors duration-200"
+                  >
+                    <h3 className="text-lg font-semibold text-heading-dark pr-4">
+                      {faq.question}
+                    </h3>
+                    <div className="flex-shrink-0">
+                      {openFAQ === index ? (
+                        <ChevronUp className="w-5 h-5 text-primary-navy" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-grey-400" />
+                      )}
+                    </div>
+                  </button>
+                  
+                  {openFAQ === index && (
+                    <div className="px-6 pb-5">
+                      <div className="pt-2 border-t border-grey-100">
+                        <p className="text-grey-700 leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
