@@ -1,11 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Shield, CheckCircle, ArrowRight, Globe, Lock, DollarSign, Zap, Award } from 'lucide-react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom'; 
+import { Shield, CheckCircle, ArrowRight, Globe, Lock, DollarSign, Zap, Award, ChevronDown, ChevronUp } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
 
 const JafzaOffshore = () => {
   const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
 
   const benefits = [
     {
@@ -101,6 +107,69 @@ const JafzaOffshore = () => {
     {
       title: 'Business Support',
       description: 'Comprehensive business support services and facilities'
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "Why choose JAFZA Offshore for business setup?",
+      answer: "JAFZA Offshore is ideal for global investors needing a prestigious UAE offshore presence, strict compliance standards, and access to international banking facilities."
+    },
+    {
+      question: "What is the cost of setting up a JAFZA Offshore company?",
+      answer: "Initial setup costs start from AED 10,000 to 15,000, depending on shareholding structure and agent fees."
+    },
+    {
+      question: "How long does JAFZA Offshore incorporation take?",
+      answer: "The process takes 3–5 working days, as JAFZA follows strict KYC and compliance procedures for international credibility."
+    },
+    {
+      question: "What business activities are allowed?",
+      answer: "You can conduct international trading, holding, investment, consultancy, and property ownership. Local mainland trade is not permitted."
+    },
+    {
+      question: "What documents are required for JAFZA Offshore?",
+      answer: "You need passport copies, proof of address, bank reference letters, and business activity details. Bizvisor handles document preparation and submission."
+    },
+    {
+      question: "Can foreigners own a JAFZA Offshore company 100%?",
+      answer: "Yes, JAFZA Offshore allows full foreign ownership without a local sponsor."
+    },
+    {
+      question: "Can JAFZA Offshore companies open UAE bank accounts?",
+      answer: "Yes, JAFZA Offshore companies are highly respected by banks, making account opening easier compared to other offshore jurisdictions."
+    },
+    {
+      question: "Are visas available with JAFZA Offshore companies?",
+      answer: "No, offshore companies do not provide UAE residence visas for shareholders or staff."
+    },
+    {
+      question: "What are the tax benefits of JAFZA Offshore?",
+      answer: "JAFZA offers 0% corporate tax, no customs duties, and full profit repatriation, making it ideal for tax-efficient operations."
+    },
+    {
+      question: "Can a JAFZA Offshore company own UAE real estate?",
+      answer: "Yes, JAFZA Offshore companies are allowed to own property in freehold areas approved by the Dubai Land Department."
+    },
+    {
+      question: "Can I run an e-commerce business through JAFZA Offshore?",
+      answer: "Yes, you can manage international online businesses, but you cannot sell products directly in the UAE market."
+    },
+    {
+      question: "What is the annual renewal cost for JAFZA Offshore companies?",
+      answer: "Renewal fees range from AED 7,000 to 12,000, depending on registered agent fees."
+    },
+    {
+      question: "Can I upgrade from JAFZA Offshore to JAFZA Free Zone?",
+      answer: "Yes, you can convert to a free zone company if you plan to trade or hire staff in the UAE."
+    },
+    {
+      question: "Is JAFZA Offshore suitable for holding companies?",
+      answer: "Yes, it is widely used for holding investments, intellectual property, and global assets due to its strong legal framework."
+    },
+    {
+      question: "Why use Bizvisor for JAFZA Offshore setup?",
+      answer: "Bizvisor offers fast documentation, legal compliance support, and bank account opening assistance, ensuring a seamless experience."
     }
   ];
 
@@ -282,6 +351,57 @@ const JafzaOffshore = () => {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Get answers to the most commonly asked questions about JAFZA Offshore company formation.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-4">
+              {faqs.map((faq, index) => (
+                <div 
+                  key={index}
+                  className="bg-grey-50 rounded-xl shadow-sm border border-grey-200 overflow-hidden"
+                >
+                  <button
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-grey-100 transition-colors duration-200"
+                  >
+                    <h3 className="text-lg font-semibold text-heading-dark pr-4">
+                      {faq.question}
+                    </h3>
+                    <div className="flex-shrink-0">
+                      {openFAQ === index ? (
+                        <ChevronUp className="w-5 h-5 text-primary-navy" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-grey-400" />
+                      )}
+                    </div>
+                  </button>
+                  
+                  {openFAQ === index && (
+                    <div className="px-6 pb-5">
+                      <div className="pt-2 border-t border-grey-100">
+                        <p className="text-grey-700 leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
