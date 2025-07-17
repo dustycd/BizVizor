@@ -48,38 +48,43 @@ const Header = () => {
       hasDropdown: true,
       dropdownCategories: [
         {
-          categoryName: 'Company Formation',
+          categoryName: 'Mainland Company Formation in Dubai',
           links: [
-            { name: 'Dubai Mainland Company Formation', href: '/dubai-mainland-company-formation' },
-            { name: 'Offshore Company Formation', href: '/offshore-company-formation-dubai-overview' }
+            { name: 'Accounting & Book-Keeping', href: '/accounting-bookkeeping-services-dubai-uae' },
+            { name: 'Auditing Firm', href: '/auditing-firm-dubai' },
+            { name: 'Dubai Company Liquidation', href: '/company-liquidation-in-dubai-uae' },
+            { name: 'Branch Office Of Foreign Company', href: '/branch-office-of-a-foreign-company-uae' },
+            { name: 'Company Registration in Dubai, UAE', href: '/company-registration-dubai' },
+            { name: 'E-Commerce Company Formation', href: '/ecommerce-company-setup-dubai-uae' },
+            { name: 'Dubai LLC Company Formation - Limited Liability Company', href: '/llc-company-formation-dubai-uae' }
           ]
         },
         {
-          categoryName: 'Free Zone Setup',
+          categoryName: 'Business Setup in UAE Free Zones',
           links: [
-            { name: 'UAE Free Zone Overview', href: '/uae-free-zone-company-formation' },
-            { name: 'Sharjah Free Zone', href: '/sharjah-free-zone-business-set-up' },
-            { name: 'Ajman Free Zone', href: '/ajman-free-zones-company-formation-uae' },
-            { name: 'RAK Free Zone', href: '/ras-al-khaimah-free-zone-business-setup' },
-            { name: 'UAQ Free Zone', href: '/umm-al-quwain-free-zones-company-formation-uae' },
-            { name: 'Dubai Free Zone', href: '/freezone-company-setup-in-dubai' },
-            { name: 'Fujairah Free Zone', href: '/business-setup-fujairah-free-zone-uae' }
+            { name: 'Sharjah Free Zone Company Setup', href: '/sharjah-free-zone-business-set-up' },
+            { name: 'Company Formation in Ajman Free Zones', href: '/ajman-free-zones-company-formation-uae' },
+            { name: 'Company Formation in Ras Al-Khaimah Free Zones', href: '/ras-al-khaimah-free-zone-business-setup' },
+            { name: 'Company Formation in Umm Al Quwain Free Zones', href: '/umm-al-quwain-free-zones-company-formation-uae' },
+            { name: 'Dubai Free Zone Company Setup', href: '/freezone-company-setup-in-dubai' },
+            { name: 'Fujairah Free Zone Business Setup', href: '/business-setup-fujairah-free-zone-uae' }
           ]
         },
         {
-          categoryName: 'Business Support Services',
+          categoryName: 'PRO Business Services Overview',
           links: [
-            { name: 'Accounting Services', href: '/accounting-bookkeeping-services-dubai-uae' },
-            { name: 'Visa Services', href: '/visa-services' }
-          ]
-        },
-        {
-          categoryName: 'PRO Business Services',
-          links: [
-            { name: 'Ejari Registration', href: '/ejari-registration-dubai-uae' },
+            { name: 'Ejari Registration', href: '/ejari-registration-dubai-uae', isRed: true },
             { name: 'Family Residence', href: '/family-residence-dubai-uae' },
             { name: 'Maid Residence Service', href: '/maid-residence-service-dubai-uae' },
             { name: 'Pro Residence Services', href: '/pro-residence-services-dubai-uae' }
+          ]
+        },
+        {
+          categoryName: 'Offshore Company Formation Overview',
+          links: [
+            { name: 'Ajman Offshore', href: '/ajman-offshore-company-formation-dubai-uae' },
+            { name: 'Jafza Offshore', href: '/jafza-offshore-company-formation-dubai-uae' },
+            { name: 'Ras al Khaimah Offshore', href: '/ras-al-khaimah-offshore-company-formation-dubai-uae' }
           ]
         }
       ]
@@ -122,8 +127,8 @@ const Header = () => {
                       </button>
                       
                       {isServicesOpen && (
-                        <div className="absolute top-full left-0 mt-1 w-[800px] bg-white rounded-xl shadow-xl border border-grey-200 py-6 z-50 animate-fade-in">
-                          <div className="grid grid-cols-3 gap-8 px-6">
+                        <div className="absolute top-full left-0 mt-1 w-[1000px] bg-white rounded-xl shadow-xl border border-grey-200 py-6 z-50 animate-fade-in">
+                          <div className="grid grid-cols-4 gap-8 px-6">
                             {item.dropdownCategories?.map((category, categoryIndex) => (
                               <div key={category.categoryName}>
                                 <h4 className="text-xs font-semibold text-grey-500 uppercase tracking-wider mb-3 border-b border-grey-100 pb-2">
@@ -134,7 +139,7 @@ const Header = () => {
                                     <Link
                                       key={link.name}
                                       to={link.href}
-                                      className="text-grey-600 hover:text-primary-red transition-colors duration-200 text-sm block py-1 hover:bg-grey-50 px-2 rounded"
+                                      className={`${link.isRed ? 'text-primary-red' : 'text-grey-600'} hover:text-primary-red transition-colors duration-200 text-sm block py-1 hover:bg-grey-50 px-2 rounded`}
                                     >
                                       {link.name}
                                     </Link>
