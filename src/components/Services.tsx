@@ -168,13 +168,18 @@ const Services = () => {
                   <Link 
                     to={
                       categoryIndex === 0 ? '/dubai-mainland-company-formation' :
-                      categoryIndex === 1 ? '/freezone-company-setup-in-dubai' :
+                      categoryIndex === 1 ? '/uae-free-zone-company-formation' :
                       categoryIndex === 2 ? '/pro-services-overview-dubai-uae' :
                       '/offshore-company-formation-dubai-overview'
                     }
                     className="text-primary-red font-semibold hover:text-primary-navy transition-colors duration-200 flex items-center group"
                   >
-                    Learn More
+                    {
+                      categoryIndex === 0 ? 'Dubai Mainland Company Formation Overview' :
+                      categoryIndex === 1 ? 'UAE Free Zone Company Formation Overview' :
+                      categoryIndex === 2 ? 'PRO Business Services Overview' :
+                      'Offshore Company Formation Overview'
+                    }
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
