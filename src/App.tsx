@@ -28,6 +28,9 @@ import EjariRegistration from './pages/EjariRegistration';
 import FamilyResidence from './pages/FamilyResidence';
 import MaidResidenceService from './pages/MaidResidenceService';
 import ProResidenceServices from './pages/ProResidenceServices';
+import AjmanOffshore from './pages/AjmanOffshore';
+import JafzaOffshore from './pages/JafzaOffshore';
+import RasAlKhaimahOffshore from './pages/RasAlKhaimahOffshore';
 
 // Component to handle scroll to top on route change
 function ScrollToTop() {
@@ -70,6 +73,9 @@ function App() {
           <Route path="/family-residence-dubai-uae" element={<FamilyResidence />} />
           <Route path="/maid-residence-service-dubai-uae" element={<MaidResidenceService />} />
           <Route path="/pro-residence-services-dubai-uae" element={<ProResidenceServices />} />
+          <Route path="/ajman-offshore-company-formation-dubai-uae" element={<AjmanOffshore />} />
+          <Route path="/jafza-offshore-company-formation-dubai-uae" element={<JafzaOffshore />} />
+          <Route path="/ras-al-khaimah-offshore-company-formation-dubai-uae" element={<RasAlKhaimahOffshore />} />
         </Routes>
         <Footer />
         <FloatingCTA />
