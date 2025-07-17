@@ -187,6 +187,106 @@ const Services = () => {
             ))}
           </div>
 
+          {/* PRO Business Services Section */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h3 className="text-2xl lg:text-3xl font-bold text-heading-dark mb-4">
+                PRO Business Services
+              </h3>
+              <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+                Professional PRO services for visa processing, government relations, and essential business support services.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Link
+                to="/ejari-registration-dubai-uae"
+                className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
+              >
+                <div className="w-12 h-12 bg-alert-success/10 rounded-xl flex items-center justify-center mb-4">
+                  <FileText className="w-6 h-6 text-alert-success" />
+                </div>
+                <h4 className="text-lg font-semibold text-heading-dark mb-2 group-hover:text-alert-success transition-colors">
+                  Ejari Registration
+                </h4>
+                <p className="text-grey-600 text-sm mb-4">
+                  Complete Ejari registration services for residential and commercial properties
+                </p>
+                <div className="flex items-center text-alert-success font-medium text-sm group-hover:translate-x-1 transition-transform">
+                  Learn More
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </div>
+              </Link>
+
+              <Link
+                to="/family-residence-dubai-uae"
+                className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
+              >
+                <div className="w-12 h-12 bg-alert-success/10 rounded-xl flex items-center justify-center mb-4">
+                  <Users className="w-6 h-6 text-alert-success" />
+                </div>
+                <h4 className="text-lg font-semibold text-heading-dark mb-2 group-hover:text-alert-success transition-colors">
+                  Family Residence
+                </h4>
+                <p className="text-grey-600 text-sm mb-4">
+                  Comprehensive family visa services to bring your loved ones to the UAE
+                </p>
+                <div className="flex items-center text-alert-success font-medium text-sm group-hover:translate-x-1 transition-transform">
+                  Learn More
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </div>
+              </Link>
+
+              <Link
+                to="/maid-residence-service-dubai-uae"
+                className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
+              >
+                <div className="w-12 h-12 bg-alert-success/10 rounded-xl flex items-center justify-center mb-4">
+                  <Shield className="w-6 h-6 text-alert-success" />
+                </div>
+                <h4 className="text-lg font-semibold text-heading-dark mb-2 group-hover:text-alert-success transition-colors">
+                  Maid Residence Service
+                </h4>
+                <p className="text-grey-600 text-sm mb-4">
+                  Complete domestic helper visa processing and documentation services
+                </p>
+                <div className="flex items-center text-alert-success font-medium text-sm group-hover:translate-x-1 transition-transform">
+                  Learn More
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </div>
+              </Link>
+
+              <Link
+                to="/pro-residence-services-dubai-uae"
+                className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
+              >
+                <div className="w-12 h-12 bg-alert-success/10 rounded-xl flex items-center justify-center mb-4">
+                  <CheckCircle className="w-6 h-6 text-alert-success" />
+                </div>
+                <h4 className="text-lg font-semibold text-heading-dark mb-2 group-hover:text-alert-success transition-colors">
+                  Pro Residence Services
+                </h4>
+                <p className="text-grey-600 text-sm mb-4">
+                  Professional government relations services for all your business needs
+                </p>
+                <div className="flex items-center text-alert-success font-medium text-sm group-hover:translate-x-1 transition-transform">
+                  Learn More
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </div>
+              </Link>
+            </div>
+
+            <div className="text-center mt-8">
+              <Link 
+                to="/pro-services-overview-dubai-uae"
+                className="text-alert-success font-semibold hover:text-primary-red transition-colors duration-200 flex items-center justify-center group"
+              >
+                PRO Business Services Overview
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </div>
+
           {/* Additional Services */}
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all duration-300">
