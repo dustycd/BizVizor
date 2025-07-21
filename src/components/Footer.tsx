@@ -3,23 +3,43 @@ import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Youtube, Instagram } 
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
-  const services = [
+  const mainlandServices = [
     { name: 'Dubai Mainland Formation', href: '/dubai-mainland-company-formation' },
+    { name: 'Accounting & Bookkeeping', href: '/accounting-bookkeeping-services-dubai-uae' },
+    { name: 'Auditing Services', href: '/auditing-firm-dubai' },
+    { name: 'Company Liquidation', href: '/company-liquidation-in-dubai-uae' },
+    { name: 'Branch Office Setup', href: '/branch-office-of-a-foreign-company-uae' },
+    { name: 'Company Registration', href: '/company-registration-dubai' },
+    { name: 'E-Commerce Formation', href: '/ecommerce-company-setup-dubai-uae' },
+    { name: 'LLC Formation', href: '/llc-company-formation-dubai-uae' }
+  ];
+
+  const freeZoneServices = [
+    { name: 'Free Zone Overview', href: '/uae-free-zone-company-formation' },
+    { name: 'Dubai Free Zone', href: '/freezone-company-setup-in-dubai' },
     { name: 'Sharjah Free Zone', href: '/sharjah-free-zone-business-set-up' },
     { name: 'Ajman Free Zone', href: '/ajman-free-zones-company-formation-uae' },
     { name: 'RAK Free Zone', href: '/ras-al-khaimah-free-zone-business-setup' },
     { name: 'UAQ Free Zone', href: '/umm-al-quwain-free-zones-company-formation-uae' },
-    { name: 'Dubai Free Zone', href: '/freezone-company-setup-in-dubai' },
-    { name: 'Fujairah Free Zone', href: '/business-setup-fujairah-free-zone-uae' },
-    { name: 'PRO Services', href: '/pro-services-overview-dubai-uae' },
+    { name: 'Fujairah Free Zone', href: '/business-setup-fujairah-free-zone-uae' }
+  ];
+
+  const proOffshoreServices = [
+    { name: 'PRO Services Overview', href: '/pro-services-overview-dubai-uae' },
+    { name: 'Ejari Registration', href: '/ejari-registration-dubai-uae' },
+    { name: 'Family Residence Visa', href: '/family-residence-dubai-uae' },
+    { name: 'Maid Residence Service', href: '/maid-residence-service-dubai-uae' },
+    { name: 'PRO Residence Services', href: '/pro-residence-services-dubai-uae' },
     { name: 'Offshore Formation', href: '/offshore-company-formation-dubai-overview' },
-    { name: 'Accounting Services', href: '/accounting-bookkeeping-services-dubai-uae' },
-    { name: 'Visa Services', href: '/visa-services' }
+    { name: 'Ajman Offshore', href: '/ajman-offshore-company-formation-dubai-uae' },
+    { name: 'JAFZA Offshore', href: '/jafza-offshore-company-formation-dubai-uae' },
+    { name: 'RAK Offshore', href: '/ras-al-khaimah-offshore-company-formation-dubai-uae' }
   ];
 
   const company = [
     { name: 'About Us', href: '/about' },
-    { name: 'Our Team', href: '/about#team' },
+    { name: 'Cost Calculator', href: '/cost-calculator' },
+    { name: 'Visa Services', href: '/visa-services' },
     { name: 'Careers', href: '/careers' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' }
@@ -72,7 +92,7 @@ const Footer = () => {
   return (
     <footer className="bg-heading-dark text-white">
       <div className="container mx-auto px-4 lg:px-8 xl:px-16 py-16">
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="mb-6">
@@ -109,11 +129,47 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Services */}
+          {/* Mainland Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Services</h3>
+            <h3 className="text-lg font-semibold mb-6">Mainland Formation</h3>
             <ul className="space-y-3">
-              {services.map((service, index) => (
+              {mainlandServices.map((service, index) => (
+                <li key={index}>
+                  <Link 
+                    to={service.href} 
+                    onClick={(e) => handleLinkClick(e, service.href)}
+                    className="text-grey-300 hover:text-primary-red transition-colors duration-200 text-sm"
+                  >
+                    {service.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Free Zone Services */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6">Free Zone Setup</h3>
+            <ul className="space-y-3">
+              {freeZoneServices.map((service, index) => (
+                <li key={index}>
+                  <Link 
+                    to={service.href} 
+                    onClick={(e) => handleLinkClick(e, service.href)}
+                    className="text-grey-300 hover:text-primary-red transition-colors duration-200 text-sm"
+                  >
+                    {service.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* PRO & Offshore Services */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6">PRO & Offshore</h3>
+            <ul className="space-y-3">
+              {proOffshoreServices.map((service, index) => (
                 <li key={index}>
                   <Link 
                     to={service.href} 
