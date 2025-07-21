@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Shield, CheckCircle, ArrowRight, Globe, Lock, DollarSign, Zap, Award } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
+import FAQSection from '../components/FAQSection';
 
 const RasAlKhaimahOffshore = () => {
   const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
@@ -120,6 +121,69 @@ const RasAlKhaimahOffshore = () => {
     {
       title: 'Regulatory Support',
       description: 'Ongoing regulatory support and guidance'
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "Why choose RAK ICC for offshore business?",
+      answer: "RAK ICC is known for its cost-effectiveness, privacy, and international recognition, making it ideal for global trading and holding companies."
+    },
+    {
+      question: "Can RAK ICC companies trade in the UAE mainland?",
+      answer: "No, they cannot trade within the UAE mainland but can conduct international business and hold UAE real estate in approved zones."
+    },
+    {
+      question: "What is the cost of RAK ICC incorporation?",
+      answer: "It is one of the most affordable, starting from AED 9,000–12,000, making it popular with startups and investors."
+    },
+    {
+      question: "How long does setup take?",
+      answer: "RAK ICC incorporation is fast, usually completed within 2–3 working days with proper documentation."
+    },
+    {
+      question: "Is 100% foreign ownership allowed?",
+      answer: "Yes, RAK ICC permits 100% foreign ownership with no local sponsor or partner."
+    },
+    {
+      question: "What activities are permitted?",
+      answer: "Global trading, consultancy, asset protection, IP holding, and investment management are common permitted activities."
+    },
+    {
+      question: "Do I need a physical office?",
+      answer: "No physical office is required; only a registered agent and official registered address in RAK are mandatory."
+    },
+    {
+      question: "Are visas available with RAK ICC?",
+      answer: "No, RAK ICC offshore companies cannot issue residency visas."
+    },
+    {
+      question: "Can RAK ICC companies open UAE bank accounts?",
+      answer: "Yes, Bizvisor assists with corporate bank account openings, subject to KYC and compliance approval."
+    },
+    {
+      question: "Can RAK ICC companies own property in Dubai?",
+      answer: "Yes, they can own freehold properties in designated areas, subject to developer approval."
+    },
+    {
+      question: "What taxes apply to RAK ICC companies?",
+      answer: "There is 0% corporate tax, 0% VAT, and complete profit repatriation, making it tax-efficient."
+    },
+    {
+      question: "Do I need annual audits?",
+      answer: "Yes, RAK ICC requires maintaining proper accounting records and filing audited financials annually."
+    },
+    {
+      question: "Is RAK ICC accepted for international banking?",
+      answer: "Yes, RAK ICC has strong global recognition, making it easier to open international bank accounts."
+    },
+    {
+      question: "What documents are required for setup?",
+      answer: "Passport copies, proof of residence, shareholder details, and business activity descriptions are required."
+    },
+    {
+      question: "Why use Bizvisor for RAK ICC incorporation?",
+      answer: "Bizvisor ensures quick registration, bank account facilitation, and compliance handling for smooth offshore operations."
     }
   ];
 
@@ -334,6 +398,12 @@ const RasAlKhaimahOffshore = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        title="Frequently Asked Questions About RAK Offshore Formation"
+        faqs={faqs} 
+      />
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-alert-success to-green-600">
