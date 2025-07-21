@@ -34,6 +34,7 @@ import RasAlKhaimahOffshore from './pages/RasAlKhaimahOffshore';
 import AuditingFirm from './pages/AuditingFirm';
 import CompanyLiquidation from './pages/CompanyLiquidation';
 import BranchOfficeSetup from './pages/BranchOfficeSetup';
+import CompanyRegistration from './pages/CompanyRegistration';
 
 // Component to handle scroll to top on route change
 function ScrollToTop() {
@@ -82,6 +83,7 @@ function App() {
           <Route path="/auditing-firm-dubai" element={<AuditingFirm />} />
           <Route path="/company-liquidation-in-dubai-uae" element={<CompanyLiquidation />} />
           <Route path="/branch-office-of-a-foreign-company-uae" element={<BranchOfficeSetup />} />
+          <Route path="/company-registration-dubai" element={<CompanyRegistration />} />
         </Routes>
         <Footer />
         <FloatingCTA />
