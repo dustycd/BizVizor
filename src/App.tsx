@@ -31,6 +31,8 @@ import ProResidenceServices from './pages/ProResidenceServices';
 import AjmanOffshore from './pages/AjmanOffshore';
 import JafzaOffshore from './pages/JafzaOffshore';
 import RasAlKhaimahOffshore from './pages/RasAlKhaimahOffshore';
+import AuditingFirm from './pages/AuditingFirm';
+import CompanyLiquidation from './pages/CompanyLiquidation';
 
 // Component to handle scroll to top on route change
 function ScrollToTop() {
@@ -76,6 +78,8 @@ function App() {
           <Route path="/ajman-offshore-company-formation-dubai-uae" element={<AjmanOffshore />} />
           <Route path="/jafza-offshore-company-formation-dubai-uae" element={<JafzaOffshore />} />
           <Route path="/ras-al-khaimah-offshore-company-formation-dubai-uae" element={<RasAlKhaimahOffshore />} />
+          <Route path="/auditing-firm-dubai" element={<AuditingFirm />} />
+          <Route path="/company-liquidation-in-dubai-uae" element={<CompanyLiquidation />} />
         </Routes>
         <Footer />
         <FloatingCTA />
