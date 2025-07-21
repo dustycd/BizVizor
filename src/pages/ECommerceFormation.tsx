@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ShoppingCart, CheckCircle, ArrowRight, Globe, DollarSign, Users, Zap, FileText, Shield, TrendingUp, MapPin, Award, Calculator, Star, Smartphone, CreditCard } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
+import FAQSection from '../components/FAQSection';
 
 const ECommerceFormation = () => {
   const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
@@ -131,6 +132,69 @@ const ECommerceFormation = () => {
       item: 'Business Activities',
       ecommerce: 'More activities included',
       etrader: 'Fewer activities included'
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "Why start an e-commerce business in Dubai?",
+      answer: "Dubai's booming digital economy, high internet penetration, and tax incentives make it ideal for online businesses targeting the UAE and GCC markets."
+    },
+    {
+      question: "Do I need a license for e-commerce?",
+      answer: "Yes, you need an e-commerce trade license, which can be obtained from Dubai mainland (DED) or specialized free zones like Dubai Commercity."
+    },
+    {
+      question: "What is the cost of an e-commerce license?",
+      answer: "Free zone licenses start at AED 5,500, while mainland licenses typically cost AED 10,000–15,000, excluding visa and warehouse expenses."
+    },
+    {
+      question: "How long does it take to get an e-commerce license?",
+      answer: "Licenses are usually issued within 3–5 working days, making it one of the quickest company setups."
+    },
+    {
+      question: "Do I need an office for an e-commerce business?",
+      answer: "Free zones offer virtual offices and flexi-desks, while mainland setups require an Ejari tenancy contract."
+    },
+    {
+      question: "Can I sell outside the UAE with an e-commerce license?",
+      answer: "Yes, you can trade internationally, but some products require export permits or compliance with destination country regulations."
+    },
+    {
+      question: "Can I sell on Amazon or Noon with this license?",
+      answer: "Yes, both Amazon.ae and Noon require a valid UAE trade license for seller registration."
+    },
+    {
+      question: "Do I need a payment gateway in Dubai?",
+      answer: "Yes, integrating UAE-approved payment gateways like Telr, PayFort, or Stripe UAE ensures secure online payments."
+    },
+    {
+      question: "Are taxes applicable to e-commerce businesses?",
+      answer: "Yes, 5% VAT applies to UAE sales, while cross-border transactions may be exempt. Corporate tax applies if your profit exceeds AED 375,000 annually."
+    },
+    {
+      question: "Can I hire staff or freelancers for my online business?",
+      answer: "Yes, you can sponsor employees under your license, but visa allocation depends on office space and free zone policies."
+    },
+    {
+      question: "Do I need approvals for certain products?",
+      answer: "Yes, products like food, supplements, and electronics require approvals from UAE regulatory authorities."
+    },
+    {
+      question: "Can Bizvisor help with VAT registration?",
+      answer: "Yes, Bizvisor handles VAT registration, filing, and compliance for online sellers to avoid penalties."
+    },
+    {
+      question: "Can I run multiple online stores under one license?",
+      answer: "Yes, as long as the product categories fall under the approved activities in your trade license."
+    },
+    {
+      question: "Do I need to maintain inventory in Dubai?",
+      answer: "Not necessarily; you can operate via drop-shipping or third-party fulfillment centers to save storage costs."
+    },
+    {
+      question: "Why choose Bizvisor for e-commerce setup?",
+      answer: "Bizvisor ensures quick licensing, secure payment gateway setup, VAT compliance, and banking assistance, helping you start operations seamlessly."
     }
   ];
 
@@ -388,6 +452,12 @@ const ECommerceFormation = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        title="Frequently Asked Questions About E-Commerce Formation"
+        faqs={faqs} 
+      />
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary-red to-red-600">
