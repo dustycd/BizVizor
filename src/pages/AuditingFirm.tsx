@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Shield, CheckCircle, ArrowRight, FileText, Eye, Users, Award, TrendingUp, Search, BarChart3 } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
+import FAQSection from '../components/FAQSection';
 
 const AuditingFirm = () => {
   const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
@@ -86,6 +87,69 @@ const AuditingFirm = () => {
       title: 'Leading Auditing Firm in the UAE',
       description: 'When it comes to auditing of accounts in Dubai or other financial services, you need a partner you can trust implicitly with your financial matters.',
       icon: Shield
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "Why is auditing important for companies in the UAE?",
+      answer: "Auditing ensures financial transparency, tax compliance, and builds credibility with banks, investors, and government authorities—essential for license renewals."
+    },
+    {
+      question: "Is annual auditing mandatory in Dubai?",
+      answer: "Yes, most mainland and free zone companies are legally required to submit audited financial statements every year for license renewal and tax filing."
+    },
+    {
+      question: "What is the cost of auditing in Dubai?",
+      answer: "Annual audit fees range from AED 5,000 to AED 20,000, depending on company size, transaction complexity, and free zone requirements."
+    },
+    {
+      question: "How long does an audit take?",
+      answer: "Typically 2–4 weeks, depending on how organized your bookkeeping is. Bizvisor offers express audits for urgent submissions."
+    },
+    {
+      question: "Can Bizvisor conduct audits for free zone companies?",
+      answer: "Yes, Bizvisor is approved by major UAE free zones and provides compliant audits required for renewals."
+    },
+    {
+      question: "What documents are required for an audit?",
+      answer: "You need financial statements, invoices, bank statements, VAT filings, payroll records, and supporting documents for all transactions."
+    },
+    {
+      question: "How does auditing help with corporate tax compliance?",
+      answer: "An audit ensures accurate tax calculation, helping avoid FTA penalties for incorrect or under-reported income."
+    },
+    {
+      question: "Do small businesses need audits?",
+      answer: "Yes, some free zones and banks request audited reports even for SMEs to verify financial credibility."
+    },
+    {
+      question: "Can Bizvisor fix financial discrepancies found during an audit?",
+      answer: "Yes, Bizvisor identifies irregularities and helps correct records before finalizing reports, ensuring compliance."
+    },
+    {
+      question: "What is an internal audit, and do I need it?",
+      answer: "Internal audits check internal controls, detect fraud risks, and improve operational efficiency—recommended for growing businesses."
+    },
+    {
+      question: "Do offshore companies need audits?",
+      answer: "Yes, many offshore jurisdictions require annual audits to maintain banking relationships and international compliance."
+    },
+    {
+      question: "How often should a company be audited?",
+      answer: "At least once annually, but quarterly or half-yearly audits are advisable for companies with high transaction volumes."
+    },
+    {
+      question: "Can Bizvisor audit e-commerce businesses?",
+      answer: "Yes, Bizvisor specializes in auditing online sellers, handling complex payment gateways and international transactions."
+    },
+    {
+      question: "Will Bizvisor submit reports to authorities?",
+      answer: "Yes, Bizvisor submits audited statements directly to free zones or DED, saving you time."
+    },
+    {
+      question: "Why choose Bizvisor for audits?",
+      answer: "Bizvisor combines audit expertise with UAE tax compliance knowledge, ensuring fast, error-free audits that meet regulatory standards."
     }
   ];
 
@@ -231,6 +295,12 @@ const AuditingFirm = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        title="Frequently Asked Questions About Auditing Services"
+        faqs={faqs} 
+      />
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary-red to-red-600">
