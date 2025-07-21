@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Building2, CheckCircle, ArrowRight, Globe, DollarSign, Users, Zap, FileText, Shield, TrendingUp, MapPin, Award, Calculator, Star } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
+import FAQSection from '../components/FAQSection';
 
 const CompanyRegistration = () => {
   const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
@@ -222,6 +223,69 @@ const CompanyRegistration = () => {
     'Not clear on actual vs hidden costs?',
     'Worried about language barriers and liaising with local authorities?',
     'On a tight deadline?'
+  ];
+
+  const faqs = [
+    {
+      question: "Why register a company in Dubai?",
+      answer: "Dubai offers strategic access to global markets, world-class infrastructure, and 100% foreign ownership in many sectors. Its tax-free policies and investor-friendly laws make it one of the best business hubs in the Middle East."
+    },
+    {
+      question: "What types of company registration are available?",
+      answer: "You can choose between mainland (DED license) for local trading, free zone for tax benefits and export-focused business, or offshore for asset protection and international trading."
+    },
+    {
+      question: "How much does company registration cost in Dubai?",
+      answer: "Costs start from AED 12,000 in free zones and can go up to AED 30,000+ for mainland setups, depending on the license type, business activity, and visa quota."
+    },
+    {
+      question: "How long does it take to register a company?",
+      answer: "With complete documentation, Bizvisor can help you get your trade license and establishment card within 3–7 working days."
+    },
+    {
+      question: "Do I need a local sponsor for mainland companies?",
+      answer: "For most professional and commercial activities, 100% foreign ownership is now allowed. Only a few strategic sectors still require a UAE national as a service agent."
+    },
+    {
+      question: "What documents are required for registration?",
+      answer: "You'll need passport copies of shareholders, business activity details, trade name reservation, and Ejari tenancy (for mainland)."
+    },
+    {
+      question: "Can I register a company online?",
+      answer: "Yes, most free zones and Dubai DED offer fully digital registration, cutting paperwork and setup time significantly."
+    },
+    {
+      question: "Do I need a physical office to register a company?",
+      answer: "Mainland setups require Ejari tenancy or flexi-desk, while free zones often offer virtual offices or shared workspaces."
+    },
+    {
+      question: "Can I get residency visas with my Dubai company?",
+      answer: "Yes, most licenses include 2–6 residency visas, depending on office space and license type."
+    },
+    {
+      question: "What taxes apply to companies in Dubai?",
+      answer: "Corporate tax (9%) applies if annual profits exceed AED 375,000, while VAT (5%) applies to applicable services. Many free zone companies still enjoy 0% corporate tax."
+    },
+    {
+      question: "Can Bizvisor assist with banking for new companies?",
+      answer: "Yes, Bizvisor works with leading UAE banks to help open corporate accounts smoothly while ensuring KYC compliance."
+    },
+    {
+      question: "Can I own multiple businesses under one license?",
+      answer: "Some licenses allow related activities under one trade license, but unrelated activities may need separate licenses."
+    },
+    {
+      question: "Can I expand my company later?",
+      answer: "Yes, you can add business activities, increase visa quotas, or even convert your free zone entity to a mainland company."
+    },
+    {
+      question: "What happens if I don't renew my trade license?",
+      answer: "Non-renewal leads to fines, visa cancellations, and possible blacklisting, making timely renewal crucial."
+    },
+    {
+      question: "Why choose Bizvisor for company registration?",
+      answer: "Bizvisor offers end-to-end support—license approvals, PRO services, banking assistance, and compliance—ensuring a fast and hassle-free setup."
+    }
   ];
 
   return (
@@ -485,6 +549,12 @@ const CompanyRegistration = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        title="Frequently Asked Questions About Company Registration"
+        faqs={faqs} 
+      />
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary-red to-red-600">
