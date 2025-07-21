@@ -112,64 +112,64 @@ const JafzaOffshore = () => {
 
   const faqs = [
     {
-      question: "Why choose JAFZA Offshore for business setup?",
-      answer: "JAFZA Offshore is ideal for global investors needing a prestigious UAE offshore presence, strict compliance standards, and access to international banking facilities."
+      question: "Why choose JAFZA Offshore for company formation?",
+      answer: "JAFZA Offshore is highly reputed, ideal for holding companies, international trading, and asset protection, and is recognized by global banks."
     },
     {
-      question: "What is the cost of setting up a JAFZA Offshore company?",
-      answer: "Initial setup costs start from AED 10,000 to 15,000, depending on shareholding structure and agent fees."
+      question: "Can a JAFZA Offshore company trade in the UAE mainland?",
+      answer: "No, JAFZA Offshore entities cannot operate in the UAE mainland but can hold investments and own approved Dubai properties."
     },
     {
-      question: "How long does JAFZA Offshore incorporation take?",
-      answer: "The process takes 3–5 working days, as JAFZA follows strict KYC and compliance procedures for international credibility."
+      question: "What is the cost of forming a JAFZA Offshore company?",
+      answer: "Setup costs are higher than other offshore jurisdictions, starting from AED 18,000–22,000, reflecting its premium status."
     },
     {
-      question: "What business activities are allowed?",
-      answer: "You can conduct international trading, holding, investment, consultancy, and property ownership. Local mainland trade is not permitted."
+      question: "How long does incorporation take?",
+      answer: "The process typically takes 5–7 working days due to stricter compliance and background checks."
     },
     {
-      question: "What documents are required for JAFZA Offshore?",
-      answer: "You need passport copies, proof of address, bank reference letters, and business activity details. Bizvisor handles document preparation and submission."
+      question: "Is 100% foreign ownership allowed?",
+      answer: "Yes, JAFZA Offshore permits 100% foreign ownership with no local sponsor required."
     },
     {
-      question: "Can foreigners own a JAFZA Offshore company 100%?",
-      answer: "Yes, JAFZA Offshore allows full foreign ownership without a local sponsor."
+      question: "What activities are allowed under JAFZA Offshore?",
+      answer: "International trading, asset holding, intellectual property registration, and investment management are common activities."
     },
     {
-      question: "Can JAFZA Offshore companies open UAE bank accounts?",
-      answer: "Yes, JAFZA Offshore companies are highly respected by banks, making account opening easier compared to other offshore jurisdictions."
+      question: "Do I need a physical office?",
+      answer: "No, only a registered agent and legal registered address within JAFZA are required."
     },
     {
-      question: "Are visas available with JAFZA Offshore companies?",
-      answer: "No, offshore companies do not provide UAE residence visas for shareholders or staff."
+      question: "Are visas available with JAFZA Offshore?",
+      answer: "No, JAFZA Offshore does not issue residency visas for shareholders or staff."
     },
     {
-      question: "What are the tax benefits of JAFZA Offshore?",
-      answer: "JAFZA offers 0% corporate tax, no customs duties, and full profit repatriation, making it ideal for tax-efficient operations."
+      question: "Can JAFZA Offshore companies own Dubai properties?",
+      answer: "Yes, they are allowed to own properties in designated freehold areas like Palm Jumeirah and Emirates Hills."
     },
     {
-      question: "Can a JAFZA Offshore company own UAE real estate?",
-      answer: "Yes, JAFZA Offshore companies are allowed to own property in freehold areas approved by the Dubai Land Department."
+      question: "What taxes apply to JAFZA Offshore?",
+      answer: "Enjoy 0% corporate tax, 0% VAT, and full repatriation of capital and profits, making it highly tax-efficient."
     },
     {
-      question: "Can I run an e-commerce business through JAFZA Offshore?",
-      answer: "Yes, you can manage international online businesses, but you cannot sell products directly in the UAE market."
+      question: "Do I need annual audits?",
+      answer: "Yes, JAFZA Offshore requires companies to maintain audited financial statements and submit them annually."
     },
     {
-      question: "What is the annual renewal cost for JAFZA Offshore companies?",
-      answer: "Renewal fees range from AED 7,000 to 12,000, depending on registered agent fees."
+      question: "Is it good for international banking?",
+      answer: "Yes, JAFZA Offshore's strong reputation makes it ideal for opening corporate bank accounts in UAE and abroad."
     },
     {
-      question: "Can I upgrade from JAFZA Offshore to JAFZA Free Zone?",
-      answer: "Yes, you can convert to a free zone company if you plan to trade or hire staff in the UAE."
+      question: "What documents are required for setup?",
+      answer: "You need passport copies, proof of address, bank reference letters, and shareholder details."
     },
     {
-      question: "Is JAFZA Offshore suitable for holding companies?",
-      answer: "Yes, it is widely used for holding investments, intellectual property, and global assets due to its strong legal framework."
+      question: "Can Bizvisor assist in bank account opening?",
+      answer: "Yes, Bizvisor has relationships with leading UAE banks, making the account opening process seamless."
     },
     {
-      question: "Why use Bizvisor for JAFZA Offshore setup?",
-      answer: "Bizvisor offers fast documentation, legal compliance support, and bank account opening assistance, ensuring a seamless experience."
+      question: "Why choose Bizvisor for JAFZA Offshore?",
+      answer: "Bizvisor offers expert consultation, quick approvals, and compliance support, ensuring hassle-free setup."
     }
   ];
 
