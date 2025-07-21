@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import Header from './components/Header';
+import Breadcrumbs from './components/Breadcrumbs';
 import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -55,6 +56,7 @@ function App() {
       <div className="min-h-screen">
         <ScrollToTop />
         <Header />
+        <Breadcrumbs />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
