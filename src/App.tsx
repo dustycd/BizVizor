@@ -36,6 +36,7 @@ import CompanyLiquidation from './pages/CompanyLiquidation';
 import BranchOfficeSetup from './pages/BranchOfficeSetup';
 import CompanyRegistration from './pages/CompanyRegistration';
 import ECommerceFormation from './pages/ECommerceFormation';
+import LLCFormation from './pages/LLCFormation';
 
 // Component to handle scroll to top on route change
 function ScrollToTop() {
@@ -86,6 +87,7 @@ function App() {
           <Route path="/branch-office-of-a-foreign-company-uae" element={<BranchOfficeSetup />} />
           <Route path="/company-registration-dubai" element={<CompanyRegistration />} />
           <Route path="/ecommerce-company-setup-dubai-uae" element={<ECommerceFormation />} />
+          <Route path="/llc-company-formation-dubai-uae" element={<LLCFormation />} />
         </Routes>
         <Footer />
         <FloatingCTA />
