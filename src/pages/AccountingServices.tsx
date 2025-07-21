@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Calculator, CheckCircle, ArrowRight, FileText, BarChart3, TrendingUp, Shield, Users, Award, Eye, DollarSign } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
+import FAQSection from '../components/FAQSection';
 
 const AccountingServices = () => {
   const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
@@ -92,6 +93,69 @@ const AccountingServices = () => {
       icon: Eye,
       title: 'Helps You Make Educated Choices',
       description: 'Steer your enterprise to success by identifying financial opportunities and gaps based on trustworthy data.'
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "Why do businesses in the UAE need accounting and bookkeeping?",
+      answer: "Accounting ensures your business complies with UAE VAT and corporate tax regulations. Proper bookkeeping helps track cash flow, make informed decisions, and avoid heavy penalties during audits or FTA inspections."
+    },
+    {
+      question: "Is bookkeeping mandatory in the UAE?",
+      answer: "Yes, the UAE Commercial Companies Law requires businesses to maintain financial records for at least five years, making it essential for audits, tax filings, and bank loan approvals."
+    },
+    {
+      question: "How often should bookkeeping be updated?",
+      answer: "Ideally, books should be updated monthly to reconcile bank statements, record transactions, and prepare VAT-compliant financial reports."
+    },
+    {
+      question: "What is the cost of professional bookkeeping in Dubai?",
+      answer: "Outsourced bookkeeping services start from AED 1,500 per month, varying based on transaction volume and company size—cheaper than hiring in-house staff."
+    },
+    {
+      question: "Can Bizvisor manage accounts for small businesses?",
+      answer: "Yes, Bizvisor specializes in affordable solutions for SMEs, ensuring VAT filing and corporate tax compliance without the overhead of a full-time accountant."
+    },
+    {
+      question: "Do I need accounting software in the UAE?",
+      answer: "Yes, using cloud-based software like QuickBooks, Tally, or Zoho Books is recommended to automate VAT filing and maintain tax-ready records."
+    },
+    {
+      question: "How does bookkeeping help with VAT compliance?",
+      answer: "Accurate records ensure correct VAT collection, filing, and refunds—reducing the risk of FTA audits or fines."
+    },
+    {
+      question: "Can Bizvisor help with corporate tax filing?",
+      answer: "Yes, Bizvisor prepares tax-ready financial statements and manages corporate tax registration and filing as per the UAE's 9% tax regime."
+    },
+    {
+      question: "What's the difference between accounting and bookkeeping?",
+      answer: "Bookkeeping tracks daily financial transactions, whereas accounting analyzes this data to prepare financial statements, budgets, and tax reports."
+    },
+    {
+      question: "Do offshore or free zone companies need bookkeeping?",
+      answer: "Yes, all UAE companies—including free zone and offshore entities—must maintain audited financial records for legal and banking purposes."
+    },
+    {
+      question: "Can Bizvisor provide virtual accounting services?",
+      answer: "Yes, Bizvisor offers remote, cloud-based accounting, giving real-time financial reports for decision-making."
+    },
+    {
+      question: "Is auditing required if I have proper bookkeeping?",
+      answer: "Yes, many free zones and large mainland companies mandate annual audits regardless of bookkeeping accuracy."
+    },
+    {
+      question: "Can proper bookkeeping attract investors or funding?",
+      answer: "Yes, clear financial statements build investor confidence and are often required by banks for business loans."
+    },
+    {
+      question: "How does Bizvisor ensure data security in bookkeeping?",
+      answer: "Bizvisor uses encrypted cloud platforms, ensuring complete confidentiality and secure storage of sensitive financial data."
+    },
+    {
+      question: "Why outsource accounting instead of hiring in-house?",
+      answer: "Outsourcing is cost-effective, gives access to tax experts, and ensures compliance with changing UAE tax laws—saving time and avoiding costly mistakes."
     }
   ];
 
@@ -533,6 +597,12 @@ const AccountingServices = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        title="Frequently Asked Questions About Accounting & Bookkeeping"
+        faqs={faqs} 
+      />
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary-red to-red-600">
