@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FileText, CheckCircle, ArrowRight, AlertTriangle, Shield, Users, Clock, Building2, Eye, TrendingDown } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
+import FAQSection from '../components/FAQSection';
 
 const CompanyLiquidation = () => {
   const { isOpen: isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
@@ -111,6 +112,69 @@ const CompanyLiquidation = () => {
     { name: 'LLCs', icon: Building2 },
     { name: 'Offshore organizations', icon: Shield },
     { name: 'Free Zone firms', icon: FileText }
+  ];
+
+  const faqs = [
+    {
+      question: "What is company liquidation in Dubai?",
+      answer: "Liquidation is the formal process of closing a company by settling debts, canceling licenses, and distributing remaining assets as per UAE law."
+    },
+    {
+      question: "When should I liquidate my company?",
+      answer: "You should liquidate if you're exiting UAE operations, merging with another business, or unable to meet financial obligations."
+    },
+    {
+      question: "What is the cost of company liquidation in Dubai?",
+      answer: "Liquidation costs range between AED 8,000 and AED 15,000, depending on government fees, clearances, and audit requirements."
+    },
+    {
+      question: "How long does the liquidation process take?",
+      answer: "The entire process usually takes 45–60 days, depending on pending debts, employee visa cancellations, and authority approvals."
+    },
+    {
+      question: "What documents are required for liquidation?",
+      answer: "You need the trade license copy, shareholder resolution, audited financials, utility clearance, immigration clearance, and bank account closure letters."
+    },
+    {
+      question: "Do I need to clear all debts before liquidation?",
+      answer: "Yes, all outstanding debts, employee dues, and supplier payments must be settled before you can legally liquidate."
+    },
+    {
+      question: "Can Bizvisor handle complete company liquidation?",
+      answer: "Yes, Bizvisor manages everything—legal notices, audits, authority clearances, and license cancellation."
+    },
+    {
+      question: "What happens if I don't liquidate properly?",
+      answer: "Improper liquidation can lead to hefty fines, visa bans, and blacklisting by UAE authorities."
+    },
+    {
+      question: "Can I liquidate with active employees?",
+      answer: "No, all employee visas must be canceled, and their dues cleared before starting liquidation."
+    },
+    {
+      question: "Does liquidation affect shareholder visas?",
+      answer: "Yes, shareholder and dependent visas linked to the company will automatically be canceled after liquidation."
+    },
+    {
+      question: "Is liquidation easier for free zone companies?",
+      answer: "Yes, free zones have simpler procedures and faster approval timelines compared to mainland liquidation."
+    },
+    {
+      question: "What is voluntary vs. compulsory liquidation?",
+      answer: "Voluntary liquidation is shareholder-initiated, while compulsory liquidation happens via court order due to insolvency."
+    },
+    {
+      question: "Can Bizvisor help recover deposits after liquidation?",
+      answer: "Yes, Bizvisor ensures all security deposits with free zones, DED, and immigration are refunded after clearances."
+    },
+    {
+      question: "Is an audit mandatory before liquidation?",
+      answer: "Yes, a final audit report confirming the company's financial status is required for official closure."
+    },
+    {
+      question: "Why use Bizvisor for liquidation?",
+      answer: "Bizvisor ensures a fast, penalty-free exit, handling legal, financial, and government requirements end-to-end."
+    }
   ];
 
   return (
@@ -343,6 +407,12 @@ const CompanyLiquidation = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        title="Frequently Asked Questions About Company Liquidation"
+        faqs={faqs} 
+      />
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary-red to-red-600">
