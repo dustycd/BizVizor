@@ -50,6 +50,7 @@ const Header = () => {
         {
           categoryName: 'Mainland Company Formation in Dubai',
           links: [
+            { name: 'Mainland Company Formation', href: '/dubai-mainland-company-formation' },
             { name: 'Accounting & Book-Keeping', href: '/accounting-bookkeeping-services-dubai-uae' },
             { name: 'Auditing Firm', href: '/auditing-firm-dubai' },
             { name: 'Dubai Company Liquidation', href: '/company-liquidation-in-dubai-uae' },
