@@ -94,63 +94,63 @@ const AjmanOffshore = () => {
   const faqs = [
     {
       question: "Why choose Ajman Offshore for company formation?",
-      answer: "Ajman Offshore is ideal for businesses seeking a cost-effective structure with full foreign ownership, no corporate taxes, and quick incorporation. It's a preferred choice for international trading, consultancy, and holding companies."
+      answer: "Ajman Offshore is ideal for investors seeking asset protection, international trading, and tax benefits. Its cost-effective setup and simple compliance requirements make it perfect for holding companies."
+    },
+    {
+      question: "Can an Ajman Offshore company trade in the UAE mainland?",
+      answer: "No, offshore companies cannot conduct local business in the UAE mainland but can hold investments, own property (in approved areas), and trade internationally."
     },
     {
       question: "What is the cost of setting up an Ajman Offshore company?",
-      answer: "The setup cost typically ranges from AED 8,000 to 12,000, depending on share capital requirements and service providers like Bizvisor."
+      answer: "Formation costs start from AED 11,000–15,000, making it one of the most affordable offshore jurisdictions in the UAE."
     },
     {
-      question: "How long does it take to register an Ajman Offshore company?",
-      answer: "The incorporation process usually takes 2–3 working days if all documents are complete and approved by the Ajman Free Zone Authority."
+      question: "How long does it take to incorporate?",
+      answer: "Company registration is fast, usually completed within 2–3 working days, provided all documents are ready."
     },
     {
-      question: "What business activities are allowed in Ajman Offshore?",
-      answer: "You can engage in international trading, holding, consultancy, and investment activities. Direct trading within the UAE mainland is not permitted."
+      question: "Can foreigners own 100% of an Ajman Offshore company?",
+      answer: "Yes, offshore companies allow 100% foreign ownership with no local sponsor required."
     },
     {
-      question: "What documents are required to register an Ajman Offshore company?",
-      answer: "You need passport copies of shareholders, proof of address, bank reference letters, and details of business activities. Bizvisor prepares and submits these on your behalf."
+      question: "What activities are allowed for Ajman Offshore companies?",
+      answer: "International trading, consultancy, holding investments, owning ships, and intellectual property rights are commonly permitted activities."
     },
     {
-      question: "Can foreigners fully own an Ajman Offshore company?",
-      answer: "Yes, Ajman Offshore allows 100% foreign ownership with no requirement for a local sponsor or UAE partner."
-    },
-    {
-      question: "Is physical office space required in Ajman Offshore?",
-      answer: "No, offshore companies cannot lease physical offices in the UAE, making them cost-effective for international operations."
-    },
-    {
-      question: "Can an Ajman Offshore company open a UAE bank account?",
-      answer: "Yes, offshore companies can open both business and personal accounts in leading UAE banks, subject to compliance checks."
+      question: "Do I need an office or physical presence?",
+      answer: "No physical office is required; only a registered agent and legal registered address in Ajman are mandatory."
     },
     {
       question: "Are visas available with Ajman Offshore companies?",
-      answer: "No, Ajman Offshore structures do not provide UAE residence visas for shareholders or employees."
+      answer: "No, offshore entities cannot sponsor residency visas for shareholders or employees."
     },
     {
-      question: "What are the tax benefits of Ajman Offshore?",
-      answer: "Ajman Offshore offers 0% corporate tax, no import/export duties, and 100% profit repatriation, making it tax-efficient for global investors."
+      question: "Can an Ajman Offshore company open a UAE bank account?",
+      answer: "Yes, Bizvisor assists in opening corporate accounts with leading UAE banks after company incorporation."
     },
     {
-      question: "Can an Ajman Offshore company own property in Dubai or UAE?",
-      answer: "Yes, Ajman Offshore companies can own properties in certain designated areas of Dubai with proper approvals."
+      question: "Can I own property in Dubai with Ajman Offshore?",
+      answer: "Yes, Ajman Offshore companies can own properties in approved areas of Dubai, like Jumeirah Lake Towers and Business Bay."
     },
     {
-      question: "Can I run an e-commerce business with an Ajman Offshore company?",
-      answer: "Yes, you can operate international e-commerce and online services, but you cannot sell directly to UAE mainland customers."
+      question: "What taxes apply to Ajman Offshore companies?",
+      answer: "There is 0% corporate tax, 0% VAT, and 100% profit repatriation, making it a tax-efficient choice."
     },
     {
-      question: "Can I upgrade to a free zone or mainland company later?",
-      answer: "Yes, you can restructure into a free zone or mainland company later if you plan to operate locally."
+      question: "Do I need to submit annual audits?",
+      answer: "Yes, audited financial statements are required to maintain compliance with Ajman Free Zone authority."
     },
     {
-      question: "What is the annual renewal cost for Ajman Offshore companies?",
-      answer: "Annual renewal fees range from AED 5,000 to 8,000, depending on registered agent fees."
+      question: "Can I use Ajman Offshore for international banking?",
+      answer: "Yes, offshore companies are recognized internationally, allowing you to open multi-currency bank accounts globally."
     },
     {
-      question: "Why choose Bizvisor for Ajman Offshore setup?",
-      answer: "Bizvisor ensures fast registration, compliant documentation, and banking assistance, helping you set up within days."
+      question: "What documents are required?",
+      answer: "You need passport copies of shareholders, proof of residence, bank reference letters, and details of business activities."
+    },
+    {
+      question: "Why use Bizvisor for Ajman Offshore setup?",
+      answer: "Bizvisor ensures quick registration, full compliance, and secure bank account opening with end-to-end documentation support."
     }
   ];
 
