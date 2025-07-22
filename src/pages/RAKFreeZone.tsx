@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Globe, CheckCircle, ArrowRight, MapPin, DollarSign, Shield, Zap } from 'lucide-react';
+import { Globe, CheckCircle, ArrowRight, MapPin, DollarSign, Shield, Zap, Building2, Users, TrendingUp, FileText, Award, ShoppingCart, User } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
 import FAQSection from '../components/FAQSection';
@@ -151,29 +151,532 @@ const RAKFreeZone = () => {
       </section>
 
       {/* Benefits Section */}
+      {/* Introduction Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-6 text-lg text-grey-600 leading-relaxed">
+              <p>
+                If you plan to start your business in the UAE at a low cost, this is the best option, as the Ras Al Khaimah Free Zone company setup cost is lower than that of all the other emirates.
+              </p>
+              <p>
+                The other significant benefit is that the owner can get 100% business ownership. The logistics cost at Ras Al Khaimah Free Zone is also relatively cheap compared to other emirates because it is situated at the entry point to the UAE from the Arabian Sea.
+              </p>
+              <p>
+                If you plan to start your company as soon as possible, then the RAK Free Zone may be a better option than Dubai Free Zone. The setup time is less in RAK than in Dubai, which is possible because of the fast licensing process from Ras Al Khaimah Investment Authority (RAKIA). Bear in mind that for Ras Al Khaimah Free Zone company formation, the investor is required to have the necessary capital in their bank account.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How Bizvisor Can Help Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              How can Bizvisor help with RAK Free Zone business setup?
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              As part of our services, our expert team covers:
+            </p>
+          </div>
+
+          <div className="bg-white rounded-xl p-8 max-w-3xl mx-auto">
+            <div className="space-y-4">
+              <div className="flex items-center">
+                <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
+                <span className="text-grey-700">Ras Al Khaimah Free Zone business setup services from start to end</span>
+              </div>
+              <div className="flex items-center">
+                <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
+                <span className="text-grey-700">Company formation services in UAE</span>
+              </div>
+              <div className="flex items-center">
+                <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
+                <span className="text-grey-700">Residence Processing</span>
+              </div>
+              <div className="flex items-center">
+                <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
+                <span className="text-grey-700">Licensing Services</span>
+              </div>
+              <div className="flex items-center">
+                <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
+                <span className="text-grey-700">Bank Account Opening Services</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
-              Why Choose RAK Free Zone?
+              Benefits of setting up a company in RAK Free Zone
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-grey-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                <DollarSign className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Most Cost-Effective
+              </h3>
+              <p className="text-grey-600 text-sm">
+                For people who don't want to spend too much money on business setup, RAK Free Zone is the best option as this is one of the most cost-effective free zones in UAE.
+              </p>
+            </div>
+
+            <div className="bg-grey-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                <Shield className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Tax-Free Zone
+              </h3>
+              <p className="text-grey-600 text-sm">
+                An important benefit for business owners is that the RAK Free Zone is free of all taxes.
+              </p>
+            </div>
+
+            <div className="bg-grey-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                <Users className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                100% Ownership
+              </h3>
+              <p className="text-grey-600 text-sm">
+                Business setup in Ras Al Khaimah free zone guarantees 100% ownership of your business.
+              </p>
+            </div>
+
+            <div className="bg-grey-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                <Globe className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                No Foreign Exchange Limits
+              </h3>
+              <p className="text-grey-600 text-sm">
+                There are no limits on foreign exchange transactions in RAK Free Zone.
+              </p>
+            </div>
+
+            <div className="bg-grey-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                <FileText className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Flexible Regulations
+              </h3>
+              <p className="text-grey-600 text-sm">
+                Many entrepreneurs prefer Ras Al Khaimah Free Zones to conduct business because of its flexible and transparent rules and regulations.
+              </p>
+            </div>
+
+            <div className="bg-grey-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                <TrendingUp className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Easy Logistics & Warehousing
+              </h3>
+              <p className="text-grey-600 text-sm">
+                For UAE & GCC, the logistics and warehousing is easy and cheap.
+              </p>
+            </div>
+
+            <div className="bg-grey-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                <MapPin className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Connect with 1.2 Billion Consumers
+              </h3>
+              <p className="text-grey-600 text-sm">
+                RAK Free Zone is the perfect location to connect with 1.2 billion consumers.
+              </p>
+            </div>
+
+            <div className="bg-grey-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                <Building2 className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Strategic Infrastructure
+              </h3>
+              <p className="text-grey-600 text-sm">
+                Ras Al Khaimah Free Zones Industrial Park & Technology Park are near the international airport and seaport.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Six RAK Free Zones Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Six Ras Al Khaimah Free Zones
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 bg-primary-red rounded-xl flex items-center justify-center mb-4">
+                <Building2 className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                AL Ghail Industrial Zone
+              </h3>
+              <p className="text-grey-600 text-sm">
+                Ideal for large industrial manufacturers.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 bg-primary-red rounded-xl flex items-center justify-center mb-4">
+                <TrendingUp className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Al Hamra Industrial Zone
+              </h3>
+              <p className="text-grey-600 text-sm">
+                Where a variety of light and heavy industries are located.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 bg-primary-red rounded-xl flex items-center justify-center mb-4">
+                <Users className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                RAKEZ Academic Zone
+              </h3>
+              <p className="text-grey-600 text-sm">
+                Dedicated to global educational institutions and education-related services.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 bg-primary-red rounded-xl flex items-center justify-center mb-4">
+                <Shield className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Al Hulaila Industrial Zone
+              </h3>
+              <p className="text-grey-600 text-sm">
+                For manufacturers in the heavy industry sector.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 bg-primary-red rounded-xl flex items-center justify-center mb-4">
+                <Zap className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Al Nakheel Business Zone
+              </h3>
+              <p className="text-grey-600 text-sm">
+                A hotspot for SMEs and freelancers.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 bg-primary-red rounded-xl flex items-center justify-center mb-4">
+                <Globe className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                AL Hamra Business Zone
+              </h3>
+              <p className="text-grey-600 text-sm">
+                Offering commercial, logistics, and industrial facilities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* License Types Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Types of licenses available
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-grey-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 bg-primary-navy rounded-xl flex items-center justify-center mb-4">
+                <ShoppingCart className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Commercial Services
+              </h3>
+              <p className="text-grey-600 text-sm">
+                For goods and services trading
+              </p>
+            </div>
+
+            <div className="bg-grey-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 bg-primary-navy rounded-xl flex items-center justify-center mb-4">
+                <Building2 className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Industrial
+              </h3>
+              <p className="text-grey-600 text-sm">
+                Manufacturing, import and export activities
+              </p>
+            </div>
+
+            <div className="bg-grey-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 bg-primary-navy rounded-xl flex items-center justify-center mb-4">
+                <Globe className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Media
+              </h3>
+              <p className="text-grey-600 text-sm">
+                Business activities in the media landscape
+              </p>
+            </div>
+
+            <div className="bg-grey-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 bg-primary-navy rounded-xl flex items-center justify-center mb-4">
+                <Users className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Educational
+              </h3>
+              <p className="text-grey-600 text-sm">
+                For consultancies or institutions in the education space
+              </p>
+            </div>
+
+            <div className="bg-grey-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 bg-primary-navy rounded-xl flex items-center justify-center mb-4">
+                <User className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Individual/Professional
+              </h3>
+              <p className="text-grey-600 text-sm">
+                For a business owner running a specialized business or service
+              </p>
+            </div>
+
+            <div className="bg-grey-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 bg-primary-navy rounded-xl flex items-center justify-center mb-4">
+                <ShoppingCart className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                E-Commerce
+              </h3>
+              <p className="text-grey-600 text-sm">
+                Online sales of goods or services
+              </p>
+            </div>
+
+            <div className="bg-grey-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 bg-primary-navy rounded-xl flex items-center justify-center mb-4">
+                <TrendingUp className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                General Trading
+              </h3>
+              <p className="text-grey-600 text-sm">
+                General trading activities
+              </p>
+            </div>
+
+            <div className="bg-grey-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-12 h-12 bg-primary-navy rounded-xl flex items-center justify-center mb-4">
+                <User className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Freelance Permit
+              </h3>
+              <p className="text-grey-600 text-sm">
+                For individuals working in the fields of media, IT and so on
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Documents Required Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6 text-center">
+              Documents required
+            </h2>
+            <p className="text-lg text-grey-600 text-center mb-8">
+              Here are some of the documents* that you will need to produce during the company setup process:
+            </p>
+            
+            <div className="bg-white rounded-xl p-8 shadow-sm">
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
+                  <span className="text-grey-700">Application form with all fields filled out</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
+                  <span className="text-grey-700">Passport copy</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
+                  <span className="text-grey-700">NOC if applicable</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
+                  <span className="text-grey-700">Business plan if applicable</span>
+                </div>
+              </div>
+              
+              <div className="mt-6 p-4 bg-primary-red/10 rounded-lg">
+                <p className="text-primary-red font-medium text-center">
+                  *For a complete list of requirements and documents for RAK Free Zones, speak to a Bizvisor consultant.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Steps for business setup in RAK Free Zone
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-alert-success rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold text-white">1</span>
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Select your package
+              </h3>
+              <p className="text-grey-600">
+                This includes deciding on the category, license, facility and legal entity
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-alert-success rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold text-white">2</span>
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Submit your paperwork
+              </h3>
+              <p className="text-grey-600">
+                Fill out your application form and submit all the necessary documents
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-alert-success rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold text-white">3</span>
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Get your license
+              </h3>
+              <p className="text-grey-600">
+                Your registration will be completed, and your visa processes can start
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How Bizvisor Can Help Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              How Bizvisor can help
             </h2>
             <p className="text-lg text-grey-600 max-w-3xl mx-auto">
-              RAK Free Zone offers exceptional flexibility and business-friendly environment for entrepreneurs.
+              At Bizvisor, we have a team of professionals who can fulfill all the requirements quickly so that you can focus on your other priority tasks.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-alert-success/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <benefit.icon className="w-8 h-8 text-alert-success" />
-                </div>
-                <h3 className="text-xl font-semibold text-heading-dark mb-4">
-                  {benefit.title}
-                </h3>
-                <p className="text-grey-600">
-                  {benefit.description}
-                </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <FileText className="w-8 h-8 text-primary-red" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Step-by-step guidance
+              </h3>
+              <p className="text-grey-600">
+                From helping you understand RAK Free Zone company setup costs to putting together all the requirements for your application, our experienced team is on hand to guide you
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Building2 className="w-8 h-8 text-primary-red" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Partnerships with free zones
+              </h3>
+              <p className="text-grey-600">
+                Leverage our close relationship with the RAK free zones and take advantage of our partnerships.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Award className="w-8 h-8 text-primary-red" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Experienced team
+              </h3>
+              <p className="text-grey-600">
+                Bizvisor has professionals with the right experience and knowledge to assist you with business setup, PRO services, concierge services, banking and more.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action with Phone Number */}
+      <section className="py-20 bg-primary-navy">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+            Ready to Start Your RAK Free Zone Company?
+          </h2>
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Call us at +971 56 496 0040 to make the business setup process in RAK Free Zone hassle-free and affordable.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="tel:+971564960040">
+              <button className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold">
+                Call +971 56 496 0040
+              </button>
+            </a>
+            <button 
+              onClick={openCalendly}
+              className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-primary-navy transition-all duration-200 font-semibold"
+            >
+              Schedule Free Consultation
+            </button>
+          </div>
+        </div>
               </div>
             ))}
           </div>
