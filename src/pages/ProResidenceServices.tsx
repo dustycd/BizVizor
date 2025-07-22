@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FileText, CheckCircle, ArrowRight, Users, Clock, Shield, Globe } from 'lucide-react';
+import { FileText, CheckCircle, ArrowRight, Users, Clock, Shield, Globe, Zap, DollarSign } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
 
@@ -149,9 +149,12 @@ const ProResidenceServices = () => {
             <div className="inline-block bg-white/20 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
               PRO Residence Services
             </div>
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Professional PRO Services in Dubai
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+              Your Trusted Partner for Pro Residence Services in Dubai, UAE
             </h1>
+            <h2 className="text-2xl lg:text-3xl font-light mb-6 opacity-90">
+              Making Dreams Come True
+            </h2>
             <p className="text-xl mb-8 opacity-90 leading-relaxed">
               Comprehensive PRO (Public Relations Officer) services for all your government-related procedures in the UAE. Expert handling of visas, permits, and official documentation.
             </p>
@@ -168,6 +171,146 @@ const ProResidenceServices = () => {
               >
                 Free Consultation
               </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Introduction Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6 text-center">
+              Pro Residence Services In Dubai, UAE
+            </h2>
+            <div className="space-y-6 text-lg text-grey-600 leading-relaxed">
+              <p>
+                Are you planning to establish your residence in the dynamic and vibrant city of Dubai, UAE? Look no further than Bizvisor, your go-to partner for all your pro residence service needs.
+              </p>
+              <p>
+                We at Bizvisor know how difficult it can be to make sense of the UAE's strange residency laws. That's why we offer such options—to meet your needs. Whether you are relocating to the UAE for business, looking for a family sponsor, or curious about investor residence options, our team is one of the best in the industry.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Bizvisor Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Why Choose Bizvisor For Pro Residence Services In Dubai, UAE?
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-grey-700 rounded-xl flex items-center justify-center mb-4">
+                <Shield className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-3">
+                Expert Guidance
+              </h3>
+              <p className="text-grey-600">
+                Our professional team possesses in-depth know-how of UAE residence regulations. We'll provide accurate and timely guidance tailored to your unique circumstances.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-grey-700 rounded-xl flex items-center justify-center mb-4">
+                <Users className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-3">
+                Customized Solutions
+              </h3>
+              <p className="text-grey-600">
+                No two residence cases are the same. We work closely with you to understand your goals and design a customized plan that suits your needs.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-grey-700 rounded-xl flex items-center justify-center mb-4">
+                <Clock className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-3">
+                Timely Updates
+              </h3>
+              <p className="text-grey-600">
+                UAE residence norms can change frequently. We stay on top of these changes to ensure your application is always in compliance with the latest regulations.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-grey-700 rounded-xl flex items-center justify-center mb-4">
+                <DollarSign className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-3">
+                Cost-Efficiency
+              </h3>
+              <p className="text-grey-600">
+                We understand the importance of managing expenses. Our services are competitively priced, making your residential journey affordable without compromising quality.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-grey-700 rounded-xl flex items-center justify-center mb-4">
+                <FileText className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-3">
+                Transparent Process
+              </h3>
+              <p className="text-grey-600">
+                At Bizvisor, transparency is paramount. We keep you updated at every stage of the process to ensure your utmost satisfaction.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-grey-700 rounded-xl flex items-center justify-center mb-4">
+                <Zap className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-3">
+                Prompt Documentation
+              </h3>
+              <p className="text-grey-600">
+                We handle all the paperwork and documentation for your residency application, saving you time and stress.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-grey-700 rounded-xl flex items-center justify-center mb-4">
+                <CheckCircle className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-3">
+                Efficient Processing
+              </h3>
+              <p className="text-grey-600">
+                With our expertise, your residence application will be processed efficiently, minimizing delays and ensuring a swift outcome.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Commitment Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6 text-center">
+              A Commitment To Your Happiness
+            </h2>
+            <div className="bg-grey-50 rounded-xl p-8">
+              <div className="space-y-6 text-lg text-grey-600 leading-relaxed">
+                <p>
+                  Bizvisor's commitment extends beyond paperwork to your success in Dubai, UAE. We recognize that transferring to a new nation entails more than just obtaining a residence permit; it's about grasping new possibilities and creating a brighter future. That is why we approach professional residence services holistically. Our team manages the procedural details and provides vital insights into the local business ecosystem, cultural nuances, and growth potential.
+                </p>
+                <p>
+                  Our commitment to your peace begins with open and direct communication. In our experience, building trust with customers starts with being open and honest with them. To choose Bizvisor is to select a partner who will be there for you every step of the way, ready to solve your difficulties and answer your inquiries.
+                </p>
+                <p>
+                  We also understand that each individual or family has different goals and obstacles when relocating to Dubai. Our commitment to personalized solutions extends beyond paperwork to personalizing our services to your requirements. Whether you need help with business residences, family sponsorship, or investor residences, our staff will provide solutions tailored to your needs.
+                </p>
+              </div>
             </div>
           </div>
         </div>
