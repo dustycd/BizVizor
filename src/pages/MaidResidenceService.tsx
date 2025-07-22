@@ -148,10 +148,10 @@ const MaidResidenceService = () => {
               Maid Residence Services
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Domestic Helper Visa Services in Dubai
+              Maid Residence Service In Dubai, UAE
             </h1>
             <p className="text-xl mb-8 opacity-90 leading-relaxed">
-              Complete domestic helper visa processing services for maids, drivers, nannies, and cooks. Professional assistance with all documentation and legal requirements.
+              Your Trusted Partner for Smooth and Legal Maid Visa Processing
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
@@ -171,15 +171,191 @@ const MaidResidenceService = () => {
         </div>
       </section>
 
+      {/* Introduction Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6 text-center">
+              Discover Excellence In Maid Residence Service In Dubai, UAE, With Bizvisor
+            </h2>
+            <div className="space-y-6 text-lg text-grey-600 leading-relaxed">
+              <p>
+                Are you searching for dependable, professional, and trustworthy maid residence services in Dubai, UAE? Look no further! Bizvisor brings you unparalleled excellence in the world of domestic assistance. Our commitment to providing the highest quality maid residence services is unmatched. We recognize how important it is to have a clean and well-maintained house for your peace of mind.
+              </p>
+              <p>
+                Bizvisor goes above and beyond to ensure that your home is cared for with rigorous attention to cleanliness and a focus on your individual demands. Discover why Bizvisor is the best option for maid residence service in Dubai, UAE.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits of Our Service Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Benefits Of Our Maid Residence Service In Dubai, UAE
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              At Bizvisor, we take pride in offering a wide array of benefits with our maid residence service in Dubai, UAE:
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Shield className="w-8 h-8 text-primary-red" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Exceptional Service
+              </h3>
+              <p className="text-grey-600">
+                We are dedicated to providing exceptional maid residence services tailored to your needs and preferences.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Users className="w-8 h-8 text-primary-red" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Trained and Trustworthy Staff
+              </h3>
+              <p className="text-grey-600">
+                Our staff undergo rigorous training and background checks to ensure your home is in safe hands.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Clock className="w-8 h-8 text-primary-red" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Flexible Scheduling
+              </h3>
+              <p className="text-grey-600">
+                We offer flexible scheduling options to accommodate your busy lifestyle.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="w-8 h-8 text-primary-red" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Quality Assurance
+              </h3>
+              <p className="text-grey-600">
+                Our stringent quality control measures guarantee your home's impeccable upkeep.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Home className="w-8 h-8 text-primary-red" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Customized Solutions
+              </h3>
+              <p className="text-grey-600">
+                We understand that each home is unique, and we tailor our services to meet your specific requirements.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <FileText className="w-8 h-8 text-primary-red" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Competitive Pricing
+              </h3>
+              <p className="text-grey-600">
+                Enjoy high-quality maid residence services at competitive rates, making them accessible to all.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Users className="w-8 h-8 text-primary-red" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Reliable Support
+              </h3>
+              <p className="text-grey-600">
+                Our customer support is always ready to assist you with any queries or concerns.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-primary-red/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Shield className="w-8 h-8 text-primary-red" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4">
+                Peace of Mind
+              </h3>
+              <p className="text-grey-600">
+                With Bizvisor, you can rest easy, knowing your home is in capable hands.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6 text-center">
+              The Process Of Maid Residence Service In Dubai, UAE
+            </h2>
+            <div className="bg-grey-50 rounded-xl p-8">
+              <div className="space-y-6 text-lg text-grey-600 leading-relaxed">
+                <p>
+                  Our process for delivering maid residence service in Dubai, UAE, is simple yet highly efficient. Understanding your needs and preferences is the first step. We provide a free consultation to explore your aspirations and any special requirements. We provide a customized service plan after examining your home and needs.
+                </p>
+                <p>
+                  Once you're satisfied with the plan, we schedule the maid services at your convenience. Our experienced and trained staff then execute the tasks with precision and dedication. For the greatest results, we utilize environmentally friendly cleaning solutions and cutting-edge technology. With Bizvisor, you'll experience a hassle-free process that leaves your home spotless and your satisfaction guaranteed.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Lifestyle Enhancement Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6 text-center">
+              Enhancing Your Lifestyle With Bizvisor's Maid Residence Service In Dubai, UAE
+            </h2>
+            <div className="bg-white rounded-xl p-8 shadow-sm">
+              <div className="space-y-6 text-lg text-grey-600 leading-relaxed">
+                <p>
+                  At Bizvisor, we understand that your home is more than just a physical space; it's where cherished memories are made and the backdrop to your daily life. Our maid residence service in Dubai, UAE, is intended to improve your lifestyle by relieving you of household tasks.
+                </p>
+                <p>
+                  We understand that each home, like its residents, is unique, which is why we offer tailored solutions. Our devoted team of professionals is not only skilled in cleaning but also in exceeding your expectations. We take pleasure in the faith our clients have in us, and we repay that trust by continuously providing great outcomes.
+                </p>
+                <p>
+                  Choosing Bizvisor for your maid residence service in Dubai, UAE, means choosing a partner that cares about your well-being and your home's maintenance. It means choosing more time for yourself and less time spent on arduous chores.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
-              Why Choose Our Domestic Helper Services?
+              Why Choose Our Visa Processing Services?
             </h2>
             <p className="text-lg text-grey-600 max-w-3xl mx-auto">
-              Professional domestic helper visa services with expert guidance and comprehensive support.
+              Professional visa processing services with expert guidance and comprehensive support for all domestic helper categories.
             </p>
           </div>
 
