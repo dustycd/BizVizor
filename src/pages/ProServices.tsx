@@ -183,7 +183,8 @@ const ProServices = () => {
   ];
 
   return (
-    <div className="pt-24">
+    <>
+      <div className="pt-24">
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-alert-success to-green-600 text-white">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
@@ -543,7 +544,7 @@ const ProServices = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
 
       {/* Calendly Modal */}
       <CalendlyModal 
@@ -551,6 +552,7 @@ const ProServices = () => {
         onClose={closeCalendly}
         url="https://calendly.com/saidtouma-bizvisor/consultation?month=2025-06"
       />
+    </>
   );
 };
 
