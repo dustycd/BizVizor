@@ -127,10 +127,13 @@ const FujairahFreeZone = () => {
               Fujairah Free Zone Company Setup
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Start Your Business in Fujairah Free Zone
+              Easy business setup in Fujairah Free Zone with Bizvisor
             </h1>
+            <h2 className="text-2xl lg:text-3xl font-light mb-6 opacity-90">
+              Build success in the heart of innovation
+            </h2>
             <p className="text-xl mb-8 opacity-90 leading-relaxed">
-              Establish your company in Fujairah Free Zone with strategic East Coast location, direct port access, and low-cost licensing. Perfect for import-export, logistics, and manufacturing businesses.
+              Establish your company in Fujairah Free Zone with Bizvisor. Strategic location, full ownership, and seamless licensing. We handle everything, so you don't have to.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
