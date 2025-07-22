@@ -125,8 +125,11 @@ const FamilyResidence = () => {
               Family Residence Visa Services
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Family Residence Visa in Dubai
+              Your Guide To Family Residence In Dubai, UAE
             </h1>
+            <p className="text-xl mb-4 opacity-90 leading-relaxed font-medium">
+              Simplify the Process and Ensure Your Loved Ones Join You in Dubai
+            </p>
             <p className="text-xl mb-8 opacity-90 leading-relaxed">
               Bring your loved ones to the UAE with our comprehensive family residence visa services. Professional assistance for spouse, children, parents, and domestic helper visas.
             </p>
