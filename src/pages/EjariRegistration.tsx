@@ -121,9 +121,12 @@ const EjariRegistration = () => {
               Ejari Registration Services
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Professional Ejari Registration in Dubai
+              Secure Your Office Space with Ejari Registration in Dubai
             </h1>
-            <p className="text-xl mb-8 opacity-90 leading-relaxed">
+            <p className="text-xl mb-4 opacity-90 leading-relaxed font-medium">
+              Register your tenancy now
+            </p>
+            <p className="text-lg mb-8 opacity-80">
               Complete Ejari registration services for residential and commercial properties in Dubai. Fast, reliable, and fully compliant with Dubai Municipality regulations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -139,6 +142,230 @@ const EjariRegistration = () => {
               >
                 Free Consultation
               </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Introduction Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6 text-center">
+              Ejari Registration for Businesses in Dubai
+            </h2>
+            <div className="space-y-6 text-lg text-grey-600 leading-relaxed">
+              <p>
+                Renting an office space is usually a step on the licensing path for setting up a business in Dubai. Once you've found the right commercial property within your chosen mainland area or free zone and signed the tenancy contract, the next step is to complete your Ejari registration with The Real Estate Regulatory Authority (RERA).
+              </p>
+            </div>
+            
+            <div className="text-center mt-12">
+              <div className="bg-gradient-to-r from-primary-red to-red-600 rounded-2xl p-8 text-white max-w-2xl mx-auto">
+                <h3 className="text-2xl font-bold mb-4">
+                  Complete your Ejari Registration
+                </h3>
+                <div className="text-4xl font-bold mb-6">starting from AED 120</div>
+                <button 
+                  onClick={openCalendly}
+                  className="bg-white text-primary-red px-8 py-3 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold"
+                >
+                  Get Started Today
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What Is Ejari Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6 text-center">
+              What Is Ejari?
+            </h2>
+            <div className="bg-white rounded-xl p-8 shadow-sm">
+              <p className="text-lg text-grey-600 leading-relaxed">
+                Ejari, meaning "my rent" in Arabic, is an online registration system implemented by RERA to facilitate and regulate the rental market in Dubai. It protects the rights of tenants and landlords by making sure all rental contracts are standardized, legally binding and integrated into the legal system. That way, in case of any disputes or conflicts, a clear legal framework is in place to resolve them.
+              </p>
+              <div className="mt-6 p-4 bg-primary-red/10 rounded-lg">
+                <p className="text-primary-red font-medium text-center">
+                  Ejari tenancy contract registration in Dubai is a must for all types of rental agreements, be it residential, commercial or office spaces.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Is Ejari Important Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6 text-center">
+              Why Is Ejari Registration in Dubai Important?
+            </h2>
+            <p className="text-lg text-grey-600 text-center mb-8">
+              A few reasons Ejari registration is crucial for businesses in Dubai are:
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-grey-50 rounded-xl p-6">
+                <div className="w-12 h-12 bg-primary-red rounded-xl flex items-center justify-center mb-4">
+                  <Shield className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-heading-dark mb-3">
+                  Legal Protection
+                </h3>
+                <p className="text-grey-600">
+                  It clearly outlines the lease terms, such as rent, duration, and responsibilities, to minimize misunderstandings and guarantee that your and your landlord's rights are protected legally.
+                </p>
+              </div>
+              
+              <div className="bg-grey-50 rounded-xl p-6">
+                <div className="w-12 h-12 bg-primary-red rounded-xl flex items-center justify-center mb-4">
+                  <CheckCircle className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-heading-dark mb-3">
+                  Regulatory Compliance
+                </h3>
+                <p className="text-grey-600">
+                  It ensures that all tenancy contracts comply with Dubai's real estate laws.
+                </p>
+              </div>
+              
+              <div className="bg-grey-50 rounded-xl p-6">
+                <div className="w-12 h-12 bg-primary-red rounded-xl flex items-center justify-center mb-4">
+                  <Home className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-heading-dark mb-3">
+                  Utility Connections
+                </h3>
+                <p className="text-grey-600">
+                  An Ejari certificate is typically necessary to activate your water and electricity services with the Dubai Electricity and Water Authority (DEWA).
+                </p>
+              </div>
+              
+              <div className="bg-grey-50 rounded-xl p-6">
+                <div className="w-12 h-12 bg-primary-red rounded-xl flex items-center justify-center mb-4">
+                  <FileText className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-heading-dark mb-3">
+                  Licensing Requirements
+                </h3>
+                <p className="text-grey-600">
+                  To apply for or renew your trade license, Ejari registration is mandatory.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How to Register Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6 text-center">
+              How Do You Register Your Ejari Tenancy?
+            </h2>
+            <p className="text-lg text-grey-600 text-center mb-8">
+              There are two ways you can register your Ejari tenancy contract in Dubai: online and offline. The online option is available through the Ejari portal on the Dubai Land Department (DLD) website and the Dubai Rest app. With the offline route, you'll need to stop by an approved real estate service trustee center or a typing center in Dubai.
+            </p>
+            
+            {/* Online Registration Methods */}
+            <div className="space-y-12">
+              {/* DLD Website Method */}
+              <div className="bg-white rounded-xl p-8 shadow-sm">
+                <h3 className="text-2xl font-semibold text-heading-dark mb-6 text-center">
+                  Ejari Registration Online Through the DLD Website
+                </h3>
+                <p className="text-grey-600 mb-6 text-center">
+                  For DLD tenancy contract registration in Dubai, follow these steps:
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  {[
+                    { step: '01', text: 'Go to the official DLD website.' },
+                    { step: '02', text: 'If you\'re a new user, create an account; if not, log in to your existing one.' },
+                    { step: '03', text: 'Click the "Services" tab on the homepage and choose "Tenant" from the dropdown list.' },
+                    { step: '04', text: 'Under "Real Estate Rental Services," select "Registration and renewal of lease application."' },
+                    { step: '05', text: 'Click on "Access this service" to begin the Ejari registration process.' },
+                    { step: '06', text: 'Fill in property and contract details such as location, type (commercial or office), rental amount, lease duration, and any other relevant information.' },
+                    { step: '07', text: 'Upload the required documents.' },
+                    { step: '08', text: 'Pay the Ejari registration fee.' },
+                    { step: '09', text: 'Review all the documents and information you\'ve provided.' },
+                    { step: '10', text: 'Submit your application and await the certificate.' }
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start">
+                      <div className="w-8 h-8 bg-primary-red rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                        <span className="text-white text-sm font-bold">{item.step}</span>
+                      </div>
+                      <p className="text-grey-700 text-sm">{item.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Dubai REST App Method */}
+              <div className="bg-white rounded-xl p-8 shadow-sm">
+                <h3 className="text-2xl font-semibold text-heading-dark mb-6 text-center">
+                  Ejari Registration Online Through the Dubai REST App
+                </h3>
+                <p className="text-grey-600 mb-6 text-center">
+                  If you prefer to use the Dubai REST app, take these steps:
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  {[
+                    { step: '01', text: 'Install the "Dubai REST" application on your device.' },
+                    { step: '02', text: 'Navigate to the "Services" tab and select "RERA."' },
+                    { step: '03', text: 'Click on "Register Ejari Contract."' },
+                    { step: '04', text: 'Fill out the form with the correct details and upload the required documents.' },
+                    { step: '05', text: 'Hit \'Submit\' to proceed with your application.' },
+                    { step: '06', text: 'The landlord needs to approve the tenant\'s registration request via Dubai REST.' },
+                    { step: '07', text: 'After approval, pay the Ejari registration fee using the app.' },
+                    { step: '08', text: 'The Ejari contract will be generated immediately on the Dubai REST application.' }
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start">
+                      <div className="w-8 h-8 bg-primary-navy rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                        <span className="text-white text-sm font-bold">{item.step}</span>
+                      </div>
+                      <p className="text-grey-700 text-sm">{item.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Offline Method */}
+              <div className="bg-white rounded-xl p-8 shadow-sm">
+                <h3 className="text-2xl font-semibold text-heading-dark mb-6 text-center">
+                  Offline Ejari Registration
+                </h3>
+                <p className="text-grey-600 mb-6 text-center">
+                  Registering your Ejari tenancy in person through a service trustee or typing center, you'll need to:
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  {[
+                    { step: '1', title: 'Head to a typing centre', text: 'Or a service trustee, with your documents' },
+                    { step: '2', title: 'Share your rental specifics', text: 'Notify the center representative of the property type, rental price, lease term and so on.' },
+                    { step: '3', title: 'Pay the fees', text: 'These are different for offline and online methods, and generally include VAT and other charges.' },
+                    { step: '4', title: 'Complete the process', text: 'Obtain a copy of the contract and the Ejari certificate' }
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start">
+                      <div className="w-8 h-8 bg-alert-success rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                        <span className="text-white text-sm font-bold">{item.step}</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-heading-dark text-sm mb-1">{item.title}</h4>
+                        <p className="text-grey-700 text-sm">{item.text}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -233,29 +460,44 @@ const EjariRegistration = () => {
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
-              Required Documents
+              What Ejari Registration Documents Do I Need?
             </h2>
             <p className="text-lg text-grey-600 max-w-3xl mx-auto">
-              Essential documents needed for Ejari registration in Dubai.
+              Enlisting the help of an expert Ejari registration service provider like Bizvisor is always best if you want to be sure of the process's accuracy. However, if you're planning to do it yourself, you'll need to prepare the following documents*:
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {requirements.map((req, index) => (
-              <div key={index} className="bg-grey-50 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-heading-dark mb-4">
-                  {req.category}
-                </h3>
-                <div className="space-y-3">
-                  {req.documents.map((doc, docIndex) => (
-                    <div key={docIndex} className="flex items-center text-grey-700">
-                      <CheckCircle className="w-4 h-4 text-alert-success mr-3 flex-shrink-0" />
-                      {doc}
-                    </div>
-                  ))}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-grey-50 rounded-xl p-8">
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
+                  <span className="text-grey-700">Signed tenancy agreement in its original form.</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
+                  <span className="text-grey-700">Tenant's Emirates ID along with copies of their passport and visa.</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
+                  <span className="text-grey-700">Copy of the landlord's passport showing a clear signature.</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
+                  <span className="text-grey-700">Title deed copy provided by the landlord.</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0" />
+                  <span className="text-grey-700">Trade license (for commercial properties).</span>
                 </div>
               </div>
-            ))}
+              
+              <div className="mt-6 p-4 bg-primary-red/10 rounded-lg">
+                <p className="text-primary-red font-medium text-center">
+                  *For a complete list of requirements and documents, speak to a Bizvisor consultant.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
