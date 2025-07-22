@@ -151,6 +151,28 @@ const FamilyResidence = () => {
         </div>
       </section>
 
+      {/* Introduction Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6 text-center">
+              Family Residence In Dubai, UAE
+            </h2>
+            <div className="space-y-6 text-lg text-grey-600 leading-relaxed">
+              <p>
+                Located right in the middle of the UAE, Dubai stands as a vibrant metropolis that serves as a global business center and beckons those with dreams of making it their cherished family home. If uniting with your loved ones in Dubai interests you, Bizvisor is your trusted guide throughout the family residence acquisition process.
+              </p>
+              <p>
+                In the UAE, familial bonds are paramount, and the government extends a welcoming hand to expatriates, offering them a clear path to sponsor their partners or family members for residency. Specific financial criteria must be met to activate this offer. Your monthly salary should be at least Dh4,000 or Dh3,000 plus extra rent for a respectable standard of living.
+              </p>
+              <p>
+                Recognizing the sacrifices many make when seeking employment opportunities in the UAE, wherein parents, spouses, and children are often left behind, we acknowledge the challenges of such separations. However, the silver lining is the reasonable cost associated with sponsoring immediate family members to join you in the thriving heart of Dubai. This affordability ensures you can remain near your cherished loved ones while pursuing your career aspirations in this ever-dynamic city.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
