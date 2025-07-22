@@ -151,28 +151,6 @@ const FamilyResidence = () => {
         </div>
       </section>
 
-      {/* Introduction Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6 text-center">
-              Family Residence In Dubai, UAE
-            </h2>
-            <div className="space-y-6 text-lg text-grey-600 leading-relaxed">
-              <p>
-                Located right in the middle of the UAE, Dubai stands as a vibrant metropolis that serves as a global business center and beckons those with dreams of making it their cherished family home. If uniting with your loved ones in Dubai interests you, Bizvisor is your trusted guide throughout the family residence acquisition process.
-              </p>
-              <p>
-                In the UAE, familial bonds are paramount, and the government extends a welcoming hand to expatriates, offering them a clear path to sponsor their partners or family members for residency. Specific financial criteria must be met to activate this offer. Your monthly salary should be at least Dh4,000 or Dh3,000 plus extra rent for a respectable standard of living.
-              </p>
-              <p>
-                Recognizing the sacrifices many make when seeking employment opportunities in the UAE, wherein parents, spouses, and children are often left behind, we acknowledge the challenges of such separations. However, the silver lining is the reasonable cost associated with sponsoring immediate family members to join you in the thriving heart of Dubai. This affordability ensures you can remain near your cherished loved ones while pursuing your career aspirations in this ever-dynamic city.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Benefits Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
@@ -268,6 +246,94 @@ const FamilyResidence = () => {
                 </Link>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Documents Required Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6 text-center">
+              Documents Required For Family Residence In Dubai, UAE
+            </h2>
+            <p className="text-lg text-grey-600 text-center mb-8">
+              Securing a family residence in Dubai involves a specific set of documents you must prepare and submit. These documents are essential for the sponsorship process, ensuring a smooth transition for your family to the UAE.
+            </p>
+            
+            <div className="bg-grey-50 rounded-xl p-8">
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-heading-dark mb-2">Valid Emirates ID or Passport of Sponsor</h4>
+                    <p className="text-grey-600 text-sm">Copies of your Emirates ID and passport will be required to prove your identity as the sponsor. Make sure everything is current in these records.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-heading-dark mb-2">Marriage Certificate</h4>
+                    <p className="text-grey-600 text-sm">You are required to provide a fully attested marriage certificate if you are sponsoring your spouse.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-heading-dark mb-2">Birth Certificates</h4>
+                    <p className="text-grey-600 text-sm">If sponsoring your children, you'll need their birth certificates, again duly attested and translated into Arabic if necessary.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-heading-dark mb-2">Accommodation Proof</h4>
+                    <p className="text-grey-600 text-sm">You must prove you have adequate housing for your family. This could be a tenancy contract or a property ownership document.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-heading-dark mb-2">Salary Certificate</h4>
+                    <p className="text-grey-600 text-sm">A letter from your employer verifying your monthly salary is essential. Ensure it meets the minimum requirement for sponsorship.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-heading-dark mb-2">Medical Insurance</h4>
+                    <p className="text-grey-600 text-sm">Your family members will need health insurance coverage in Dubai. Please provide copies of their insurance policies.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-heading-dark mb-2">Passport Photos</h4>
+                    <p className="text-grey-600 text-sm">Gather passport-sized photos of your family members, as these will be required for residence processing.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <CheckCircle className="w-5 h-5 text-alert-success mr-3 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-heading-dark mb-2">Application Forms</h4>
+                    <p className="text-grey-600 text-sm">Complete the necessary application forms for each family member.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-8 p-4 bg-alert-success/10 rounded-lg">
+                <p className="text-alert-success font-medium text-center">
+                  Once you have these documents, sponsoring your family for residence in Dubai becomes more straightforward.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
