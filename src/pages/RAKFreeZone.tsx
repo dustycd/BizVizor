@@ -677,10 +677,6 @@ const RAKFreeZone = () => {
             </button>
           </div>
         </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* Process Section */}
