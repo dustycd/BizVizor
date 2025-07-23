@@ -5,6 +5,11 @@
 const { google } = require('googleapis');
 
 // Initialize Google Sheets API
+const initializeGoogleSheets = () => {
+  try {
+    // Log which specific credential is missing for easier debugging
+    const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY ? process.env.GOOGLE_SHEETS_PRIVATE_KEY.replace(/\\n/g, '\n') : null;
+    if (!privateKey) console.error('❌ GOOGLE_SHEETS_PRIVATE_KEY is missing or empty.');
     // Parse the private key (handle newlines properly) for the shared credentials
     const auth = new google.auth.GoogleAuth({
       credentials: {
@@ -190,7 +195,7 @@ exports.handler = async (event, context) => {
     }
 
     return {
-++ b/netlify/functions/submit-calculator.js
+      statusCode: 200,
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': 'Content-Type',
@@ -214,7 +219,8 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({
         success: false,
         error: 'Internal server error',
-      // Log which specific credential is missing for easier debugging
         message: 'Failed to process contact form submission'
-      if (!privateKey) console.error('❌ GOOGLE_SHEETS_PRIVATE_KEY is missing or empty.');
+      })
+    };
+  }
 };
