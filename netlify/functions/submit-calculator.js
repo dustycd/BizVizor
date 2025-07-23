@@ -4,19 +4,19 @@ const { google } = require('googleapis');
 const initializeGoogleSheets = () => {
   try {
     console.log('🔍 Checking environment variables for calculator...');
-    console.log('GOOGLE_SHEETS_PRIVATE_KEY_CALCULATOR exists:', !!process.env.GOOGLE_SHEETS_PRIVATE_KEY_CALCULATOR);
-    console.log('GOOGLE_SHEETS_CLIENT_EMAIL_CALCULATOR exists:', !!process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CALCULATOR);
-    console.log('GOOGLE_SHEETS_CLIENT_ID_CALCULATOR exists:', !!process.env.GOOGLE_SHEETS_CLIENT_ID_CALCULATOR);
-    console.log('GOOGLE_SHEETS_SPREADSHEET_ID_CALCULATOR exists:', !!process.env.GOOGLE_SHEETS_SPREADSHEET_ID_CALCULATOR);
+    console.log('GOOGLE_SHEETS_PRIVATE_KEY exists:', !!process.env.GOOGLE_SHEETS_PRIVATE_KEY);
+    console.log('GOOGLE_SHEETS_CLIENT_EMAIL exists:', !!process.env.GOOGLE_SHEETS_CLIENT_EMAIL);
+    console.log('GOOGLE_SHEETS_CLIENT_ID exists:', !!process.env.GOOGLE_SHEETS_CLIENT_ID);
+    console.log('GOOGLE_SHEETS_SPREADSHEET_ID exists:', !!process.env.GOOGLE_SHEETS_SPREADSHEET_ID);
     
     // Parse the private key (handle newlines properly)
-    const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY_CALCULATOR?.replace(/\\n/g, '\n');
+    const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, '\n');
     
-    if (!privateKey || !process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CALCULATOR) {
+    if (!privateKey || !process.env.GOOGLE_SHEETS_CLIENT_EMAIL) {
       console.log('❌ Missing credentials:');
       console.log('- Private key missing:', !privateKey);
-      console.log('- Client email missing:', !process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CALCULATOR);
-      throw new Error('Missing required Google Sheets credentials for calculator');
+      console.log('- Client email missing:', !process.env.GOOGLE_SHEETS_CLIENT_EMAIL);
+      throw new Error('Missing required Google Sheets credentials');
     }
     
     console.log('✅ All required credentials found, initializing Google Sheets...');
@@ -25,8 +25,8 @@ const initializeGoogleSheets = () => {
       credentials: {
         type: 'service_account',
         private_key: privateKey,
-        client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CALCULATOR,
-        client_id: process.env.GOOGLE_SHEETS_CLIENT_ID_CALCULATOR,
+        client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
+        client_id: process.env.GOOGLE_SHEETS_CLIENT_ID,
         auth_uri: 'https://accounts.google.com/o/oauth2/auth',
         token_uri: 'https://oauth2.googleapis.com/token',
       },
@@ -35,7 +35,7 @@ const initializeGoogleSheets = () => {
 
     return google.sheets({ version: 'v4', auth });
   } catch (error) {
-    console.error('Error initializing Google Sheets for calculator:', error);
+    console.error('Error initializing Google Sheets:', error);
     throw error;
   }
 };
@@ -44,13 +44,13 @@ const initializeGoogleSheets = () => {
 const appendToGoogleSheets = async (data) => {
   try {
     const sheets = initializeGoogleSheets();
-    const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID_CALCULATOR;
+    const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
 
     if (!spreadsheetId) {
-      throw new Error('Google Sheets Spreadsheet ID for calculator not configured');
+      throw new Error('Google Sheets Spreadsheet ID not configured');
     }
 
-    console.log('Attempting to append calculator data to spreadsheet:', spreadsheetId);
+    console.log('Attempting to append data to spreadsheet:', spreadsheetId);
 
     // Prepare the row data with all fields including phone country code
     const rowData = [
@@ -82,17 +82,17 @@ const appendToGoogleSheets = async (data) => {
       data.costBreakdown?.additionalFees || 0
     ];
 
-    console.log('Calculator row data prepared:', rowData);
+    console.log('Row data prepared:', rowData);
 
     // First, try to get spreadsheet info to verify access
     try {
       const spreadsheetInfo = await sheets.spreadsheets.get({
         spreadsheetId,
       });
-      console.log('✅ Successfully accessed calculator spreadsheet:', spreadsheetInfo.data.properties.title);
+      console.log('✅ Successfully accessed spreadsheet:', spreadsheetInfo.data.properties.title);
     } catch (accessError) {
-      console.error('❌ Cannot access calculator spreadsheet:', accessError.message);
-      throw new Error(`Cannot access calculator spreadsheet. Please check permissions and sharing settings. Error: ${accessError.message}`);
+      console.error('❌ Cannot access spreadsheet:', accessError.message);
+      throw new Error(`Cannot access spreadsheet. Please check permissions and sharing settings. Error: ${accessError.message}`);
     }
 
     // Append the data to the spreadsheet
@@ -106,16 +106,16 @@ const appendToGoogleSheets = async (data) => {
       },
     });
 
-    console.log('✅ Calculator data successfully added to Google Sheets:', response.data);
+    console.log('✅ Data successfully added to Google Sheets:', response.data);
     return response.data;
   } catch (error) {
-    console.error('❌ Error adding calculator data to Google Sheets:', error);
+    console.error('❌ Error adding data to Google Sheets:', error);
     
     // Provide more specific error messages
     if (error.code === 403) {
-      throw new Error('Permission denied. Please ensure the service account has edit access to the calculator spreadsheet.');
+      throw new Error('Permission denied. Please ensure the service account has edit access to the spreadsheet.');
     } else if (error.code === 404) {
-      throw new Error('Calculator spreadsheet not found. Please check the spreadsheet ID.');
+      throw new Error('Spreadsheet not found. Please check the spreadsheet ID.');
     } else {
       throw error;
     }
@@ -131,7 +131,7 @@ const sendEmailNotification = async (data) => {
   // - AWS SES
   // - Nodemailer with SMTP
   
-  console.log('Email notification would be sent for calculator submission:', data.timestamp);
+  console.log('Email notification would be sent for submission:', data.timestamp);
   return true;
 };
 
@@ -192,10 +192,10 @@ exports.handler = async (event, context) => {
     try {
       await appendToGoogleSheets(data);
       sheetsSuccess = true;
-      console.log('✅ Calculator data successfully saved to Google Sheets');
+      console.log('✅ Data successfully saved to Google Sheets');
     } catch (error) {
       sheetsError = error.message;
-      console.error('❌ Failed to save calculator data to Google Sheets:', error);
+      console.error('❌ Failed to save data to Google Sheets:', error);
     }
 
     // Send email notification (optional)
@@ -203,15 +203,15 @@ exports.handler = async (event, context) => {
     try {
       await sendEmailNotification(data);
       emailSuccess = true;
-      console.log('✅ Calculator email notification sent');
+      console.log('✅ Email notification sent');
     } catch (error) {
-      console.error('❌ Failed to send calculator email notification:', error);
+      console.error('❌ Failed to send email notification:', error);
     }
 
     // Return response
     const response = {
       success: true,
-      message: 'Calculator data received successfully',
+      message: 'Data received successfully',
       submissionId,
       integrations: {
         googleSheets: sheetsSuccess,
@@ -222,7 +222,7 @@ exports.handler = async (event, context) => {
     // If Google Sheets failed, include error info but still return success
     // (the submission was received, even if storage failed)
     if (!sheetsSuccess) {
-      response.warnings = [`Calculator Google Sheets integration failed: ${sheetsError}`];
+      response.warnings = [`Google Sheets integration failed: ${sheetsError}`];
     }
 
     return {
@@ -237,7 +237,7 @@ exports.handler = async (event, context) => {
     };
 
   } catch (error) {
-    console.error('Error processing calculator submission:', error);
+    console.error('Error processing submission:', error);
     
     return {
       statusCode: 500,
@@ -250,7 +250,7 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({
         success: false,
         error: 'Internal server error',
-        message: 'Failed to process calculator submission'
+        message: 'Failed to process submission'
       })
     };
   }
