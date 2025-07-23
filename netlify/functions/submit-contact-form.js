@@ -1,21 +1,17 @@
+      if (!process.env.GOOGLE_SHEETS_CLIENT_EMAIL) console.error('❌ GOOGLE_SHEETS_CLIENT_EMAIL is missing or empty.');
+      if (!process.env.GOOGLE_SHEETS_CLIENT_ID) console.error('❌ GOOGLE_SHEETS_CLIENT_ID is missing or empty.');
+      if (!process.env.GOOGLE_SHEETS_SPREADSHEET_ID) console.error('❌ GOOGLE_SHEETS_SPREADSHEET_ID is missing or empty.');
+      
 const { google } = require('googleapis');
 
 // Initialize Google Sheets API
-const initializeGoogleSheets = () => {
-  try {
-    // Parse the private key (handle newlines properly)
-    const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY_CONTACT?.replace(/\\n/g, '\n');
-    
-    if (!privateKey || !process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CONTACT) {
-      throw new Error('Missing required Google Sheets credentials for contact form');
-    }
-    
+    // Parse the private key (handle newlines properly) for the shared credentials
     const auth = new google.auth.GoogleAuth({
       credentials: {
-        type: 'service_account',
-        private_key: privateKey,
-        client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CONTACT,
-        client_id: process.env.GOOGLE_SHEETS_CLIENT_ID_CONTACT,
+        type: 'service_account', // This is a service account type
+        private_key: privateKey, // The private key from your service account
+        client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL, // The client email from your service account
+        client_id: process.env.GOOGLE_SHEETS_CLIENT_ID, // The client ID from your service account
         auth_uri: 'https://accounts.google.com/o/oauth2/auth',
         token_uri: 'https://oauth2.googleapis.com/token',
       },
@@ -32,11 +28,11 @@ const initializeGoogleSheets = () => {
 // Function to append data to Google Sheets
 const appendToGoogleSheets = async (data) => {
   try {
-    const sheets = initializeGoogleSheets();
-    const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID_CONTACT;
+    const sheets = initializeGoogleSheets(); // Initialize Google Sheets API client
+    const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID; // Get the spreadsheet ID from environment variables
 
     if (!spreadsheetId) {
-      throw new Error('Google Sheets Spreadsheet ID for contact form not configured');
+      throw new Error('Google Sheets Spreadsheet ID not configured');
     }
 
     console.log('Attempting to append contact form data to spreadsheet:', spreadsheetId);
@@ -69,7 +65,7 @@ const appendToGoogleSheets = async (data) => {
     // Append the data to the spreadsheet
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: 'Sheet1!A:H',
+      range: 'CalculatorData!A:Z', // Specify the sheet name for calculator data
       valueInputOption: 'RAW',
       insertDataOption: 'INSERT_ROWS',
       resource: {
@@ -190,11 +186,11 @@ exports.handler = async (event, context) => {
     // If Google Sheets failed, include error info but still return success
     // (the submission was received, even if storage failed)
     if (!sheetsSuccess) {
-      response.warnings = [`Google Sheets integration failed: ${sheetsError}`];
+      response.warnings = [`Google Sheets integration failed: ${sheetsError}`]; // Add warning if sheets integration failed
     }
 
     return {
-      statusCode: 200,
+++ b/netlify/functions/submit-calculator.js
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': 'Content-Type',
@@ -218,8 +214,7 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({
         success: false,
         error: 'Internal server error',
+      // Log which specific credential is missing for easier debugging
         message: 'Failed to process contact form submission'
-      })
-    };
-  }
+      if (!privateKey) console.error('❌ GOOGLE_SHEETS_PRIVATE_KEY is missing or empty.');
 };
