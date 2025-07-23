@@ -3,52 +3,36 @@ const { google } = require('googleapis');
 // Initialize Google Sheets API
 const initializeGoogleSheets = () => {
   try {
-    const authString = process.env.GOOGLE_SHEETS_AUTH_CALCULATOR;
-    if (!authString) {
-      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_AUTH_CALCULATOR environment variable is missing.');
-      return { success: false, error: 'Missing GOOGLE_SHEETS_AUTH_CALCULATOR environment variable.' };
-    }
-
-    let credentials;
-    try {
-      credentials = JSON.parse(authString);
-      // Replace escaped newlines in private_key if they exist
-      if (credentials.private_key) {
-        credentials.private_key = credentials.private_key.replace(/\\n/g, '\n');
-      }
-    } catch (parseError) {
-      console.error('❌ initializeGoogleSheets: Failed to parse GOOGLE_SHEETS_AUTH_CALCULATOR JSON:', parseError.message);
-      return { success: false, error: 'Invalid JSON in GOOGLE_SHEETS_AUTH_CALCULATOR environment variable.' };
-    }
-
-    if (!credentials.private_key || !credentials.client_email || !credentials.client_id) {
-      console.error('❌ initializeGoogleSheets: Missing required keys (private_key, client_email, client_id) in GOOGLE_SHEETS_AUTH_CALCULATOR.');
-      return { success: false, error: 'Incomplete Google Sheets credentials in GOOGLE_SHEETS_AUTH_CALCULATOR.' };
+    // Parse the private key (handle newlines properly)
+    const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, '\n');
+    
+    if (!privateKey || !process.env.GOOGLE_SHEETS_CLIENT_EMAIL) {
+      throw new Error('Missing required Google Sheets credentials');
     }
     
     const auth = new google.auth.GoogleAuth({
-      credentials: { ...credentials, type: 'service_account' },
+      credentials: {
+        type: 'service_account',
+        private_key: privateKey,
+        client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
+        client_id: process.env.GOOGLE_SHEETS_CLIENT_ID,
+        auth_uri: 'https://accounts.google.com/o/oauth2/auth',
+        token_uri: 'https://oauth2.googleapis.com/token',
+      },
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
 
-    return { success: true, sheets: google.sheets({ version: 'v4', auth }) };
+    return google.sheets({ version: 'v4', auth });
   } catch (error) {
-    console.error('❌ Error initializing Google Sheets:', error.message);
-    return { success: false, error: error.message || 'Failed to initialize Google Sheets API' };
+    console.error('Error initializing Google Sheets:', error);
+    throw error;
   }
 };
 
 // Function to append data to Google Sheets
 const appendToGoogleSheets = async (data) => {
   try {
-    const initResult = initializeGoogleSheets();
-    
-    if (!initResult.success) {
-      console.error('❌ Failed to initialize Google Sheets:', initResult.error);
-      throw new Error(initResult.error);
-    }
-    
-    const sheets = initResult.sheets;
+    const sheets = initializeGoogleSheets();
     const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
 
     if (!spreadsheetId) {
@@ -224,7 +208,6 @@ exports.handler = async (event, context) => {
       }
     };
 
-    console.log('✅ Netlify function execution path completed. Preparing final response.');
     // If Google Sheets failed, include error info but still return success
     // (the submission was received, even if storage failed)
     if (!sheetsSuccess) {

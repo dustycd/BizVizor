@@ -33,29 +33,13 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
-    // Basic client-side validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setSubmitStatus({
-        type: 'error',
-        message: 'Please fill in all required fields (Name, Email, and Message).'
-      });
-      setIsSubmitting(false);
-      return;
-    }
-
     try {
+      // Submit to our custom Netlify Function
       const submissionData = {
         ...formData,
         timestamp: new Date().toISOString(),
         source: 'Contact Page'
       };
-
-      console.log('Submitting contact form data:', {
-        name: submissionData.name,
-        email: submissionData.email,
-        company: submissionData.company,
-        service: submissionData.service
-      });
 
       const response = await fetch('/.netlify/functions/submit-contact-form', {
         method: 'POST',
@@ -65,35 +49,15 @@ const Contact = () => {
         body: JSON.stringify(submissionData)
       });
 
-      console.log('Response status:', response.status);
-      console.log('Response headers:', Object.fromEntries(response.headers.entries()));
-
-      let result;
-      try {
-        const responseText = await response.text();
-        console.log('Raw response:', responseText);
-        
-        if (!responseText) {
-          throw new Error('Empty response from server');
-        }
-        
-        result = JSON.parse(responseText);
-        console.log('Parsed response:', result);
-      } catch (parseError) {
-        console.error('Failed to parse response:', parseError);
-        throw new Error('Invalid response from server. Please try again.');
-      }
+      const result = await response.json();
+      console.log('Contact form submission response:', result);
 
       if (response.ok && result.success) {
-        console.log('✅ Contact form submitted successfully');
         setSubmitStatus({
           type: 'success',
-          message: result.warnings && result.warnings.length > 0 
-            ? 'Your message has been received! We will get back to you within 24 hours. (Note: There was a minor issue with our data storage, but your message was received.)'
-            : 'Your message has been sent successfully! We will get back to you within 24 hours.'
+          message: 'Your message has been sent successfully! We will get back to you within 24 hours.'
         });
-        
-        // Reset form on success
+        // Reset form
         setFormData({
           name: '',
           email: '',
@@ -103,10 +67,9 @@ const Contact = () => {
           message: ''
         });
       } else {
-        console.error('❌ Contact form submission failed:', result);
         setSubmitStatus({
           type: 'error',
-          message: result.message || result.error || 'Failed to send message. Please try again or contact us directly.'
+          message: result.message || 'Failed to send message. Please try again or contact us directly.'
         });
       }
     } catch (error) {
