@@ -34,20 +34,25 @@ const Contact = () => {
     setSubmitStatus({ type: null, message: '' });
 
     try {
-      // Create FormData for Netlify Forms
-      const formDataToSubmit = new FormData();
-      formDataToSubmit.append('form-name', 'contact');
-      Object.keys(formData).forEach(key => {
-        formDataToSubmit.append(key, formData[key as keyof typeof formData]);
-      });
+      // Submit to our custom Netlify Function
+      const submissionData = {
+        ...formData,
+        timestamp: new Date().toISOString(),
+        source: 'Home Page Contact Form'
+      };
 
-      const response = await fetch('/', {
+      const response = await fetch('/.netlify/functions/submit-contact-form', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formDataToSubmit as any).toString()
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData)
       });
 
-      if (response.ok) {
+      const result = await response.json();
+      console.log('Contact form submission response:', result);
+
+      if (response.ok && result.success) {
         setSubmitStatus({
           type: 'success',
           message: 'Your message has been sent successfully! We will get back to you within 24 hours.'
@@ -64,7 +69,7 @@ const Contact = () => {
       } else {
         setSubmitStatus({
           type: 'error',
-          message: 'Failed to send message. Please try again or contact us directly.'
+          message: result.message || 'Failed to send message. Please try again or contact us directly.'
         });
       }
     } catch (error) {
@@ -189,23 +194,9 @@ const Contact = () => {
                 )}
 
                 <form 
-                  name="contact" 
-                  method="POST" 
-                  data-netlify="true" 
-                  data-netlify-honeypot="bot-field"
                   onSubmit={handleSubmit} 
                   className="space-y-6"
                 >
-                  {/* Hidden field for Netlify Forms */}
-                  <input type="hidden" name="form-name" value="contact" />
-                  
-                  {/* Honeypot field for spam protection */}
-                  <div style={{ display: 'none' }}>
-                    <label>
-                      Don't fill this out if you're human: <input name="bot-field" />
-                    </label>
-                  </div>
-
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-grey-700 mb-2">
