@@ -83,7 +83,7 @@ const appendToGoogleSheets = async (data) => {
       company: rowData[3],
       phone: rowData[4],
       service: rowData[5],
-      messageLength: rowData[6].length,
+      message: rowData[6] ? `${rowData[6].substring(0, 50)}...` : 'No message',
       source: rowData[7]
     });
 
@@ -220,7 +220,7 @@ exports.handler = async (event, context) => {
         company: data.company,
         phone: data.phone,
         service: data.service,
-        messageLength: data.message?.length || 0,
+        message: data.message ? `${data.message.substring(0, 50)}...` : 'No message',
         source: data.source
       });
     } catch (parseError) {
