@@ -36,7 +36,7 @@ const appendToGoogleSheets = async (data) => {
     const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID_CONTACT;
 
     if (!spreadsheetId) {
-      throw new Error('Google Sheets Spreadsheet ID for contact form not configured');
+      return { success: false, error: 'Google Sheets Spreadsheet ID for contact form not configured' };
     }
 
     console.log('Attempting to append contact form data to spreadsheet:', spreadsheetId);
@@ -63,7 +63,7 @@ const appendToGoogleSheets = async (data) => {
       console.log('✅ Successfully accessed contact form spreadsheet:', spreadsheetInfo.data.properties.title);
     } catch (accessError) {
       console.error('❌ Cannot access contact form spreadsheet:', accessError.message);
-      throw new Error(`Cannot access contact form spreadsheet. Please check permissions and sharing settings. Error: ${accessError.message}`);
+      return { success: false, error: `Cannot access contact form spreadsheet. Please check permissions and sharing settings. Error: ${accessError.message}` };
     }
 
     // Append the data to the spreadsheet
@@ -78,17 +78,17 @@ const appendToGoogleSheets = async (data) => {
     });
 
     console.log('✅ Contact form data successfully added to Google Sheets:', response.data);
-    return response.data;
+    return { success: true, data: response.data };
   } catch (error) {
     console.error('❌ Error adding contact form data to Google Sheets:', error);
     
     // Provide more specific error messages
     if (error.code === 403) {
-      throw new Error('Permission denied. Please ensure the service account has edit access to the contact form spreadsheet.');
+      return { success: false, error: 'Permission denied. Please ensure the service account has edit access to the contact form spreadsheet.' };
     } else if (error.code === 404) {
-      throw new Error('Contact form spreadsheet not found. Please check the spreadsheet ID.');
+      return { success: false, error: 'Contact form spreadsheet not found. Please check the spreadsheet ID.' };
     } else {
-      throw error;
+      return { success: false, error: error.message || 'Unknown error occurred while saving to Google Sheets' };
     }
   }
 };
@@ -154,16 +154,14 @@ exports.handler = async (event, context) => {
     const submissionId = `contact_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
     // Save to Google Sheets
-    let sheetsSuccess = false;
-    let sheetsError = null;
+    const sheetsResult = await appendToGoogleSheets(data);
+    const sheetsSuccess = sheetsResult.success;
+    const sheetsError = sheetsResult.error;
     
-    try {
-      await appendToGoogleSheets(data);
-      sheetsSuccess = true;
+    if (sheetsSuccess) {
       console.log('✅ Contact form data successfully saved to Google Sheets');
-    } catch (error) {
-      sheetsError = error.message;
-      console.error('❌ Failed to save contact form data to Google Sheets:', error);
+    } else {
+      console.error('❌ Failed to save contact form data to Google Sheets:', sheetsError);
     }
 
     // Send email notification (optional)
