@@ -10,6 +10,7 @@ export const routesConfig: RouteConfig[] = [
   
   // Main Pages
   { path: '/about', name: 'About Us' },
+  { path: '/why-choose-us', name: 'Why Choose Us' },
   { path: '/blog', name: 'Blog' },
   { path: '/careers', name: 'Careers' },
   { path: '/contact', name: 'Contact' },
