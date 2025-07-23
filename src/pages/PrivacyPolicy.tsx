@@ -10,16 +10,16 @@ const PrivacyPolicy = () => {
       content: 'By using our website, you, as a result of this, agree to the Privacy Policy and its terms.'
     },
     {
-      id: 'information-collection',
-      title: 'Information We Collect',
+      id: 'information-we-collect',
+      title: 'Information we collect',
       icon: FileText,
-      content: 'The personal information you are asked to provide and the reasons why will be made clear to you at the point we ask you to provide your personal info. If you contact us, we may receive additional data about you, such as phone number, name, email address, and message content and you may send to us, and any provided information. We may request certain contact details from you when you create an account, containing your phone number, email address, company name, and name.'
+      content: 'The personal information you are asked to provide and the reasons why will be made clear to you at the point we ask you to provide your personal info.; If you contact us, we may receive additional data about you, such as phone number, name, email address, and message content and you may send to us, and any provided information.; We may request certain contact details from you when you create an account, containing your phone number, email address, company name, and name.'
     },
     {
-      id: 'information-usage',
-      title: 'How We Use Your Information',
+      id: 'policy-of-how-we-use-your-information',
+      title: 'Policy of how we use your information',
       icon: Users,
-      content: 'We employ the data we gather in a number of ways, such as: Provide, manage, and uphold our site; Enhance, customize, and broaden our website; Understand and analyze how you use our site; Create new features, services, goods, and interfaces; Speak with you directly or through one of our partners about anything from customer service to updates and other information on the website, along with marketing and promotional initiatives; Send you emails; Find and prevent fraud.'
+      content: 'We employ the data we gather in a number of ways, such as:; Provide, manage, and uphold our site; Enhance, customize, and broaden our website; Understand and analyze how you use our site; Create new features, services, goods, and interfaces.; Speak with you directly or through one of our partners about anything from customer service to updates and other information on the website, along with marketing and promotional initiatives.; Send you emails; Find and prevent fraud'
     },
     {
       id: 'log-files',
@@ -28,37 +28,37 @@ const PrivacyPolicy = () => {
       content: 'Bizvisor adheres to the custom of using log files. When people visit websites, these files record their visits. Every hosting company participates in hosting services analytics by doing this. Internet protocol (IP) addresses, browser types, Internet Service Providers (ISPs), date and time stamps, referring/exit pages, and potential click counts are among the data gathered by log files. There is no connection between these and any personally identifiable data. The report\'s objectives include trend analysis, website administration, user movement tracking, and demographic data collection.'
     },
     {
-      id: 'cookies',
+      id: 'cookies-and-web-beacons',
       title: 'Cookies and Web Beacons',
       icon: Globe,
       content: 'Like any other website, Bizvisor employs "cookies." These cookies keep track of the pages that users access or browse on the website, as well as the preferences of the visitors. By customizing the information on our web pages to the specific browser type and other information of our visitors, the data is used to maximize their experience.'
     },
     {
-      id: 'advertising',
+      id: 'advertising-partners-privacy-policies',
       title: 'Advertising Partners Privacy Policies',
       icon: Eye,
-      content: 'You can look through this list to see each company\'s privacy policy or Bizvisor\'s advertising partners. Ad networks and third-party ad clouds use technologies such as Web Beacons, JavaScript, and cookies in their links and advertisements. Bizvisor, which are directed to users\' browsers. When this happens, they automatically get your IP address. By using these technologies, they can track how well their advertising campaigns are working and target the ads you see on websites you visit. Note that Bizvisor has no access to or control over third-party advertisers\' cookies.'
+      content: 'You can look through this list to see each company\'s privacy policy or Bizvisor\'s advertising partners.; Ad networks and third-party ad clouds use technologies such as Web Beacons, JavaScript, and cookies in their links and advertisements. Bizvisor, which are directed to users\' browsers. When this happens, they automatically get your IP address. By using these technologies, they can track how well their advertising campaigns are working and target the ads you see on websites you visit.; Note that Bizvisor has no access to or control over third-party advertisers\' cookies.'
     },
     {
-      id: 'third-party',
+      id: 'third-party-privacy-policies',
       title: 'Third-Party Privacy Policies',
       icon: Shield,
-      content: 'Bizvisor\'s This privacy statement does not apply to other websites or advertisers. For more specific information, we thus advise to observe the specific Privacy Policies of these outside ad servers. It might contain information about their procedures and how to choose not to accept particular choices. You can decide to turn off cookies in your browser. Visit the websites of the individual web browsers for more specific information about controlling cookies.'
+      content: 'Bizvisor\'s This privacy statement does not apply to other websites or advertisers. For more specific information, we thus advise to observe the specific Privacy Policies of these outside ad servers. It might contain information about their procedures and how to choose not to accept particular choices.; You can decide to turn off cookies in your browser. Visit the websites of the individual web browsers for more specific information about controlling cookies.'
     },
     {
       id: 'gdpr-rights',
       title: 'GDPR Data Protection Rights',
       icon: Lock,
-      content: 'We want to make sure that you understand all of your rights regarding data protection. Each and every user has the following rights: The right to access: You can ask for your information copies. We might bill you a small amount for this service. The right to rectify: If you think any info is incorrect, you can ask us to fix it. Additionally, you are free to ask that any information you believe is lacking be completed. The right to erasure: You can request, under specific circumstances, that we delete your data. The right to restrict processing: You have the right to ask that we, in certain circumstances, limit how we process your info. The right to object to processing: The right to object to our processing of your data is attainable in certain situations. The right to data portability: It is possible to ask for the transfer of the data gathered and either sent directly to you or, in some cases, to another organization. We will reply to requests within a month of their submission. If you would like to use any of these rights, kindly get in touch with us.'
+      content: 'We want to make sure that you understand all of your rights regarding data protection. Each and every user has the following rights:; The right to access: You can ask for your information copies. We might bill you a small amount for this service.; The right to rectify: If you think any info is incorrect, you can ask us to fix it. Additionally, you are free to ask that any information you believe is lacking be completed.; The right to erasure: You can request, under specific circumstances, that we delete your data.; The right to restrict processing: You have the right to ask that we, in certain circumstances, limit how we process your info.; The right to object to processing: The right to object to our processing of your data is attainable in certain situations.; The right to data portability: It is possible to ask for the transfer of the data gathered and either sent directly to you or, in some cases, to another organization.; We will reply to requests within a month of their submission. If you would like to use any of these rights, kindly get in touch with us.'
     },
     {
-      id: 'children',
+      id: 'childrens-information',
       title: 'Children\'s Information',
       icon: Users,
-      content: 'Our goal also includes providing additional security for kids when they use the internet. Parents and guardians are urged to watch, participate in, monitor, and guide their online activity. Bizvisor knows not to intentionally gather any personally identifiable information from minors younger than thirteen. If you think your child provided this information on our website, we kindly ask that you get in touch with us right away. We\'ll try our best to have the offending information promptly removed from our data.'
+      content: 'Our goal also includes providing additional security for kids when they use the internet. Parents and guardians are urged to watch, participate in, monitor, and guide their online activity.; Bizvisor knows not to intentionally gather any personally identifiable information from minors younger than thirteen. If you think your child provided this information on our website, we kindly ask that you get in touch with us right away. We\'ll try our best to have the offending information promptly removed from our data.'
     },
     {
-      id: 'policy-changes',
+      id: 'changes-to-this-privacy-policy',
       title: 'Changes to This Privacy Policy',
       icon: FileText,
       content: 'We might occasionally make changes to our privacy statement. As a result, we suggest that you check this page from time to time for any updates. This page will be used to preview updates, where you can find the updated Privacy Policy. As soon as these modifications are published on this page, they become operative.'
@@ -115,7 +115,7 @@ const PrivacyPolicy = () => {
               At Bizvisor, accessible from https://www.bizvisor.ae/, one of our major priorities is visitors' privacy. This Policy document contains types of information collected and recorded by Bizvisor and how we use it.
             </p>
             <p className="text-lg opacity-80">
-              Last updated: July 2025
+              Last updated: January 2025
             </p>
           </div>
         </div>
@@ -313,11 +313,11 @@ const PrivacyPolicy = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:hello@bizvisor.com"
+              href="mailto:info@bizvisor.ae"
               className="bg-white text-primary-red px-8 py-4 rounded-lg hover:bg-grey-100 transition-all duration-200 font-semibold flex items-center justify-center"
             >
               <Mail className="w-5 h-5 mr-2" />
-              Email: hello@bizvisor.com
+              Email: info@bizvisor.ae
             </a>
             <a
               href="tel:+971564960040"
