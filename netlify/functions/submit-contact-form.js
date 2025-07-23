@@ -70,7 +70,7 @@ const appendToGoogleSheets = async (data) => {
     // Append the data to the spreadsheet
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: 'CalculatorData!A:Z', // Specify the sheet name for calculator data
+      range: 'ContactFormSubmissions!A:H', // Specify the sheet name for calculator data
       valueInputOption: 'RAW',
       insertDataOption: 'INSERT_ROWS',
       resource: {
