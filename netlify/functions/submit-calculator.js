@@ -3,20 +3,12 @@ const { google } = require('googleapis');
 // Initialize Google Sheets API
 const initializeGoogleSheets = () => {
   try {
-    console.log('🔍 initializeGoogleSheets: Starting initialization...');
-    console.log('🔍 initializeGoogleSheets: Available environment variables:', Object.keys(process.env).filter(key => key.includes('GOOGLE')));
-    
-    const authString = process.env.GOOGLE_SHEETS_AUTH;
-    console.log('🔍 initializeGoogleSheets: GOOGLE_SHEETS_AUTH exists:', !!authString);
-    console.log('🔍 initializeGoogleSheets: GOOGLE_SHEETS_AUTH type:', typeof authString);
-    
+    const authString = process.env.GOOGLE_SHEETS_AUTH_CALCULATOR;
     if (!authString) {
-      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_AUTH environment variable is missing.');
-      return { success: false, error: 'Missing GOOGLE_SHEETS_AUTH environment variable.' };
+      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_AUTH_CALCULATOR environment variable is missing.');
+      return { success: false, error: 'Missing GOOGLE_SHEETS_AUTH_CALCULATOR environment variable.' };
     }
 
-    console.log('🔍 initializeGoogleSheets: First 100 chars of authString:', authString.substring(0, 100));
-    
     let credentials;
     try {
       credentials = JSON.parse(authString);
@@ -25,17 +17,13 @@ const initializeGoogleSheets = () => {
         credentials.private_key = credentials.private_key.replace(/\\n/g, '\n');
       }
     } catch (parseError) {
-      console.error('❌ initializeGoogleSheets: Failed to parse GOOGLE_SHEETS_AUTH JSON:', parseError.message);
-      return { success: false, error: 'Invalid JSON in GOOGLE_SHEETS_AUTH environment variable.' };
+      console.error('❌ initializeGoogleSheets: Failed to parse GOOGLE_SHEETS_AUTH_CALCULATOR JSON:', parseError.message);
+      return { success: false, error: 'Invalid JSON in GOOGLE_SHEETS_AUTH_CALCULATOR environment variable.' };
     }
 
-    console.log('🔍 initializeGoogleSheets: Available keys in credentials:', Object.keys(credentials));
-    console.log('🔍 initializeGoogleSheets: client_email:', credentials.client_email);
-    
     if (!credentials.private_key || !credentials.client_email || !credentials.client_id) {
-      console.error('❌ initializeGoogleSheets: Missing required keys (private_key, client_email, client_id) in GOOGLE_SHEETS_AUTH.');
-      console.error('❌ initializeGoogleSheets: Available keys in credentials:', Object.keys(credentials));
-      return { success: false, error: 'Incomplete Google Sheets credentials in GOOGLE_SHEETS_AUTH.' };
+      console.error('❌ initializeGoogleSheets: Missing required keys (private_key, client_email, client_id) in GOOGLE_SHEETS_AUTH_CALCULATOR.');
+      return { success: false, error: 'Incomplete Google Sheets credentials in GOOGLE_SHEETS_AUTH_CALCULATOR.' };
     }
     
     const auth = new google.auth.GoogleAuth({
@@ -43,13 +31,9 @@ const initializeGoogleSheets = () => {
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
 
-    console.log('✅ GoogleAuth client created for calculator.');
-    const sheets = google.sheets({ version: 'v4', auth });
-    console.log('✅ Google Sheets API initialized successfully for calculator');
     return { success: true, sheets: google.sheets({ version: 'v4', auth }) };
   } catch (error) {
     console.error('❌ Error initializing Google Sheets:', error.message);
-    console.error('Stack trace:', error.stack);
     return { success: false, error: error.message || 'Failed to initialize Google Sheets API' };
   }
 };
@@ -65,10 +49,10 @@ const appendToGoogleSheets = async (data) => {
     }
     
     const sheets = initResult.sheets;
-    const spreadsheetId = process.env.GOOGLE_SHEETS_CALCULATOR_SHEET_ID;
+    const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
 
     if (!spreadsheetId) {
-      throw new Error('GOOGLE_SHEETS_CALCULATOR_SHEET_ID not configured');
+      throw new Error('Google Sheets Spreadsheet ID not configured');
     }
 
     console.log('Attempting to append data to spreadsheet:', spreadsheetId);
