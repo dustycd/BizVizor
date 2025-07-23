@@ -4,18 +4,18 @@ const { google } = require('googleapis');
 const initializeGoogleSheets = () => {
   try {
     // Parse the private key (handle newlines properly)
-    const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, '\n');
+    const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY_CALCULATOR?.replace(/\\n/g, '\n');
     
-    if (!privateKey || !process.env.GOOGLE_SHEETS_CLIENT_EMAIL) {
-      throw new Error('Missing required Google Sheets credentials');
+    if (!privateKey || !process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CALCULATOR) {
+      throw new Error('Missing required Google Sheets credentials for calculator');
     }
     
     const auth = new google.auth.GoogleAuth({
       credentials: {
         type: 'service_account',
         private_key: privateKey,
-        client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
-        client_id: process.env.GOOGLE_SHEETS_CLIENT_ID,
+        client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CALCULATOR,
+        client_id: process.env.GOOGLE_SHEETS_CLIENT_ID_CALCULATOR,
         auth_uri: 'https://accounts.google.com/o/oauth2/auth',
         token_uri: 'https://oauth2.googleapis.com/token',
       },
@@ -24,7 +24,7 @@ const initializeGoogleSheets = () => {
 
     return google.sheets({ version: 'v4', auth });
   } catch (error) {
-    console.error('Error initializing Google Sheets:', error);
+    console.error('Error initializing Google Sheets for calculator:', error);
     throw error;
   }
 };
@@ -33,13 +33,13 @@ const initializeGoogleSheets = () => {
 const appendToGoogleSheets = async (data) => {
   try {
     const sheets = initializeGoogleSheets();
-    const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+    const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID_CALCULATOR;
 
     if (!spreadsheetId) {
-      throw new Error('Google Sheets Spreadsheet ID not configured');
+      throw new Error('Google Sheets Spreadsheet ID for calculator not configured');
     }
 
-    console.log('Attempting to append data to spreadsheet:', spreadsheetId);
+    console.log('Attempting to append calculator data to spreadsheet:', spreadsheetId);
 
     // Prepare the row data with all fields including phone country code
     const rowData = [
@@ -71,17 +71,17 @@ const appendToGoogleSheets = async (data) => {
       data.costBreakdown?.additionalFees || 0
     ];
 
-    console.log('Row data prepared:', rowData);
+    console.log('Calculator row data prepared:', rowData);
 
     // First, try to get spreadsheet info to verify access
     try {
       const spreadsheetInfo = await sheets.spreadsheets.get({
         spreadsheetId,
       });
-      console.log('✅ Successfully accessed spreadsheet:', spreadsheetInfo.data.properties.title);
+      console.log('✅ Successfully accessed calculator spreadsheet:', spreadsheetInfo.data.properties.title);
     } catch (accessError) {
-      console.error('❌ Cannot access spreadsheet:', accessError.message);
-      throw new Error(`Cannot access spreadsheet. Please check permissions and sharing settings. Error: ${accessError.message}`);
+      console.error('❌ Cannot access calculator spreadsheet:', accessError.message);
+      throw new Error(`Cannot access calculator spreadsheet. Please check permissions and sharing settings. Error: ${accessError.message}`);
     }
 
     // Append the data to the spreadsheet
@@ -95,16 +95,16 @@ const appendToGoogleSheets = async (data) => {
       },
     });
 
-    console.log('✅ Data successfully added to Google Sheets:', response.data);
+    console.log('✅ Calculator data successfully added to Google Sheets:', response.data);
     return response.data;
   } catch (error) {
-    console.error('❌ Error adding data to Google Sheets:', error);
+    console.error('❌ Error adding calculator data to Google Sheets:', error);
     
     // Provide more specific error messages
     if (error.code === 403) {
-      throw new Error('Permission denied. Please ensure the service account has edit access to the spreadsheet.');
+      throw new Error('Permission denied. Please ensure the service account has edit access to the calculator spreadsheet.');
     } else if (error.code === 404) {
-      throw new Error('Spreadsheet not found. Please check the spreadsheet ID.');
+      throw new Error('Calculator spreadsheet not found. Please check the spreadsheet ID.');
     } else {
       throw error;
     }
@@ -120,7 +120,7 @@ const sendEmailNotification = async (data) => {
   // - AWS SES
   // - Nodemailer with SMTP
   
-  console.log('Email notification would be sent for submission:', data.timestamp);
+  console.log('Email notification would be sent for calculator submission:', data.timestamp);
   return true;
 };
 
@@ -181,10 +181,10 @@ exports.handler = async (event, context) => {
     try {
       await appendToGoogleSheets(data);
       sheetsSuccess = true;
-      console.log('✅ Data successfully saved to Google Sheets');
+      console.log('✅ Calculator data successfully saved to Google Sheets');
     } catch (error) {
       sheetsError = error.message;
-      console.error('❌ Failed to save to Google Sheets:', error);
+      console.error('❌ Failed to save calculator data to Google Sheets:', error);
     }
 
     // Send email notification (optional)
@@ -192,9 +192,9 @@ exports.handler = async (event, context) => {
     try {
       await sendEmailNotification(data);
       emailSuccess = true;
-      console.log('✅ Email notification sent');
+      console.log('✅ Calculator email notification sent');
     } catch (error) {
-      console.error('❌ Failed to send email notification:', error);
+      console.error('❌ Failed to send calculator email notification:', error);
     }
 
     // Return response
@@ -211,7 +211,7 @@ exports.handler = async (event, context) => {
     // If Google Sheets failed, include error info but still return success
     // (the submission was received, even if storage failed)
     if (!sheetsSuccess) {
-      response.warnings = [`Google Sheets integration failed: ${sheetsError}`];
+      response.warnings = [`Calculator Google Sheets integration failed: ${sheetsError}`];
     }
 
     return {
