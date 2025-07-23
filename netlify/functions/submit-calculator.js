@@ -6,7 +6,19 @@ const initializeGoogleSheets = () => {
     // Parse the private key (handle newlines properly)
     const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, '\n');
     
-    if (!privateKey || !process.env.GOOGLE_SHEETS_CLIENT_EMAIL) {
+    if (!privateKey) {
+      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_PRIVATE_KEY is missing or empty.');
+      return { success: false, error: 'Missing GOOGLE_SHEETS_PRIVATE_KEY environment variable.' };
+    }
+    if (!process.env.GOOGLE_SHEETS_CLIENT_EMAIL) {
+      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_CLIENT_EMAIL is missing or empty.');
+      return { success: false, error: 'Missing GOOGLE_SHEETS_CLIENT_EMAIL environment variable.' };
+    }
+    if (!process.env.GOOGLE_SHEETS_SPREADSHEET_ID) {
+      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_SPREADSHEET_ID is missing or empty.');
+      return { success: false, error: 'Missing GOOGLE_SHEETS_SPREADSHEET_ID environment variable.' };
+    }
+    if (!process.env.GOOGLE_SHEETS_CLIENT_ID) {
       return { success: false, error: 'Missing required Google Sheets credentials' };
     }
     
@@ -24,7 +36,7 @@ const initializeGoogleSheets = () => {
 
     return { success: true, sheets: google.sheets({ version: 'v4', auth }) };
   } catch (error) {
-    console.error('Error initializing Google Sheets:', error);
+    console.error('❌ Error initializing Google Sheets:', error.message);
     return { success: false, error: error.message || 'Failed to initialize Google Sheets API' };
   }
 };
@@ -215,6 +227,7 @@ exports.handler = async (event, context) => {
       }
     };
 
+    console.log('✅ Netlify function execution path completed. Preparing final response.');
     // If Google Sheets failed, include error info but still return success
     // (the submission was received, even if storage failed)
     if (!sheetsSuccess) {

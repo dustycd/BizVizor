@@ -6,11 +6,21 @@ const initializeGoogleSheets = () => {
     // Parse the private key (handle newlines properly)
     const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY_CONTACT?.replace(/\\n/g, '\n');
     
-    if (!privateKey || !process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CONTACT) {
+    if (!privateKey) {
+      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_PRIVATE_KEY_CONTACT is missing or empty.');
+      return { success: false, error: 'Missing GOOGLE_SHEETS_PRIVATE_KEY_CONTACT environment variable.' };
+    }
+    if (!process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CONTACT) {
+      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_CLIENT_EMAIL_CONTACT is missing or empty.');
+      return { success: false, error: 'Missing GOOGLE_SHEETS_CLIENT_EMAIL_CONTACT environment variable.' };
+    }
+    if (!process.env.GOOGLE_SHEETS_SPREADSHEET_ID_CONTACT) {
+      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_SPREADSHEET_ID_CONTACT is missing or empty.');
+      return { success: false, error: 'Missing GOOGLE_SHEETS_SPREADSHEET_ID_CONTACT environment variable.' };
+    }
+    if (!process.env.GOOGLE_SHEETS_CLIENT_ID_CONTACT) {
       console.error('Missing Google Sheets credentials:', {
-        hasPrivateKey: !!privateKey,
-        hasClientEmail: !!process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CONTACT,
-        hasSpreadsheetId: !!process.env.GOOGLE_SHEETS_SPREADSHEET_ID_CONTACT
+        hasClientId: !!process.env.GOOGLE_SHEETS_CLIENT_ID_CONTACT
       });
       return { success: false, error: 'Missing required Google Sheets credentials for contact form' };
     }
@@ -31,8 +41,8 @@ const initializeGoogleSheets = () => {
     console.log('✅ Google Sheets API initialized successfully for contact form');
     return { success: true, sheets };
   } catch (error) {
-    console.error('❌ Error initializing Google Sheets for contact form:', error);
-    return { success: false, error: error.message || 'Failed to initialize Google Sheets API' };
+    console.error('❌ Error initializing Google Sheets for contact form:', error.message);
+    return { success: false, error: `Failed to initialize Google Sheets API: ${error.message || 'Unknown error'}` };
   }
 };
 
@@ -279,6 +289,7 @@ exports.handler = async (event, context) => {
       }
     };
 
+    console.log('✅ Netlify function execution path completed. Preparing final response.');
     // If Google Sheets failed, include warning but still return success
     // (the submission was received, even if storage failed)
     if (!sheetsResult.success) {
