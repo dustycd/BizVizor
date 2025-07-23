@@ -3,12 +3,23 @@ const { google } = require('googleapis');
 // Initialize Google Sheets API
 const initializeGoogleSheets = () => {
   try {
+    console.log('🔍 Checking environment variables for calculator...');
+    console.log('GOOGLE_SHEETS_PRIVATE_KEY_CALCULATOR exists:', !!process.env.GOOGLE_SHEETS_PRIVATE_KEY_CALCULATOR);
+    console.log('GOOGLE_SHEETS_CLIENT_EMAIL_CALCULATOR exists:', !!process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CALCULATOR);
+    console.log('GOOGLE_SHEETS_CLIENT_ID_CALCULATOR exists:', !!process.env.GOOGLE_SHEETS_CLIENT_ID_CALCULATOR);
+    console.log('GOOGLE_SHEETS_SPREADSHEET_ID_CALCULATOR exists:', !!process.env.GOOGLE_SHEETS_SPREADSHEET_ID_CALCULATOR);
+    
     // Parse the private key (handle newlines properly)
     const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY_CALCULATOR?.replace(/\\n/g, '\n');
     
     if (!privateKey || !process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CALCULATOR) {
+      console.log('❌ Missing credentials:');
+      console.log('- Private key missing:', !privateKey);
+      console.log('- Client email missing:', !process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CALCULATOR);
       throw new Error('Missing required Google Sheets credentials for calculator');
     }
+    
+    console.log('✅ All required credentials found, initializing Google Sheets...');
     
     const auth = new google.auth.GoogleAuth({
       credentials: {
