@@ -1,6 +1,7 @@
 const { google } = require('googleapis');
 
 // Initialize Google Sheets API
+// Added more detailed logging for initialization process
 const initializeGoogleSheets = () => {
   try {
     // Parse the private key (handle newlines properly)
@@ -8,18 +9,21 @@ const initializeGoogleSheets = () => {
     
     if (!privateKey) {
       console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_PRIVATE_KEY_CONTACT is missing or empty.');
-      return { success: false, error: 'Missing GOOGLE_SHEETS_PRIVATE_KEY_CONTACT environment variable.' };
+      return { success: false, error: 'Missing GOOGLE_SHEETS_PRIVATE_KEY_CONTACT environment variable. Cannot initialize Google Sheets.' };
     }
     if (!process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CONTACT) {
       console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_CLIENT_EMAIL_CONTACT is missing or empty.');
-      return { success: false, error: 'Missing GOOGLE_SHEETS_CLIENT_EMAIL_CONTACT environment variable.' };
+      return { success: false, error: 'Missing GOOGLE_SHEETS_CLIENT_EMAIL_CONTACT environment variable. Cannot initialize Google Sheets.' };
     }
     if (!process.env.GOOGLE_SHEETS_SPREADSHEET_ID_CONTACT) {
       console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_SPREADSHEET_ID_CONTACT is missing or empty.');
-      return { success: false, error: 'Missing GOOGLE_SHEETS_SPREADSHEET_ID_CONTACT environment variable.' };
+      return { success: false, error: 'Missing GOOGLE_SHEETS_SPREADSHEET_ID_CONTACT environment variable. Cannot initialize Google Sheets.' };
     }
     if (!process.env.GOOGLE_SHEETS_CLIENT_ID_CONTACT) {
-      console.error('Missing Google Sheets credentials:', {
+      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_CLIENT_ID_CONTACT is missing or empty.');
+      // Log specific missing credential for better debugging
+      console.error('Missing Google Sheets credentials for contact form:', {
+        hasPrivateKey: !!privateKey,
         hasClientId: !!process.env.GOOGLE_SHEETS_CLIENT_ID_CONTACT
       });
       return { success: false, error: 'Missing required Google Sheets credentials for contact form' };
@@ -36,12 +40,13 @@ const initializeGoogleSheets = () => {
       },
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
-
+    console.log('✅ GoogleAuth client created.');
     const sheets = google.sheets({ version: 'v4', auth });
     console.log('✅ Google Sheets API initialized successfully for contact form');
     return { success: true, sheets };
   } catch (error) {
     console.error('❌ Error initializing Google Sheets for contact form:', error.message);
+    console.error('Stack trace:', error.stack);
     return { success: false, error: `Failed to initialize Google Sheets API: ${error.message || 'Unknown error'}` };
   }
 };
@@ -52,12 +57,14 @@ const appendToGoogleSheets = async (data) => {
     const initResult = initializeGoogleSheets();
     
     if (!initResult.success) {
-      console.error('❌ Google Sheets initialization failed:', initResult.error);
+      console.error('❌ appendToGoogleSheets: Google Sheets initialization failed:', initResult.error);
       return { success: false, error: initResult.error };
     }
     
     const sheets = initResult.sheets;
     const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID_CONTACT;
+
+    console.log('📊 appendToGoogleSheets: Attempting to append contact form data.');
 
     if (!spreadsheetId) {
       console.error('❌ Google Sheets Spreadsheet ID not configured');
@@ -78,7 +85,7 @@ const appendToGoogleSheets = async (data) => {
       data.source || 'Website Contact Form'
     ];
 
-    console.log('📝 Contact form row data prepared:', {
+    console.log('📝 appendToGoogleSheets: Contact form row data prepared:', {
       timestamp: rowData[0],
       name: rowData[1],
       email: rowData[2],
@@ -91,10 +98,10 @@ const appendToGoogleSheets = async (data) => {
 
     // First, verify spreadsheet access
     try {
+      console.log('🔍 appendToGoogleSheets: Verifying spreadsheet access...');
       const spreadsheetInfo = await sheets.spreadsheets.get({
         spreadsheetId,
       });
-      console.log('✅ Successfully accessed contact form spreadsheet:', spreadsheetInfo.data.properties.title);
     } catch (accessError) {
       console.error('❌ Cannot access contact form spreadsheet:', accessError.message);
       return { 
@@ -114,15 +121,15 @@ const appendToGoogleSheets = async (data) => {
       },
     });
 
-    console.log('✅ Contact form data successfully added to Google Sheets');
-    console.log('📊 Response details:', {
+    console.log('✅ appendToGoogleSheets: Contact form data successfully added to Google Sheets.');
+    console.log('📊 appendToGoogleSheets: Google Sheets API response details:', {
       updatedRows: response.data.updates?.updatedRows,
       updatedRange: response.data.updates?.updatedRange
     });
     
     return { success: true, data: response.data };
   } catch (error) {
-    console.error('❌ Error adding contact form data to Google Sheets:', error);
+    console.error('❌ appendToGoogleSheets: Error adding contact form data to Google Sheets:', error);
     
     // Provide more specific error messages
     let errorMessage = 'Unknown error occurred while saving to Google Sheets';
@@ -145,6 +152,7 @@ const appendToGoogleSheets = async (data) => {
 const validateFormData = (data) => {
   const errors = [];
   
+  console.log('🔍 validateFormData: Starting form data validation.');
   if (!data.name || data.name.trim().length === 0) {
     errors.push('Name is required');
   }
@@ -158,13 +166,14 @@ const validateFormData = (data) => {
   if (!data.message || data.message.trim().length === 0) {
     errors.push('Message is required');
   }
-  
+  console.log(`🔍 validateFormData: Validation complete. Is valid: ${errors.length === 0}, Errors: ${errors.join(', ')}`);
   return {
     isValid: errors.length === 0,
     errors
   };
 };
 
+// Main handler function
 exports.handler = async (event, context) => {
   console.log('🚀 Contact form submission handler started');
   console.log('📥 Request method:', event.httpMethod);
@@ -191,7 +200,7 @@ exports.handler = async (event, context) => {
 
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
-    console.log('❌ Method not allowed:', event.httpMethod);
+    console.warn('❌ Method not allowed:', event.httpMethod);
     return {
       statusCode: 405,
       headers: {
@@ -212,6 +221,7 @@ exports.handler = async (event, context) => {
     // Parse the incoming JSON data
     let data;
     try {
+      console.log('📝 Parsing request body...');
       data = JSON.parse(event.body);
       console.log('📝 Parsed contact form data:', {
         name: data.name,
@@ -223,7 +233,7 @@ exports.handler = async (event, context) => {
         source: data.source
       });
     } catch (parseError) {
-      console.error('❌ Error parsing request body:', parseError);
+      console.error('❌ Error parsing request body:', parseError.message);
       return {
         statusCode: 400,
         headers: {
@@ -242,7 +252,7 @@ exports.handler = async (event, context) => {
     
     // Validate form data
     const validation = validateFormData(data);
-    if (!validation.isValid) {
+    if (!validation.isValid) { // If validation fails, return 400
       console.log('❌ Form validation failed:', validation.errors);
       return {
         statusCode: 400,
@@ -265,14 +275,14 @@ exports.handler = async (event, context) => {
       data.timestamp = new Date().toISOString();
     }
 
-    // Generate unique submission ID
-    const submissionId = `contact_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-    console.log('🆔 Generated submission ID:', submissionId);
+    // Generate a simple submission ID for logging purposes
+    const submissionId = `contact-${Date.now()}`;
+    console.log(`🆔 Generated submission ID: ${submissionId}`);
 
     // Save to Google Sheets
     console.log('💾 Attempting to save to Google Sheets...');
     const sheetsResult = await appendToGoogleSheets(data);
-    
+
     if (sheetsResult.success) {
       console.log('✅ Contact form data successfully saved to Google Sheets');
     } else {
@@ -289,11 +299,11 @@ exports.handler = async (event, context) => {
       }
     };
 
-    console.log('✅ Netlify function execution path completed. Preparing final response.');
     // If Google Sheets failed, include warning but still return success
     // (the submission was received, even if storage failed)
     if (!sheetsResult.success) {
       response.warnings = [`Google Sheets integration failed: ${sheetsResult.error}`];
+      console.log('⚠️ Google Sheets integration failed, but form submission was received. Returning success with warnings.');
       console.log('⚠️ Returning success with warnings due to Google Sheets failure');
     }
 
@@ -310,7 +320,7 @@ exports.handler = async (event, context) => {
     };
 
   } catch (error) {
-    console.error('❌ Unexpected error processing contact form submission:', error);
+    console.error('❌ Unexpected error processing contact form submission:', error.message);
     
     return {
       statusCode: 500,
