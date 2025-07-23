@@ -7,13 +7,13 @@ const initializeGoogleSheets = () => {
     console.log('🔍 initializeGoogleSheets: Starting initialization...');
     console.log('🔍 initializeGoogleSheets: Available environment variables:', Object.keys(process.env).filter(key => key.includes('GOOGLE')));
     
-    const authString = process.env.GOOGLE_SHEETS_AUTH_CONTACT;
-    console.log('🔍 initializeGoogleSheets: GOOGLE_SHEETS_AUTH_CONTACT exists:', !!authString);
-    console.log('🔍 initializeGoogleSheets: GOOGLE_SHEETS_AUTH_CONTACT type:', typeof authString);
+    const authString = process.env.GOOGLE_SHEETS_AUTH;
+    console.log('🔍 initializeGoogleSheets: GOOGLE_SHEETS_AUTH exists:', !!authString);
+    console.log('🔍 initializeGoogleSheets: GOOGLE_SHEETS_AUTH type:', typeof authString);
     
     if (!authString) {
-      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_AUTH_CONTACT environment variable is missing.');
-      return { success: false, error: 'Missing GOOGLE_SHEETS_AUTH_CONTACT environment variable. Cannot initialize Google Sheets.' };
+      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_AUTH environment variable is missing.');
+      return { success: false, error: 'Missing GOOGLE_SHEETS_AUTH environment variable. Cannot initialize Google Sheets.' };
     }
 
     let credentials;
@@ -26,14 +26,14 @@ const initializeGoogleSheets = () => {
         credentials.private_key = credentials.private_key.replace(/\\n/g, '\n');
       }
     } catch (parseError) {
-      console.error('❌ initializeGoogleSheets: Failed to parse GOOGLE_SHEETS_AUTH_CONTACT JSON:', parseError.message);
-      return { success: false, error: 'Invalid JSON in GOOGLE_SHEETS_AUTH_CONTACT environment variable.' };
+      console.error('❌ initializeGoogleSheets: Failed to parse GOOGLE_SHEETS_AUTH JSON:', parseError.message);
+      return { success: false, error: 'Invalid JSON in GOOGLE_SHEETS_AUTH environment variable.' };
     }
 
     if (!credentials.private_key || !credentials.client_email || !credentials.client_id) {
-      console.error('❌ initializeGoogleSheets: Missing required keys (private_key, client_email, client_id) in GOOGLE_SHEETS_AUTH_CONTACT.');
+      console.error('❌ initializeGoogleSheets: Missing required keys (private_key, client_email, client_id) in GOOGLE_SHEETS_AUTH.');
       console.error('❌ initializeGoogleSheets: Available keys in credentials:', Object.keys(credentials));
-      return { success: false, error: 'Incomplete Google Sheets credentials in GOOGLE_SHEETS_AUTH_CONTACT.' };
+      return { success: false, error: 'Incomplete Google Sheets credentials in GOOGLE_SHEETS_AUTH.' };
     }
     
     const auth = new google.auth.GoogleAuth({
@@ -62,13 +62,13 @@ const appendToGoogleSheets = async (data) => {
     }
     
     const sheets = initResult.sheets;
-    const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID_CONTACT;
+    const spreadsheetId = process.env.GOOGLE_SHEETS_CONTACT_SHEET_ID;
 
     console.log('📊 appendToGoogleSheets: Attempting to append contact form data.');
 
     if (!spreadsheetId) {
       console.error('❌ Google Sheets Spreadsheet ID not configured');
-      return { success: false, error: 'Google Sheets Spreadsheet ID for contact form not configured' };
+      return { success: false, error: 'GOOGLE_SHEETS_CONTACT_SHEET_ID not configured' };
     }
 
     console.log('📊 Attempting to append contact form data to spreadsheet:', spreadsheetId);
