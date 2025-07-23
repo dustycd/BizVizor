@@ -116,7 +116,7 @@ const Header = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-6">
               {navigation.map((item) => (
                 <div key={item.name} className="relative">
                   {item.hasDropdown ? (
@@ -125,13 +125,13 @@ const Header = () => {
                       onMouseEnter={() => setIsServicesOpen(true)}
                       onMouseLeave={() => setIsServicesOpen(false)}
                     >
-                      <button className="flex items-center text-grey-600 hover:text-primary-red transition-colors duration-200 font-medium py-2 text-sm">
+                      <button className="flex items-center text-grey-600 hover:text-primary-red transition-colors duration-200 font-medium py-2 text-sm whitespace-nowrap">
                         {item.name}
                         <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
                       </button>
                       
                       {isServicesOpen && (
-                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-[1000px] bg-white rounded-xl shadow-xl border border-grey-200 py-6 z-50 animate-fade-in">
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-[900px] bg-white rounded-xl shadow-xl border border-grey-200 py-6 z-50 animate-fade-in">
                           <div className="grid grid-cols-4 gap-8 px-6">
                             {item.dropdownCategories?.map((category, categoryIndex) => (
                               <div key={category.categoryName}>
@@ -158,7 +158,7 @@ const Header = () => {
                   ) : (
                     <Link
                       to={item.href}
-                      className="text-grey-600 hover:text-primary-red transition-colors duration-200 font-medium py-2 text-sm"
+                      className="text-grey-600 hover:text-primary-red transition-colors duration-200 font-medium py-2 text-sm whitespace-nowrap"
                     >
                       {item.name}
                     </Link>
@@ -168,22 +168,22 @@ const Header = () => {
             </nav>
 
             {/* Desktop CTA Buttons */}
-            <div className="hidden lg:flex items-center space-x-3">
+            <div className="hidden lg:flex items-center space-x-4">
               {/* Cost Calculator Button */}
               <Link
                 to="/cost-calculator"
-                className="flex items-center bg-primary-navy text-white px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-all duration-200 font-medium text-sm shadow-sm hover:shadow-md"
+                className="flex items-center bg-primary-navy text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all duration-200 font-medium text-sm"
               >
                 <Calculator className="w-4 h-4 mr-2" />
-                Cost Calculator
+                Calculator
               </Link>
               
               {/* Free Consultation Button */}
               <button 
                 onClick={openCalendly}
-                className="bg-primary-red text-white px-5 py-2.5 rounded-lg hover:bg-red-700 transition-all duration-200 font-medium text-sm"
+                className="bg-primary-red text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-all duration-200 font-medium text-sm"
               >
-                Free Consultation
+                Consultation
               </button>
             </div>
 
@@ -258,11 +258,11 @@ const Header = () => {
                 {/* Mobile Calculator Link */}
                 <Link
                   to="/cost-calculator"
-                  className="bg-primary-navy text-white font-medium flex items-center py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors mt-4"
+                  className="bg-primary-navy text-white font-medium flex items-center py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors mt-4 text-sm"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <Calculator className="w-5 h-5 mr-3" />
-                  Cost Calculator
+                  Calculator
                 </Link>
                 
                 {/* Mobile Free Consultation Button */}
@@ -272,9 +272,9 @@ const Header = () => {
                       openCalendly();
                       setIsMenuOpen(false);
                     }}
-                    className="bg-primary-red text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors duration-200 font-medium w-full"
+                    className="bg-primary-red text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors duration-200 font-medium w-full text-sm"
                   >
-                    Free Consultation
+                    Consultation
                   </button>
                 </div>
               </nav>
