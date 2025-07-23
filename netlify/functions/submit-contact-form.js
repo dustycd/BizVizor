@@ -4,13 +4,21 @@ const { google } = require('googleapis');
 // Added more detailed logging for initialization process
 const initializeGoogleSheets = () => {
   try {
+    console.log('🔍 initializeGoogleSheets: Starting initialization...');
+    console.log('🔍 initializeGoogleSheets: Available environment variables:', Object.keys(process.env).filter(key => key.includes('GOOGLE')));
+    
     const authString = process.env.GOOGLE_SHEETS_AUTH_CONTACT;
+    console.log('🔍 initializeGoogleSheets: GOOGLE_SHEETS_AUTH_CONTACT exists:', !!authString);
+    console.log('🔍 initializeGoogleSheets: GOOGLE_SHEETS_AUTH_CONTACT type:', typeof authString);
+    
     if (!authString) {
       console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_AUTH_CONTACT environment variable is missing.');
       return { success: false, error: 'Missing GOOGLE_SHEETS_AUTH_CONTACT environment variable. Cannot initialize Google Sheets.' };
     }
 
     let credentials;
+    console.log('🔍 initializeGoogleSheets: First 100 chars of authString:', authString.substring(0, 100));
+    
     try {
       credentials = JSON.parse(authString);
       // Replace escaped newlines in private_key if they exist
@@ -24,6 +32,7 @@ const initializeGoogleSheets = () => {
 
     if (!credentials.private_key || !credentials.client_email || !credentials.client_id) {
       console.error('❌ initializeGoogleSheets: Missing required keys (private_key, client_email, client_id) in GOOGLE_SHEETS_AUTH_CONTACT.');
+      console.error('❌ initializeGoogleSheets: Available keys in credentials:', Object.keys(credentials));
       return { success: false, error: 'Incomplete Google Sheets credentials in GOOGLE_SHEETS_AUTH_CONTACT.' };
     }
     
