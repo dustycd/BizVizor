@@ -7,7 +7,7 @@ const initializeGoogleSheets = () => {
     const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY_CONTACT?.replace(/\\n/g, '\n');
     
     if (!privateKey || !process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CONTACT) {
-      throw new Error('Missing required Google Sheets credentials for contact form');
+      return { success: false, error: 'Missing required Google Sheets credentials for contact form' };
     }
     
     const auth = new google.auth.GoogleAuth({
@@ -22,17 +22,23 @@ const initializeGoogleSheets = () => {
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
 
-    return google.sheets({ version: 'v4', auth });
+    return { success: true, sheets: google.sheets({ version: 'v4', auth }) };
   } catch (error) {
     console.error('Error initializing Google Sheets for contact form:', error);
-    throw error;
+    return { success: false, error: error.message || 'Failed to initialize Google Sheets API' };
   }
 };
 
 // Function to append data to Google Sheets
 const appendToGoogleSheets = async (data) => {
   try {
-    const sheets = initializeGoogleSheets();
+    const initResult = initializeGoogleSheets();
+    
+    if (!initResult.success) {
+      return { success: false, error: initResult.error };
+    }
+    
+    const sheets = initResult.sheets;
     const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID_CONTACT;
 
     if (!spreadsheetId) {
