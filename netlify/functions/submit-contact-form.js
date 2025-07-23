@@ -4,40 +4,31 @@ const { google } = require('googleapis');
 // Added more detailed logging for initialization process
 const initializeGoogleSheets = () => {
   try {
-    // Parse the private key (handle newlines properly)
-    const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY_CONTACT?.replace(/\\n/g, '\n');
-    
-    if (!privateKey) {
-      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_PRIVATE_KEY_CONTACT is missing or empty.');
-      return { success: false, error: 'Missing GOOGLE_SHEETS_PRIVATE_KEY_CONTACT environment variable. Cannot initialize Google Sheets.' };
+    const authString = process.env.GOOGLE_SHEETS_AUTH_CONTACT;
+    if (!authString) {
+      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_AUTH_CONTACT environment variable is missing.');
+      return { success: false, error: 'Missing GOOGLE_SHEETS_AUTH_CONTACT environment variable. Cannot initialize Google Sheets.' };
     }
-    if (!process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CONTACT) {
-      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_CLIENT_EMAIL_CONTACT is missing or empty.');
-      return { success: false, error: 'Missing GOOGLE_SHEETS_CLIENT_EMAIL_CONTACT environment variable. Cannot initialize Google Sheets.' };
+
+    let credentials;
+    try {
+      credentials = JSON.parse(authString);
+      // Replace escaped newlines in private_key if they exist
+      if (credentials.private_key) {
+        credentials.private_key = credentials.private_key.replace(/\\n/g, '\n');
+      }
+    } catch (parseError) {
+      console.error('❌ initializeGoogleSheets: Failed to parse GOOGLE_SHEETS_AUTH_CONTACT JSON:', parseError.message);
+      return { success: false, error: 'Invalid JSON in GOOGLE_SHEETS_AUTH_CONTACT environment variable.' };
     }
-    if (!process.env.GOOGLE_SHEETS_SPREADSHEET_ID_CONTACT) {
-      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_SPREADSHEET_ID_CONTACT is missing or empty.');
-      return { success: false, error: 'Missing GOOGLE_SHEETS_SPREADSHEET_ID_CONTACT environment variable. Cannot initialize Google Sheets.' };
-    }
-    if (!process.env.GOOGLE_SHEETS_CLIENT_ID_CONTACT) {
-      console.error('❌ initializeGoogleSheets: GOOGLE_SHEETS_CLIENT_ID_CONTACT is missing or empty.');
-      // Log specific missing credential for better debugging
-      console.error('Missing Google Sheets credentials for contact form:', {
-        hasPrivateKey: !!privateKey,
-        hasClientId: !!process.env.GOOGLE_SHEETS_CLIENT_ID_CONTACT
-      });
-      return { success: false, error: 'Missing required Google Sheets credentials for contact form' };
+
+    if (!credentials.private_key || !credentials.client_email || !credentials.client_id) {
+      console.error('❌ initializeGoogleSheets: Missing required keys (private_key, client_email, client_id) in GOOGLE_SHEETS_AUTH_CONTACT.');
+      return { success: false, error: 'Incomplete Google Sheets credentials in GOOGLE_SHEETS_AUTH_CONTACT.' };
     }
     
     const auth = new google.auth.GoogleAuth({
-      credentials: {
-        type: 'service_account',
-        private_key: privateKey,
-        client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL_CONTACT,
-        client_id: process.env.GOOGLE_SHEETS_CLIENT_ID_CONTACT,
-        auth_uri: 'https://accounts.google.com/o/oauth2/auth',
-        token_uri: 'https://oauth2.googleapis.com/token',
-      },
+      credentials: { ...credentials, type: 'service_account' },
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
     console.log('✅ GoogleAuth client created.');
