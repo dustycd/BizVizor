@@ -40,6 +40,7 @@ import ECommerceFormation from './pages/ECommerceFormation';
 import LLCFormation from './pages/LLCFormation';
 import WhyChooseUs from './pages/WhyChooseUs';
 import WhyDubai from './pages/WhyDubai';
+import Referral from './pages/Referral';
 
 // Component to handle scroll to top on route change
 function ScrollToTop() {
@@ -94,6 +95,7 @@ function App() {
           <Route path="/llc-company-formation-dubai-uae" element={<LLCFormation />} />
           <Route path="/why-choose-us" element={<WhyChooseUs />} />
           <Route path="/why-dubai-uae" element={<WhyDubai />} />
+          <Route path="/referral" element={<Referral />} />
         </Routes>
         <Footer />
         <FloatingCTA />

@@ -44,6 +44,7 @@ const Header = () => {
     { name: 'About', href: '/about' },
     { name: 'Why Choose Us', href: '/why-choose-us' },
     { name: 'Why Dubai', href: '/why-dubai-uae' },
+    { name: 'Referral', href: '/referral' },
     { 
       name: 'Services', 
       href: '/#services',
