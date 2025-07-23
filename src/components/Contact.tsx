@@ -124,19 +124,19 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      details: '+971 56 496 0040',
-      subtitle: 'Mon-Fri 9am-6pm GST'
+      details: import.meta.env.VITE_CONTACT_PHONE || '+971 56 496 0040',
+      subtitle: import.meta.env.VITE_CONTACT_HOURS || 'Mon-Fri 9am-6pm GST'
     },
     {
       icon: Mail,
       title: 'Email',
-      details: 'hello@bizvisor.com',
+      details: import.meta.env.VITE_CONTACT_EMAIL || 'hello@bizvisor.com',
       subtitle: 'We respond within 24 hours'
     },
     {
       icon: MapPin,
       title: 'Office',
-      details: '2909 Silver Tower Business Bay Dubai UAE',
+      details: import.meta.env.VITE_CONTACT_ADDRESS || '2909 Silver Tower Business Bay Dubai UAE',
       subtitle: 'United Arab Emirates'
     },
     {
