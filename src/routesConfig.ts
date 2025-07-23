@@ -11,6 +11,7 @@ export const routesConfig: RouteConfig[] = [
   // Main Pages
   { path: '/about', name: 'About Us' },
   { path: '/why-choose-us', name: 'Why Choose Us' },
+  { path: '/why-dubai-uae', name: 'Why Dubai UAE' },
   { path: '/blog', name: 'Blog' },
   { path: '/careers', name: 'Careers' },
   { path: '/contact', name: 'Contact' },

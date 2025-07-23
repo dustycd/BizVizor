@@ -39,6 +39,7 @@ const Footer = () => {
   const company = [
     { name: 'About Us', href: '/about' },
     { name: 'Why Choose Us', href: '/why-choose-us' },
+    { name: 'Why Dubai', href: '/why-dubai-uae' },
     { name: 'Cost Calculator', href: '/cost-calculator' },
     { name: 'Visa Services', href: '/visa-services' },
     { name: 'Careers', href: '/careers' },

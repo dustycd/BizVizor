@@ -43,6 +43,7 @@ const Header = () => {
   const navigation = [
     { name: 'About', href: '/about' },
     { name: 'Why Choose Us', href: '/why-choose-us' },
+    { name: 'Why Dubai', href: '/why-dubai-uae' },
     { 
       name: 'Services', 
       href: '/#services',
