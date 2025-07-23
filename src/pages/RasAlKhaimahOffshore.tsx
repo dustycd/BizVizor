@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, CheckCircle, ArrowRight, Globe, Lock, DollarSign, Zap, Award } from 'lucide-react';
+import { Shield, CheckCircle, ArrowRight, Globe, Lock, DollarSign, Zap, Award, Users, FileText, Calculator } from 'lucide-react';
 import CalendlyModal from '../components/CalendlyModal';
 import { useCalendly } from '../hooks/useCalendly';
 import FAQSection from '../components/FAQSection';
@@ -220,6 +220,256 @@ const RasAlKhaimahOffshore = () => {
         </div>
       </section>
 
+      {/* Introduction Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6 text-center">
+              Unlock Opportunities With Ras Al Khaimah Offshore Company In Dubai, UAE
+            </h2>
+            <div className="space-y-6 text-lg text-grey-600 leading-relaxed">
+              <p>
+                The Ras Al Khaimah Offshore Company is a shining example of success in the business sector in Dubai, United Arab Emirates. Establishing a Ras Al Khaimah offshore company in Dubai is a wise business decision with many benefits.
+              </p>
+              <p>
+                Dubai is renowned for its dynamic business landscape, and the offshore business setup in RAK is no exception. Let's delve into the critical aspects of Ras Al Khaimah Offshore Company formation and explore why this choice could be your gateway to success.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits of RAK Offshore Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Benefits Of Ras Al Khaimah Offshore Company In Dubai, United Arab Emirates
+            </h2>
+            <p className="text-lg text-grey-600 max-w-3xl mx-auto">
+              Establishing a Ras Al Khaimah Offshore Company in Dubai, UAE, presents a multitude of benefits that can empower your business endeavors:
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-alert-success/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <DollarSign className="w-8 h-8 text-alert-success" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4 text-center">
+                TAX EFFICIENCY
+              </h3>
+              <p className="text-grey-600 text-center">
+                One of the most enticing benefits is the favorable tax environment. Ras Al Khaimah offshore companies are not subject to corporate or income taxes in the UAE, providing a substantial advantage for international businesses.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-alert-success/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Shield className="w-8 h-8 text-alert-success" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4 text-center">
+                ASSET SECURITY
+              </h3>
+              <p className="text-grey-600 text-center">
+                Offshore companies provide solid safeguards for your assets. Your personal belongings are kept separate from your business, shielding them from legal and financial risks.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-alert-success/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Lock className="w-8 h-8 text-alert-success" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4 text-center">
+                CONFIDENTIALITY
+              </h3>
+              <p className="text-grey-600 text-center">
+                Offshore companies in RAK offer high privacy and confidentiality in business dealings.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-16 h-16 bg-alert-success/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Globe className="w-8 h-8 text-alert-success" />
+              </div>
+              <h3 className="text-xl font-semibold text-heading-dark mb-4 text-center">
+                BANKING FACILITIES
+              </h3>
+              <p className="text-grey-600 text-center">
+                Access to world-class banking services is simplified, with international and local banks catering to offshore companies' needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bizvisor Advantages Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6 text-center">
+              The Bizvisor Advantages
+            </h2>
+            <div className="bg-grey-50 rounded-xl p-8 mb-12">
+              <p className="text-lg text-grey-600 leading-relaxed text-center">
+                Choosing the right partner for your Ras Al Khaimah Offshore Company setup is crucial. At Bizvisor, we understand that each business is unique and requires a tailored approach. Our dedicated team specializes in providing a seamless experience for your offshore business journey in Dubai, UAE.
+              </p>
+            </div>
+
+            <h3 className="text-2xl font-bold text-heading-dark mb-8 text-center">
+              With Bizvisor, You Benefit From:
+            </h3>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-grey-50 rounded-xl p-6">
+                <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                  <Award className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold text-heading-dark mb-3">
+                  Expertise
+                </h4>
+                <p className="text-grey-600">
+                  We have in-depth knowledge of the local business landscape, regulations, and procedures. Our experts ensure that your Ras Al Khaimah offshore company fully complies with UAE laws.
+                </p>
+              </div>
+
+              <div className="bg-grey-50 rounded-xl p-6">
+                <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold text-heading-dark mb-3">
+                  Tailored Solutions
+                </h4>
+                <p className="text-grey-600">
+                  Customize services to meet your business needs, ensuring you have the most suitable setup for your industry and goals.
+                </p>
+              </div>
+
+              <div className="bg-grey-50 rounded-xl p-6">
+                <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                  <CheckCircle className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold text-heading-dark mb-3">
+                  End-to-End Support
+                </h4>
+                <p className="text-grey-600">
+                  Our services cover every aspect of your offshore business venture, from company registration to ongoing support.
+                </p>
+              </div>
+
+              <div className="bg-grey-50 rounded-xl p-6">
+                <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                  <DollarSign className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold text-heading-dark mb-3">
+                  Transparent Pricing
+                </h4>
+                <p className="text-grey-600">
+                  We offer clear and competitive pricing structures, ensuring you know what to expect at every process stage.
+                </p>
+              </div>
+
+              <div className="bg-grey-50 rounded-xl p-6 md:col-span-2">
+                <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                  <Globe className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold text-heading-dark mb-3">
+                  Global Reach
+                </h4>
+                <p className="text-grey-600">
+                  Our international network of partners and contacts allows us to facilitate seamless global expansion for your business.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Support Services Section */}
+      <section className="py-20 bg-grey-50">
+        <div className="container mx-auto px-4 lg:px-8 xl:px-16">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-heading-dark mb-6">
+              Bizvisor Offers A Comprehensive Suite Of Support Services For Ras Al Khaimah Offshore Company Setup
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                <FileText className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Company Registration
+              </h3>
+              <p className="text-grey-600">
+                We guide you through the entire registration process, ensuring a hassle-free experience.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                <DollarSign className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Corporate Banking
+              </h3>
+              <p className="text-grey-600">
+                Assistance opening business bank accounts with reputable banks in Dubai.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                <Shield className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Legal Compliance
+              </h3>
+              <p className="text-grey-600">
+                We update you with all legal and regulatory requirements, ensuring full compliance.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                <Users className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Visa Services
+              </h3>
+              <p className="text-grey-600">
+                Helping you obtain the necessary visas for business owners and employees.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                <Calculator className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Accounting and Bookkeeping
+              </h3>
+              <p className="text-grey-600">
+                Professional accounting services to maintain your financial records accurately.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div className="w-12 h-12 bg-alert-success rounded-xl flex items-center justify-center mb-4">
+                <FileText className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-heading-dark mb-3">
+                Company Liquidation
+              </h3>
+              <p className="text-grey-600">
+                When the time comes, we will help you smoothly and legally dissolve your offshore company.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
@@ -408,24 +658,26 @@ const RasAlKhaimahOffshore = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-alert-success to-green-600">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            Ready to Form Your RAK Offshore Company?
+          <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+            Ras Al Khaimah Offshore Company In Dubai, United Arab Emirates
+          </h1>
+          <h2 className="text-2xl lg:text-3xl font-light mb-6 opacity-90">
+            Your Launchpad to Offshore Excellence
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Get expert guidance on RAK offshore company formation and establish your international business presence.
+            Call us at +971 56 496 0040 for Ajman offshore company formation at the best cost.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              to="/contact"
-              className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold inline-flex items-center justify-center"
-            >
-              Start Formation
-            </Link>
+            <a href="tel:+971564960040">
+              <button className="bg-primary-red text-white px-8 py-4 rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold">
+                Call +971 56 496 0040
+              </button>
+            </a>
             <button 
               onClick={openCalendly}
               className="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-alert-success transition-all duration-200 font-semibold"
             >
-              Schedule Consultation
+              Schedule Free Consultation
             </button>
           </div>
         </div>
